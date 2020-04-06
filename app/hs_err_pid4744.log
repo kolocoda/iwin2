@@ -1,0 +1,63 @@
+#
+# There is insufficient memory for the Java Runtime Environment to continue.
+# Native memory allocation (malloc) failed to allocate 32756 bytes for ChunkPool::allocate
+# Possible reasons:
+#   The system is out of physical RAM or swap space
+#   In 32 bit mode, the process size limit was hit
+# Possible solutions:
+#   Reduce memory load on the system
+#   Increase physical memory or swap space
+#   Check if swap backing store is full
+#   Use 64 bit Java on a 64 bit OS
+#   Decrease Java heap size (-Xmx/-Xms)
+#   Decrease number of Java threads
+#   Decrease Java thread stack sizes (-Xss)
+#   Set larger code cache with -XX:ReservedCodeCacheSize=
+# This output file may be truncated or incomplete.
+#
+#  Out of Memory Error (allocation.cpp:222), pid=4744, tid=5296
+#
+# JRE version: 7.0_25-b17
+# Java VM: Java HotSpot(TM) Client VM (23.25-b01 mixed mode windows-x86 )
+# Failed to write core dump. Minidumps are not enabled by default on client versions of Windows
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x49843000):  JavaThread "C1 CompilerThread0" daemon [_thread_in_native, id=5296, stack(0x49bd0000,0x49c20000)]
+
+Stack: [0x49bd0000,0x49c20000],  sp=0x49c1ef5c,  free space=315k
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+V  [jvm.dll+0x167e31]
+V  [jvm.dll+0x162255]
+V  [jvm.dll+0x5c18a]
+V  [jvm.dll+0x5c34b]
+V  [jvm.dll+0x5c507]
+V  [jvm.dll+0x6e754]
+V  [jvm.dll+0x24d335]
+V  [jvm.dll+0x24d46f]
+V  [jvm.dll+0x24d500]
+V  [jvm.dll+0x24d85a]
+V  [jvm.dll+0x24d9a1]
+V  [jvm.dll+0x24db71]
+V  [jvm.dll+0x2503d7]
+V  [jvm.dll+0x250a17]
+V  [jvm.dll+0x251ea3]
+V  [jvm.dll+0x2390e7]
+V  [jvm.dll+0x23919a]
+V  [jvm.dll+0x2392f8]
+V  [jvm.dll+0x23957d]
+V  [jvm.dll+0x44afb]
+V  [jvm.dll+0x45036]
+V  [jvm.dll+0x144447]
+V  [jvm.dll+0x1445b0]
+V  [jvm.dll+0x177bb9]
+C  [msvcr100.dll+0x5c6de]
+C  [msvcr100.dll+0x5c788]
+C  [kernel32.dll+0x51154]
+C  [ntdll.dll+0x5b299]
+C  [ntdll.dll+0x5b26c]
+
+
+Current CompileTask:
+C1:    632  195            

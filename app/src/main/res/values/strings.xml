@@ -1,0 +1,100 @@
+<resources>
+    <string name="app_name">Energy Centre</string>
+    <string name="open"></string>
+    <string name="close"></string>
+    <string name="action_settings">Settings</string>
+    <string name="no_news">No news. Swipe to refresh</string>
+    <string name="title_activity_access">Login</string>
+    <string name="title_activity_home">Energy News</string>
+    <string name="title_activity_support">Customer Support</string>
+    <string name="section_format">Hello World from section: %1$d</string>
+    <string name="Other">Support and Tips</string>
+    <string name="powerstats">Power Report</string>
+    <string name="announcement">Operator Announcements</string>
+    <string name="manageBills">Manage Bills</string>
+    <string name="ePayment">e-Payment Options</string>
+    <string name="operatorContact">Operator Contact</string>
+    <string name="estimateBills">Estimate Bills</string>
+    <string name="verifyPurchase">Verify Purchase</string>
+    <string name="homeTips">Home Tips</string>
+    <string name="officeTips">Office Tips</string>
+    <string name="powerNews">Power Sector News</string>
+    <string name="energyAppliance">Energy Saving</string>
+    <string name="title_activity_tips">Energy Saving Tips</string>
+    <string name="email_hint">Username*</string>
+    <string name="password_hint">Password*</string>
+    <string name="login">Login</string>
+    <string name="forgot_password">forgot password?</string>
+    <string name="register">Register Here</string>
+
+    <string name="payment_channel">Payment Channel</string>
+    <string name="no_announcement">No announcements yet.</string>
+
+    <string name="gcm_send_message">Token retrieved and sent to server! You can now use gcmsender to
+        send downstream messages to this app.</string>
+    <string name="registering_message">Generating InstanceID token...</string>
+    <string name="token_error_message">An error occurred while either fetching the InstanceID token,
+        sending the fetched token to the server or subscribing to the PubSub topic. Please try
+        running the sample again.</string>
+    <string name="registerButton">Register</string>
+    <string name="title_activity_settings">Settings</string>
+
+    <!-- Strings related to Settings -->
+
+    <!-- Example General settings -->
+    <string name="pref_header_general">General</string>
+
+    <string name="pref_title_social_recommendations">Enable social recommendations</string>
+    <string name="pref_description_social_recommendations">Recommendations for people to contact
+        based on your message history
+    </string>
+
+    <string name="pref_title_display_name">Display name</string>
+    <string name="pref_default_display_name">John Smith</string>
+
+    <string name="pref_title_add_friends_to_messages">Add friends to messages</string>
+    <string-array name="pref_example_list_titles">
+        <item>Always</item>
+        <item>When possible</item>
+        <item>Never</item>
+    </string-array>
+    <string-array name="pref_example_list_values">
+        <item>1</item>
+        <item>0</item>
+        <item>-1</item>
+    </string-array>
+
+    <!-- Example settings for Data & Sync -->
+    <string name="pref_header_data_sync">Data &amp; sync</string>
+
+    <string name="pref_title_sync_frequency">Sync frequency</string>
+    <string-array name="pref_sync_frequency_titles">
+        <item>15 minutes</item>
+        <item>30 minutes</item>
+        <item>1 hour</item>
+        <item>3 hours</item>
+        <item>6 hours</item>
+        <item>Never</item>
+    </string-array>
+    <string-array name="pref_sync_frequency_values">
+        <item>15</item>
+        <item>30</item>
+        <item>60</item>
+        <item>180</item>
+        <item>360</item>
+        <item>-1</item>
+    </string-array>
+
+    <string name="pref_title_system_sync_settings">System sync settings</string>
+
+    <!-- Example settings for Notifications -->
+    <string name="pref_header_notifications">Notifications</string>
+
+    <string name="pref_title_new_message_notifications">New message notifications</string>
+
+    <string name="pref_title_ringtone">Ringtone</string>
+    <string name="pref_ringtone_silent">Silent</string>
+
+    <string name="pref_title_vibrate">Vibrate</string>
+
+</resources>

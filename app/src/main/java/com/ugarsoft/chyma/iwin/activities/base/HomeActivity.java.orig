@@ -1,0 +1,430 @@
+package com.example.chyma.iwin.activities.base;
+
+import android.content.Context;
+import android.content.Intent;
+import android.os.AsyncTask;
+import android.os.Bundle;
+import android.os.Handler;
+import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v7.widget.CardView;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.ProgressBar;
+import android.widget.TextView;
+
+
+import com.example.chyma.iwin.R;
+import com.example.chyma.iwin.activities.NewsDetailsActivity;
+import com.example.chyma.iwin.custom.EndlessRecyclerOnScrollListener;
+import com.example.chyma.iwin.models.PowerNews;
+import com.example.chyma.iwin.models.ResponseObject;
+import com.example.chyma.iwin.utils.DBService;
+import com.example.chyma.iwin.utils.FontUtil;
+import com.example.chyma.iwin.utils.Logger;
+import com.example.chyma.iwin.utils.Notifications;
+import com.example.chyma.iwin.utils.PictureUtil;
+import com.example.chyma.iwin.utils.Pref;
+import com.example.chyma.iwin.utils.WebServiceImpl;
+import com.j256.ormlite.dao.Dao;
+import com.j256.ormlite.stmt.QueryBuilder;
+
+import org.apache.commons.lang.WordUtils;
+
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.List;
+
+public class HomeActivity extends BaseActivity {
+    RecyclerView recyclerView;
+    TextView emptyListTextView;
+    View emptyListView;
+    ProgressBar progressBarTop;
+    ProgressBar progressBarBottom;
+    List<PowerNews> powerNewsList = new ArrayList<>();
+    PowerNewsAdapter powerNewsAdapter;
+    SimpleDateFormat dateFormat = new SimpleDateFormat("dd MMM, yyy HH:mm");
+
+    private int paginationIndex = 0;
+    private int count = 150;
+    private DBService dbService;
+    private EndlessRecyclerOnScrollListener endlessRecyclerOnScrollListener;
+    private static Logger logger = Logger.getLogger(HomeActivity.class);
+    private SwipeRefreshLayout swipeRefreshLayout;
+
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_home);
+        setUpNavigationBar();
+        setUpViews();
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                loadPrevious();
+            }
+        }, 1000);
+    }
+
+    private void setUpViews() {
+        dbService = DBService.getInstance(this);
+        recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
+        progressBarTop = (ProgressBar) findViewById(R.id.progressBarTop);
+        progressBarTop.setVisibility(View.GONE);
+        progressBarBottom = (ProgressBar) findViewById(R.id.progressBarBottom);
+        progressBarBottom.setVisibility(View.GONE);
+        emptyListTextView = (TextView) findViewById(R.id.emptyListTextView);
+        FontUtil.setDefaultTypeFace(this, emptyListTextView, FontUtil.FontType.ROBOTO_MEDIUM);
+        emptyListView = findViewById(R.id.emptyList);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
+        linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+
+        swipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swipeRefresh);
+        swipeRefreshLayout.setColorSchemeColors(R.color.orange, R.color.green, R.color.colorPrimary);
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                refreshContent();
+            }
+        });
+        endlessRecyclerOnScrollListener = new EndlessRecyclerOnScrollListener(linearLayoutManager) {
+            @Override
+            public void onLoadMore(int current_page) {
+                paginationIndex = current_page;
+                loadMore();
+            }
+        };
+
+        recyclerView.setLayoutManager(linearLayoutManager);
+        recyclerView.setHasFixedSize(true);
+        powerNewsAdapter = new PowerNewsAdapter(this, powerNewsList);
+        emptyListView.setVisibility(View.GONE);
+
+        powerNewsAdapter.registerAdapterDataObserver(new RecyclerView.AdapterDataObserver() {
+            @Override
+            public void onChanged() {
+                super.onChanged();
+                if (powerNewsAdapter.getItemCount() != 0) {
+                    emptyListView.setVisibility(View.GONE);
+                } else {
+                    emptyListView.setVisibility(View.VISIBLE);
+                }
+            }
+        });
+        recyclerView.setAdapter(powerNewsAdapter);
+        recyclerView.setOnScrollListener(endlessRecyclerOnScrollListener);
+    }
+
+    private void refreshContent() {
+        swipeRefreshLayout.setRefreshing(true);
+        loadPrevious();
+    }
+
+
+    void loadPrevious() {
+        if (powerNewsList.isEmpty()) {
+            try {
+                Dao<PowerNews, Long> dao = dbService.getDao(PowerNews.class);
+                QueryBuilder queryBuilder = dao.queryBuilder();
+                queryBuilder.limit((long) count);
+                queryBuilder.orderBy("postCode", false);
+                powerNewsList.addAll(queryBuilder.query());
+                if (powerNewsList.isEmpty()) {
+                    Calendar calendar = Calendar.getInstance();
+                    calendar.set(Calendar.YEAR, 2000);
+                    new NewsLoader(0, null, null, count).execute();
+                } else {
+                    powerNewsAdapter.notifyDataSetChanged();
+                    swipeRefreshLayout.setRefreshing(false);
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        } else {
+            try {
+                Long latestId = powerNewsList.get(0).getPostCode();
+                Dao<PowerNews, Long> dao = dbService.getDao(PowerNews.class);
+                QueryBuilder queryBuilder = dao.queryBuilder();
+                queryBuilder.where().gt("postCode", latestId);
+                queryBuilder.orderBy("postCode", false);
+                queryBuilder.limit((long) count);
+                List<PowerNews> powerNewses = queryBuilder.query();
+
+                if (powerNewses != null && !powerNewses.isEmpty()) {
+                    powerNewses.addAll(powerNewsList);
+                    powerNewsList.clear();
+                    powerNewsList.addAll(powerNewses);
+                    powerNewsAdapter.notifyDataSetChanged();
+                    return;
+                }
+                new NewsLoader(0, null, latestId, 1000).execute();
+            } catch (Exception e) {
+                logger.e("Exception at load more", e);
+            }
+        }
+    }
+
+    private void loadMore() {
+        if (powerNewsList.size() < count || powerNewsList.size() % count != 0) {
+            return;
+        }
+        try {
+            Long endId = powerNewsList.get(powerNewsList.size() - 1).getPostCode();
+            Dao<PowerNews, Long> dao = dbService.getDao(PowerNews.class);
+            QueryBuilder queryBuilder = dao.queryBuilder();
+            queryBuilder.where().lt("postCode", endId);
+            queryBuilder.limit((long) count);
+            List<PowerNews> myNewsList = queryBuilder.query();
+
+            if (myNewsList != null && !myNewsList.isEmpty()) {
+                powerNewsList.addAll(myNewsList);
+                powerNewsAdapter.notifyDataSetChanged();
+                return;
+            }
+            new NewsLoader(paginationIndex, endId, null, count).execute();
+        } catch (Exception e) {
+            logger.e("Exception at load more", e);
+        }
+    }
+
+    @Override
+    public int getMenuItemType() {
+        return NAVIGATION_MENU_ITEM_HOME;
+    }
+
+
+    @Override
+    public int getActionBarColor() {
+        return getResources().getColor(R.color.colorPrimary);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_home, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if (id == R.id.action_settings) {
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+
+    private class PowerNewsAdapter extends RecyclerView.Adapter<TaskViewHolder> {
+        Context context;
+        List<PowerNews> newsList;
+        DBService dbService;
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd MMM, yyy HH:mm");
+
+        public PowerNewsAdapter(Context context, List<PowerNews> newsList) {
+            this.context = context;
+            this.newsList = newsList;
+            dbService = DBService.getInstance(context);
+        }
+
+        @Override
+        public TaskViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+            View view = LayoutInflater.from(context).inflate(R.layout.list_item_news, null);
+            return new TaskViewHolder(context, view);
+        }
+
+        @Override
+        public void onBindViewHolder(TaskViewHolder holder, int position) {
+            PowerNews news = newsList.get(position);
+            Long newsDate = news.getPostDate();
+
+
+            if (newsDate != null) {
+                holder.newsPostDateTextView.setText(dateFormat.format(newsDate));
+            } else {
+                holder.newsPostDateTextView.setText("--/--/-- --:--");
+            }
+                holder.newsPostByTextView.setText(WordUtils.capitalize(news.getPostBy()));
+
+                String imageString = news.getPostImage();
+                if (imageString != null && !imageString.isEmpty()) {
+                    holder.newsLogo.setImageBitmap(PictureUtil.getBitmap(imageString));
+                } else {
+                    holder.newsLogo.setImageResource(R.drawable.ic_menu_news);
+                }
+
+            holder.newsTitleTextView.setText(news.getPostTitle());
+            holder.newsCard.setTag(news);
+            holder.newsCard.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    PowerNews news = (PowerNews) view.getTag();
+                    Pref.saveNewsContent(HomeActivity.this, news);
+                    Intent intent = new Intent(HomeActivity.this, NewsDetailsActivity.class);
+                    startActivity(intent);
+                }
+            });
+        }
+
+
+        @Override
+        public int getItemCount() {
+            return newsList.size();
+        }
+
+    }
+
+    private static class TaskViewHolder extends RecyclerView.ViewHolder {
+
+        private TextView newsTitleTextView;
+        private TextView newsPostDateTextView;
+        private TextView newsPostByTextView;
+        private CardView newsCard;
+
+        private ImageView newsLogo;
+
+        public TaskViewHolder(Context context, View itemView) {
+            super(itemView);
+            newsTitleTextView = (TextView) itemView.findViewById(R.id.newsTitleTextView);
+            newsPostDateTextView = (TextView) itemView.findViewById(R.id.newsPostDateTextView);
+            newsPostByTextView = (TextView) itemView.findViewById(R.id.newsPostByTextView);
+            newsCard = (CardView) itemView.findViewById(R.id.newsCard);
+
+            FontUtil.setDefaultTypeFace(context, newsPostByTextView, newsPostDateTextView);
+            FontUtil.setDefaultTypeFace(context, newsTitleTextView, FontUtil.FontType.ROBOTO_MEDIUM);
+            newsLogo = (ImageView) itemView.findViewById(R.id.newsLogo);
+
+        }
+    }
+
+    private class NewsLoader extends AsyncTask<Void, Void, Boolean> {
+        int index;
+        int count;
+
+        Long idAfter;
+        Long idBefore;
+        DBService dbService = DBService.getInstance(HomeActivity.this);
+        List<PowerNews> NewMessages;
+
+        public NewsLoader(int index, Long dateBefore, Long dateAfter, int count) {
+            this.index = index;
+            this.idBefore = dateBefore;
+            this.idAfter = dateAfter;
+            this.count = count;
+        }
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            if (idBefore != null) {
+                progressBarBottom.setVisibility(View.VISIBLE);
+            } else {
+                progressBarTop.setVisibility(View.VISIBLE);
+            }
+        }
+
+        @Override
+        protected Boolean doInBackground(Void... voids) {
+            ResponseObject responseObject;
+            if (idAfter == null && idBefore == null) {
+                Log.i("Response >>", "Getting News");
+                responseObject = WebServiceImpl.getNews();
+                if (responseObject != null && responseObject.getStatusCode() == 200) {
+                    List<PowerNews> newsList = responseObject.getRecentPowerNews();
+
+                    for (PowerNews news : newsList) {
+                        try {
+                            Dao<PowerNews, Long> dao = dbService.getDao(PowerNews.class);
+                            dao.create(news);
+                        } catch (Exception e) {
+                            logger.e("Exception while creating task", e);
+                        }
+                    }
+                    for (PowerNews JMCTask : powerNewsList) {
+                        newsList.add(JMCTask);
+                    }
+                    powerNewsList.clear();
+                    powerNewsList.addAll(newsList);
+                    return true;
+                }
+            }else  if (idAfter != null && idBefore == null ) {
+                Log.i("Response >>", "Getting News After");
+                responseObject = WebServiceImpl.getNewsAfter(idAfter);
+                if (responseObject != null && responseObject.getStatusCode() == 200) {
+                    NewMessages = responseObject.getRecentPowerNews();
+
+                    for (PowerNews news : NewMessages) {
+                        try {
+                            Dao<PowerNews, Long> dao = dbService.getDao(PowerNews.class);
+                            dao.create(news);
+                        } catch (Exception e) {
+                            logger.e("Exception while creating task", e);
+                        }
+                    }
+                    List<PowerNews> newsList = new ArrayList<>();
+                    for (PowerNews JMCTask : powerNewsList) {
+                        newsList.add(JMCTask);
+                    }
+                    powerNewsList.clear();
+                    powerNewsList.addAll(newsList);
+                    return true;
+                }
+            } else {
+                Log.i("Response >>", "Getting News Before");
+                responseObject = WebServiceImpl.getNewsBefore(idBefore);
+                if (responseObject != null && responseObject.getStatusCode() == 200) {
+                    List<PowerNews> newsList = responseObject.getRecentPowerNews();
+                    for (PowerNews news : newsList) {
+                        try {
+                            Dao<PowerNews, Long> dao = dbService.getDao(PowerNews.class);
+                            dao.create(news);
+                            powerNewsList.add(news);
+                        } catch (Exception e) {
+                            logger.e("Exception while adding news", e);
+                        }
+                    }
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        @Override
+        protected void onPostExecute(Boolean aBoolean) {
+            super.onPostExecute(aBoolean);
+
+            if(NewMessages != null && NewMessages.size()>0){
+                List<String> msgList = new ArrayList<>();
+                for (PowerNews news : NewMessages){
+                    msgList.add(news.getPostTitle());
+                }
+                Intent intent = new Intent(HomeActivity.this, HomeActivity.class);
+                if (NewMessages.size() == 1){
+                    Notifications.notify(HomeActivity.this, "Power Sector News", msgList, intent);
+                } else{
+                    Notifications.notify(HomeActivity.this, "Power Sector News", msgList, intent);
+                }
+            }
+            if (aBoolean == Boolean.TRUE) {
+                powerNewsAdapter.notifyDataSetChanged();
+            }
+            if (idBefore != null) {
+                progressBarBottom.setVisibility(View.GONE);
+
+            } else {
+                progressBarTop.setVisibility(View.GONE);
+            }
+            if (powerNewsList.isEmpty()) {
+                emptyListView.setVisibility(View.VISIBLE);
+            }
+            swipeRefreshLayout.setRefreshing(false);
+        }
+    }
+}

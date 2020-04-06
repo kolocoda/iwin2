@@ -1,0 +1,323 @@
+/* Responsive CSS
+ * Author : MAQK
+ * Author URI : www.aivahthemes.com
+======================================================================== */
+
+/* ===================================================== */
+/* Mobile Menu
+/* ===================================================== */
+
+@media only screen and (max-width: 959px) {
+	.iva-mobile-dropdown {
+		display:block;
+		margin:0 0 0 auto;
+		height: 35px;
+		width: 40px;
+		position: relative;
+		cursor: pointer;
+		display: block;
+		background: transparent url(../images/menu-icon.png) 0 0 no-repeat;
+	}
+	.iva-children-indenter { display: block !important; }
+	.iva_mmenu,.menu-inner { width: 80%; }
+	.sys_slider .full { wdith:auto; }
+
+	.primarymenu { display: none !important;}
+	.mobile-menu-wrap {
+		display: table-cell;
+		margin: auto;
+		padding: 0;
+		position: relative;
+		vertical-align: middle;
+	}
+	.fixed-header { position: relative !important; }
+}
+
+/*  iPad Landscape Small and Desktop Resolution
+======================================================================== */
+@media only screen and (min-width : 960px) and (max-width : 1024px) {
+
+	img { width: auto; max-width: 100%; height: auto; }
+	
+	#layout_wrapper,
+	.videoslider,
+	.planbox_slider,
+	#header-s4 .menuwrap,
+	#header-s2 .menuwrap{
+		width: 100%;
+	}
+	.iva-children-indenter { display: block !important; }	
+	.inner,
+	.frontpage_teasercontent,
+	.pagemid .inner,
+	#subheader .inner,
+	.videoslider,
+	.section_inner,
+	.breadcrumbs {
+		width: 90%;
+	}	
+
+ 	.leftsidebar #main { width: 71%; }
+	.leftsidebar #sidebar { width: 29%;  background: none;}
+ 	.rightsidebar #main { width: 71%; }
+	.rightsidebar #sidebar { width: 29%;  background: none;}	
+	.sort_column1 .item  .sort_img { width: 71%; }
+
+	.menuwrap{border-radius: none;}
+
+	.callOutBox .callOut_Text { float: none; display: table; margin: 0 auto; }
+	.callOutBox .callOut_Button { float: none; display: table; margin: 0 auto; }
+	.callOutBox p { margin-bottom: 10px;}
+
+	.pricetable .column { width: 47%; margin-right: 3%; margin-bottom: 20px; }
+	.pricetable .column:last-child { margin-right:0; }
+		
+}
+
+
+/* iPad Portrait
+======================================================================== */
+@media only screen and (min-width: 768px) and (max-width: 959px) {
+
+
+	img { width: auto; max-width: 100%; height: auto; }
+	
+	#layout_wrapper,
+	.videoslider,
+	.planbox_slider,
+	#header-s4 .menuwrap,
+	#header-s2 .menuwrap{
+		width: 100%;
+	}
+	.iva-children-indenter { display: block !important; }	
+	.inner,
+	.frontpage_teasercontent,
+	.pagemid .inner,
+	#subheader .inner,
+	.videoslider,
+	.section_inner,
+	.breadcrumbs {
+		width: 90%;
+	}	
+
+	.header-style2 .iva-mobile-dropdown { margin: 0 auto 0 0; }
+
+	.iva_col.one_fourth { width:48%; }
+	.iva_col.one_fourth:nth-child(even) { margin-right: 0;}
+
+ 	.leftsidebar #main { width: 71%; }
+	.leftsidebar #sidebar { width: 29%;  background: none;}
+ 	.rightsidebar #main { width: 71%; }
+	.rightsidebar #sidebar { width: 29%;  background: none;}	
+	.sort_column1 .item  .sort_img { width: 71%; }
+
+	.menuwrap{border-radius: none;}
+
+	.callOutBox .callOut_Text { float: none; display: table; margin: 0 auto; }
+	.callOutBox .callOut_Button { float: none; display: table; margin: 0 auto; }
+	.callOutBox p { margin-bottom: 10px;}
+
+	.pricetable .column { width: 47%; margin-right: 3%; margin-bottom: 20px; }
+	.pricetable .column:last-child { margin-right:0; }
+	
+
+}
+
+/* ===================================================== */
+/* #Mobile (Portrait)
+/* ===================================================== */
+/* Note: Design for a width of 320px */
+
+@media only screen and (min-width: 240px) and (max-width: 479px) {	
+	img { width:auto; max-width:100%; height:auto;}
+
+	.fixed-header { position:relative; }
+	#layout_wrapper { width:320px; }	
+	.iva-children-indenter { display: block !important; }
+	.inner,
+	.menu-dropdown,
+	.copyright,
+	#sf-mobilemenu,
+	.section_inner,
+	.videoslider,
+	.planbox_slider,
+	.rightsidebar #main,
+	.rightsidebar #sidebar,
+	.leftsidebar #main,
+	.leftsidebar #sidebar,
+	.jcarousel-item-horizontal,
+	#subheader .subdesc			{ width:300px !important; }
+	#subheader .page-title { float: none; text-align: center; display: table; margin: 0 auto;}
+	#subheader .customtext{ float: none; text-align: center; display: table; margin: 0 auto;}
+	#header{ padding: 0 0 15px 0; }
+
+	#featured_slider { position: relative; margin: 0 auto; }	
+	.logo { display: table-cell; float:none; margin: auto; }	
+	
+	.videoslider,
+	.planbox_slider				{ padding-top:30px;}
+	.frontpage_teaser			{ position:relative; }
+	.pricetable .column			{ float: none; width: 100%; border-width:1px;}
+	.topbar .atpsocials { display: table; float: none; margin:0 auto;}
+
+	.one_half, .one_third,  .two_third, 
+	.one_fourth,  .one_fifth, .four_fifth, 
+	.one_sixth, .five_fifth, .two_fifth, 
+	.three_fifth, .three_fourth  { width:100%; margin-right:0; }
+	.flex-caption,
+	.ei-title,
+	.nivo-caption,
+	.rightsidebar #sidebar .content,
+	.leftsidebar #main .entry-content { padding-left:0; }		
+	.rightsidebar #main .entry-content,
+	.leftsidebar #sidebar .content { padding-right:0; }
+	.tabs li,
+	.fb-area,
+	.doubles li,
+	.vertabs .tabs,
+	.breadcrumbs,
+	.event_thumb,
+	.copyright_left,
+	.copyright_right,
+	.teaserbox .callout_button { float:none; }
+
+	.subdesc,
+	.breadcrumbs { text-align: center; width: 100%; }
+
+	.copyright_left,
+	.copyright_right,
+	.vertabs .tabs,
+	.sort_column2 .item,
+	.sort_column3 .item,
+	.sort_column4 .item,
+	.topbar_left,
+	.topbar_right,
+	.pricetable.col3 .column { width:100%; }
+
+	.copyright_left,
+	.copyright_right,
+	.topbar_left,
+	.topbar_right,
+	.events-carousel .carousel-event-block { text-align: center !important; }
+	.callOutBox  .callOut_Button{ float: none; text-align: center; display: table; margin: 0 auto; }
+	.pricetable .price-content {margin-bottom: 10px;}
+	.testimonial-box { margin: 0 0 30px 0;}
+	 #slider_bg  {background-color: #1d576d; background-image: none; }
+	 #slider_bg  { position: relative; margin: 0 auto; }
+	.callOutBox .button { margin-bottom:10px !important; }
+
+	#back-top { display: none!important; }
+	
+	.iva_domainSearch .iva_col { text-align: center; margin-bottom: 10px; }
+	.web_abbr { width: 14% !important; font-size: 16px; }
+	.select_wrapper.ds100 { width: 23% !important; }
+	.iva_domainSearch input[type="text"] { width: 46%; }
+	.domainSearch.btn { width: 100% !important; margin: 10px auto; float: none;}
+	.fixed-header { position:relative; }
+}
+
+/* ===================================================== */
+/* #Mobile (Landscape)
+/* ===================================================== */
+/* Note: Design for a width of 480px */
+
+@media only screen and (min-width: 480px) and (max-width: 767px) {	
+	img { width:auto; max-width:100%; height:auto;}
+
+	.fixed-header { position:relative; }
+
+	/* layout */ 
+	#boxed #wrapper,
+	#layout_wrapper {
+		width: 100%;
+	}
+	
+	.iva-children-indenter { display: block !important; }
+
+	.inner,
+	.copyright,
+	.section_inner,
+	.videoslider,
+	.planbox_slider,
+	.rightsidebar #main,
+	.rightsidebar #sidebar,
+	.leftsidebar #main,
+	.leftsidebar #sidebar,
+	.jcarousel-item-horizontal,
+	#subheader .subdesc { width: 90% !important; }
+	#subheader .page-title { float: none; text-align: center; display: table; margin: 0 auto;}
+	#subheader .customtext{ float: none; text-align: center; display: table; margin: 0 auto;}
+	#header{ padding: 0 0 15px 0;}
+	.events-carousel .carousel-event-block { text-align:center; }
+	
+	.logo { display: table-cell; float:none; margin: auto; }
+	
+	.frontpage_teaser { position:relative; }
+	.videoslider,
+	.planbox_slider { padding-top:30px;}
+	#featured_slider { position: relative; margin: 0 auto; }
+	.pricetable .column { float: none; width: 100%; border-width:1px;}
+
+	.ei-title,
+	.flex-caption,
+	.nivo-caption,
+ 
+	.one_half, .one_third,  .two_third, 
+	.one_fourth,  .one_fifth, .four_fifth, 
+	.one_sixth, .five_fifth, .two_fifth, 
+	.three_fifth, .three_fourth		{ width:100%; margin-right:0; }
+	.topbar .atpsocials							{ display: table; float: none; margin:0 auto; }
+
+	.leftsidebar #sidebar .content,
+	.rightsidebar #main .entry-content			{ padding-right:0; }
+
+	.leftsidebar #main .entry-content,
+	.rightsidebar #sidebar .content				{ padding-left:0; }
+
+	.tabs li,
+	.fb-area,
+	.doubles li,
+	.event_thumb,
+	.copyright_left,
+	.copyright_right,
+	.teaserbox .callout_button					{ float:none; }
+
+	.vertabs .tabs,
+	.copyright_left,
+	.copyright_right,
+	.topbar_left,
+	.topbar_right,
+	.sort_column2 .item,
+	.sort_column3 .item,
+	.sort_column4 .item,
+	.pricetable.col3 .column					{ width:100%; }
+
+	.copyright_left,
+	.copyright_right,
+	.header .one_half,
+	.topbar_left,
+	.topbar_right,
+	.header .one_third { text-align: center !important; }
+	.subdesc,
+	.breadcrumbs { text-align: center; width: 100%; }
+	.callOutBox  .callOut_Button{ float: none; text-align: center; display: table; margin: 0 auto; }
+	.pricetable .price-content {margin-bottom: 10px;}
+	.testimonial-box { margin: 0 0 30px 0;}
+	 #slider_bg  {background-color: #1d576d; background-image: none; }
+	 #slider_bg  { position: relative; margin: 0 auto; }
+
+	.callOutBox .button { margin-bottom:10px !important; }
+	#back-top { display: none!important; }
+	
+	.iva_domainSearch .iva_col { text-align: center; margin-bottom: 10px; }
+	.web_abbr { width: 14% !important; }
+	.select_wrapper.ds100 { width: 20% !important; }
+	.iva_domainSearch input[type="text"] { width: 52%; }
+	.domainSearch.btn { width: 100% !important; margin: 10px auto; float: none; }
+
+	.rightsidebar #main,
+	.rightsidebar #sidebar { float: none; width: 100% !important; }
+	.leftsidebar #main,
+	.leftsidebar #sidebar{ float: none; width: 100% !important; }
+	
+}

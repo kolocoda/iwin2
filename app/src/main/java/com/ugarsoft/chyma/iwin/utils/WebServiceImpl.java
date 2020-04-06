@@ -1,0 +1,598 @@
+package com.ugarsoft.chyma.iwin.utils;
+
+import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+import android.util.Log;
+
+import com.ugarsoft.chyma.iwin.gcm.GCMConstant;
+import com.ugarsoft.chyma.iwin.models.Announcement;
+import com.ugarsoft.chyma.iwin.models.AppUser;
+import com.ugarsoft.chyma.iwin.models.FAQ;
+import com.ugarsoft.chyma.iwin.models.PowerChart;
+import com.ugarsoft.chyma.iwin.models.PowerNews;
+import com.ugarsoft.chyma.iwin.models.PowerStats;
+import com.ugarsoft.chyma.iwin.models.ResponseObject;
+import com.google.gson.Gson;
+import org.apache.http.HttpEntity;
+import org.apache.http.HttpResponse;
+import org.apache.http.NameValuePair;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.entity.UrlEncodedFormEntity;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.message.BasicNameValuePair;
+import org.apache.http.params.BasicHttpParams;
+import org.apache.http.params.HttpParams;
+import org.apache.http.util.EntityUtils;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
+/**
+ * Created by Chyma
+ * <p/>
+ * on 5/7/2016.g
+ */
+public class WebServiceImpl {
+
+    private static final String API_KEY = "L7ExSNbPC4sb6TPJDblCAkN0baRJxw3qqt9ErkZgoetbexguZOJ1K13kJjowRDi9zus9pCmpMedELy99QFKjgA";
+    private static final Logger logger = Logger.getLogger(WebServiceImpl.class);
+    private static final int VERSION = 1;
+    private static final Gson gson = new Gson();
+    private static final String END_POINT = "http://www.iwin.org.ng/mobile_conn.php";
+    private static final String LOGIN_END_POINT =  "http://www.iwin.org.ng/login.php";
+    private static final String POST_ANNOUNCEMENT_END_POINT = "http://www.iwin.org.ng/app/postannouncements.php";
+    private static final String SEND_BROADCAST = "http://www.iwin.org.ng/app/processmessage.php";
+    private static final String FAQ_END_POINT ="http://www.iwin.org.ng/app/conn.php";
+    private static final String POST_NEW_TASK = END_POINT + "createTask";
+
+    public static String getUserBase64EncodedProfilePicture(String userId, int type) {
+        String result = "";
+        try {
+            Map<String, String> param = new HashMap<>();
+            param.put("userId", userId);
+            param.put("version", VERSION + "");
+            param.put("mac", GenerateHashUtil.getHash(userId + API_KEY, GenerateHashUtil.HashType.SHA256.getAlgoName()));
+            param.put("type", type + "");
+            result = doPost(END_POINT, param);
+            ResponseObject responseObject = gson.fromJson(result, ResponseObject.class);
+            if (responseObject.getStatusCode() == 200) {
+                return responseObject.getBase64EncodedData();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return result;
+    }
+
+
+    public static ResponseObject login(String username, String password) throws Exception {
+
+        String message = "An unknown error occurred";
+
+        try {
+            Map<String, String> param = new HashMap<>();
+            param.put("username", username);
+            param.put("password", password);
+            Log.i("Response >> ", "Attempting Login");
+            String out = doPost(LOGIN_END_POINT, param);
+            logger.i(out + "");
+            AppUser user = OnlineDataHelper.convertDataToAppUser(out);
+            ResponseObject responseObject = new ResponseObject();
+            responseObject.setAppUser(user);
+            if(user != null){
+                Log.i("TAG", "User >> email: " + user.getEmail());
+                responseObject.setStatusCode(200);
+            }
+            if (responseObject.getStatusCode() == 200) {
+                return responseObject;
+            } else {
+                message = "Email or Password is incorrect";
+            }
+        } catch (Exception e) {
+            logger.e("Exception at Login", e);
+        }
+        throw new Exception(message);
+    }
+
+
+    private static String doPost(String endPoint, Map<String, String> params) {
+        try {
+            ArrayList<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>();
+            Set<String> keySet = params.keySet();
+
+            for (String key : keySet) {
+                nameValuePairs.add(new BasicNameValuePair(key, params.get(key)));
+            }
+
+            HttpClient httpclient = new DefaultHttpClient();
+            HttpPost httppost = new HttpPost(endPoint);
+            httppost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
+
+            HttpResponse response = httpclient.execute(httppost);
+            HttpEntity entity = response.getEntity();
+            String out = EntityUtils.toString(entity);
+            return out;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    private static String doGet(String endPoint, Map<String, String> params) {
+        try {
+            HttpParams httpParams = new BasicHttpParams();
+            Set<String> keySet = params.keySet();
+            for (String key : keySet) {
+                httpParams.setParameter(key, params.get(key));
+            }
+            HttpClient httpclient = new DefaultHttpClient();
+            HttpGet httpGet = new HttpGet(endPoint);
+            httpGet.setParams(httpParams);
+            HttpResponse response = httpclient.execute(httpGet);
+            HttpEntity entity = response.getEntity();
+            String out = EntityUtils.toString(entity);
+            Log.i("OUTPUT", out);
+            return out;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public static boolean deviceIsConnected(Context context) {
+        ConnectivityManager cm = (ConnectivityManager) context.getSystemService(context.CONNECTIVITY_SERVICE);
+        NetworkInfo networkInfo = cm.getActiveNetworkInfo();
+        if (networkInfo == null || !networkInfo.isConnectedOrConnecting()) {
+            return false;
+        }
+        return true;
+    }
+
+    public static ResponseObject getNewsBefore(Long code) {
+        try {
+            Map<String, String> param = new HashMap<>();
+            param.put("action", DataConstant.GET_NEWS_BEFORE);
+            param.put("catid", DataConstant.NEWS_CAT_ID);
+            param.put("id", String.valueOf(code));
+
+            String out = doPost(END_POINT, param);
+            logger.i("Response >> " + out);
+            List<PowerNews> newsList = OnlineDataHelper.convertDataToNewsContent(out);
+            ResponseObject responseObject = new ResponseObject();
+            responseObject.setStatusCode(200);
+            responseObject.setRecentPowerNews(newsList);
+            if (responseObject.getStatusCode() == 200) {
+                return responseObject;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public static ResponseObject getNewsAfter(Long code) {
+        try {
+            Map<String, String> param = new HashMap<>();
+            param.put("action", DataConstant.GET_NEWS_AFTER);
+            param.put("catid", DataConstant.NEWS_CAT_ID);
+            param.put("id", String.valueOf(code));
+
+            String out = doPost(END_POINT, param);
+            logger.i("Response >> " + out);
+            ResponseObject responseObject = new ResponseObject();
+            if (out != null && !out.equalsIgnoreCase("null")) {
+                List<PowerNews> newsList = OnlineDataHelper.convertDataToNewsContent(out);
+                responseObject.setStatusCode(200);
+                responseObject.setRecentPowerNews(newsList);
+            }
+            if (responseObject.getStatusCode() == 200) {
+                return responseObject;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+    public static ResponseObject getNews() {
+        try {
+            Map<String, String> param = new HashMap<>();
+            param.put("action", DataConstant.GET_NEWS);
+            param.put("catid", DataConstant.NEWS_CAT_ID);
+
+            String out = doPost(END_POINT, param);
+            logger.i("Response >> " + out);
+            List<PowerNews> newsList = OnlineDataHelper.convertDataToNewsContent(out);
+            ResponseObject responseObject = new ResponseObject();
+            responseObject.setStatusCode(200);
+            responseObject.setRecentPowerNews(newsList);
+            if (responseObject.getStatusCode() == 200) {
+                return responseObject;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public static ResponseObject getFaq() {
+        try {
+            Map<String, String> param = new HashMap<>();
+            param.put("action", DataConstant.GET_FAQ);
+            param.put("catid", DataConstant.FAQ_CAT_ID);
+
+            String out = doPost(END_POINT, param);
+            logger.i("Response >> " + out);
+            List<FAQ> list = OnlineDataHelper.convertDataToFAQContent(out);
+            ResponseObject responseObject = new ResponseObject();
+            responseObject.setStatusCode(200);
+            responseObject.setFaqList(list);
+            if (responseObject.getStatusCode() == 200) {
+                return responseObject;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return  null;
+    }
+
+    public static ResponseObject getFaqAfter(Long code) {
+        try {
+            Map<String, String> param = new HashMap<>();
+            param.put("action", DataConstant.GET_FAQ_AFTER);
+            param.put("catid", DataConstant.FAQ_CAT_ID);
+            param.put("id", String.valueOf(code));
+
+            String out = doPost(END_POINT, param);
+            logger.i("Response >> " + out);
+            ResponseObject responseObject = new ResponseObject();
+            if(out != null && !out.equalsIgnoreCase("null")) {
+                List<FAQ> list = OnlineDataHelper.convertDataToFAQContent(out);
+                responseObject.setStatusCode(200);
+                responseObject.setFaqList(list);
+            }
+            if (responseObject.getStatusCode() == 200) {
+                return responseObject;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return  null;
+    }
+
+    public static void sendRegistrationToServer(String regId, String deviceId) {
+        Map<String, String> params = new HashMap<>();
+        params.put("emailId", "nil");
+        params.put("regId", regId);
+        params.put("deviceId", deviceId);
+        System.out.println("Device id = " + deviceId + " Reg Id = " + regId);
+        // Make RESTful webservice call using AsyncHttpClient object]
+        String out = doPost(GCMConstant.APP_SERVER_URL, params);
+        logger.i("Response >> " + out);
+    }
+
+    public static ResponseObject postAnnouncement(Announcement announcement, AppUser user) {
+        try {
+            Map<String, String> param = new HashMap<>();
+            param.put("title", announcement.getPostTitle());
+            param.put("content", announcement.getPostContent());
+            param.put("disco", announcement.getDiscoCode());
+            param.put("userId", String.valueOf(user.getUserId()));
+
+            String out = doPost(POST_ANNOUNCEMENT_END_POINT, param);
+            logger.i("Response >> " + out);
+            Boolean res = OnlineDataHelper.getPostResponse(out);
+            ResponseObject responseObject = new ResponseObject();
+            if(res) {
+                Map<String, String> param1 = new HashMap<>();
+                responseObject.setStatusCode(200);
+                param1.put("title", announcement.getPostTitle());
+                param1.put("content", announcement.getPostContent());
+                param1.put("postBy", user.getName());
+                param1.put("notifType", GCMConstant.NOTIFICATION_ANNOUNCEMENT);
+                String out1 = doPost(SEND_BROADCAST, param1);
+                logger.i("Response >> " + out1);
+            }
+            if (responseObject.getStatusCode() == 200) {
+                return responseObject;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public static ResponseObject getAnnouncements() {
+        try {
+            Map<String, String> param = new HashMap<>();
+            param.put("action", DataConstant.GET_ANNOUNCEMENT);
+            String out = doPost(FAQ_END_POINT, param);
+            logger.i("Response >> " + out);
+            List<Announcement> list = OnlineDataHelper.convertDataToAnnouncement(out);
+            ResponseObject responseObject = new ResponseObject();
+            responseObject.setStatusCode(200);
+            responseObject.setAnnouncementList(list);
+            if (responseObject.getStatusCode() == 200) {
+                return responseObject;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public static ResponseObject getAnnouncementAfter(Long code) {
+        try {
+            Map<String, String> param = new HashMap<>();
+            param.put("action", DataConstant.GET_ANNOUNCEMENT_AFTER);
+            param.put("id", String.valueOf(code));
+
+            String out = doPost(FAQ_END_POINT, param);
+            logger.i("Response >> " + out);
+            List<Announcement> list = OnlineDataHelper.convertDataToAnnouncement(out);
+            ResponseObject responseObject = new ResponseObject();
+            responseObject.setStatusCode(200);
+            responseObject.setAnnouncementList(list);
+            if (responseObject.getStatusCode() == 200) {
+                return responseObject;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public static ResponseObject getReports() {
+        try {
+            Map<String, String> param = new HashMap<>();
+            param.put("action", DataConstant.GET_REPORT);
+            String out = doPost(END_POINT, param);
+            logger.i("Response >> " + out);
+            List<PowerStats> list = OnlineDataHelper.convertDataToPowerStats(out);
+            ResponseObject responseObject = new ResponseObject();
+            responseObject.setStatusCode(200);
+            responseObject.setPowerStatsList(list);
+            if (responseObject.getStatusCode() == 200) {
+                return responseObject;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public static ResponseObject getReportAfter(Long code) {
+        try {
+            Map<String, String> param = new HashMap<>();
+            param.put("action", DataConstant.GET_REPORT_AFTER);
+            param.put("id", String.valueOf(code));
+
+            String out = doPost(END_POINT, param);
+            logger.i("Response >> " + out);
+            List<PowerStats> list = OnlineDataHelper.convertDataToPowerStats(out);
+            ResponseObject responseObject = new ResponseObject();
+            responseObject.setStatusCode(200);
+            responseObject.setPowerStatsList(list);
+            if (responseObject.getStatusCode() == 200) {
+                return responseObject;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public static ResponseObject getChart() {
+        try {
+            Map<String, String> param = new HashMap<>();
+            param.put("action", DataConstant.GET_CHART);
+            String out = doPost(END_POINT, param);
+            logger.i("Response >> " + out);
+            List<PowerChart> list = OnlineDataHelper.convertDataToPowerChart(out);
+            ResponseObject responseObject = new ResponseObject();
+            responseObject.setStatusCode(200);
+            responseObject.setPowerChartList(list);
+            if (responseObject.getStatusCode() == 200) {
+                return responseObject;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public static ResponseObject getChartAfter(Long code) {
+        try {
+            Map<String, String> param = new HashMap<>();
+            param.put("action", DataConstant.GET_CHART_AFTER);
+            param.put("id", String.valueOf(code));
+
+            String out = doPost(END_POINT, param);
+            logger.i("Response >> " + out);
+            List<PowerChart> list = OnlineDataHelper.convertDataToPowerChart(out);
+            ResponseObject responseObject = new ResponseObject();
+            responseObject.setStatusCode(200);
+            responseObject.setPowerChartList(list);
+            if (responseObject.getStatusCode() == 200) {
+                return responseObject;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+   /* public static ResponseObject getProjectsBefore(long date, String userId, int startIndex, int count) {
+        try {
+            Map<String, String> param = new HashMap<>();
+            param.put("userId", userId);
+            param.put("date", date + "");
+            param.put("index", String.valueOf(startIndex));
+            param.put("size", String.valueOf(count));
+            param.put("mac", GenerateHashUtil.getHash(userId + date + API_KEY, GenerateHashUtil.HashType.SHA256.getAlgoName()));
+            param.put("version", String.valueOf(VERSION));
+            String out = doPost(GET_TASKS_AFTER_END_POINT, param);
+            logger.i("Response >> " + out);
+            ResponseObject responseObject = gson.fromJson(out, ResponseObject.class);
+            if (responseObject.getStatusCode() == 200) {
+                return responseObject;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public static ResponseObject getProjectsAfter(long date, String userId, int startIndex, int count) {
+        try {
+            Map<String, String> param = new HashMap<>();
+            param.put("userId", userId);
+            param.put("date", date + "");
+            param.put("index", String.valueOf(startIndex));
+            param.put("size", String.valueOf(count));
+            param.put("mac", GenerateHashUtil.getHash(userId + date + API_KEY, GenerateHashUtil.HashType.SHA256.getAlgoName()));
+            param.put("version", String.valueOf(VERSION));
+            String out = doPost(GET_TASKS_AFTER_END_POINT, param);
+            logger.i("Response >> " + out);
+            ResponseObject responseObject = gson.fromJson(out, ResponseObject.class);
+            if (responseObject.getStatusCode() == 200) {
+                return responseObject;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public static ResponseObject getUsers(String userId) {
+        try {
+            Map<String, String> param = new HashMap<>();
+            param.put("userId", userId);
+            param.put("mac", GenerateHashUtil.getHash(userId + API_KEY, GenerateHashUtil.HashType.SHA256.getAlgoName()));
+            param.put("version", String.valueOf(VERSION));
+            String out = doPost(GET_TASKS_AFTER_END_POINT, param);
+            logger.i("Response >> " + out);
+            ResponseObject responseObject = gson.fromJson(out, ResponseObject.class);
+            if (responseObject.getStatusCode() == 200) {
+                return responseObject;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public static ResponseObject getMessagesBefore(long date, String userId, int startIndex, int count) {
+        try {
+            Map<String, String> param = new HashMap<>();
+            param.put("userId", userId);
+            param.put("date", date + "");
+            param.put("index", String.valueOf(startIndex));
+            param.put("size", String.valueOf(count));
+            param.put("mac", GenerateHashUtil.getHash(userId + date + API_KEY, GenerateHashUtil.HashType.SHA256.getAlgoName()));
+            param.put("version", String.valueOf(VERSION));
+            String out = doPost(GET_TASKS_AFTER_END_POINT, param);
+            logger.i("Response >> " + out);
+            ResponseObject responseObject = gson.fromJson(out, ResponseObject.class);
+            if (responseObject.getStatusCode() == 200) {
+                return responseObject;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public static ResponseObject getMessagesAfter(long date, String userId, int startIndex, int count) {
+        try {
+            Map<String, String> param = new HashMap<>();
+            param.put("userId", userId);
+            param.put("date", date + "");
+            param.put("index", String.valueOf(startIndex));
+            param.put("size", String.valueOf(count));
+            param.put("mac", GenerateHashUtil.getHash(userId + date + API_KEY, GenerateHashUtil.HashType.SHA256.getAlgoName()));
+            param.put("version", String.valueOf(VERSION));
+            String out = doPost(GET_TASKS_AFTER_END_POINT, param);
+            logger.i("Response >> " + out);
+            ResponseObject responseObject = gson.fromJson(out, ResponseObject.class);
+            if (responseObject.getStatusCode() == 200) {
+                return responseObject;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public static ResponseObject getTaskCategories(String userId, Long date) {
+        try {
+            Map<String, String> param = new HashMap<>();
+            param.put("userId", userId);
+            param.put("lastUpdate", date.toString());
+            param.put("mac", GenerateHashUtil.getHash(userId + API_KEY, GenerateHashUtil.HashType.SHA256.getAlgoName()));
+            param.put("version", String.valueOf(VERSION));
+            String out = doPost(GET_TASKS_AFTER_END_POINT, param);
+            logger.i("Response >> " + out);
+            ResponseObject responseObject = gson.fromJson(out, ResponseObject.class);
+            if (responseObject.getStatusCode() == 200) {
+                return responseObject;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public static ResponseObject getProjectTeamMembers(String userId, Long lastUpdate, Long projectCode) {
+        try {
+            Map<String, String> param = new HashMap<>();
+            param.put("userId", userId);
+            param.put("lastUpdate", lastUpdate.toString());
+            param.put("projectCode", projectCode.toString());
+            param.put("mac", GenerateHashUtil.getHash(userId + lastUpdate + projectCode + API_KEY, GenerateHashUtil.HashType.SHA256.getAlgoName()));
+            param.put("version", String.valueOf(VERSION));
+            String out = doPost(GET_PROJECT_TEAM_MEMBERS, param);
+            logger.i("Response >> " + out);
+            ResponseObject responseObject = gson.fromJson(out, ResponseObject.class);
+            if (responseObject.getStatusCode() == 200) {
+                return responseObject;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public static ResponseObject createTask(String userId, long dateDue, long projectCode,
+                                            long taskReviewerCode, long taskAssigneeCode,
+                                            String description, long taskCategoryCode) {
+        try {
+            Map<String, String> param = new HashMap<>();
+            param.put("userId", userId);
+            param.put("dateDue", String.valueOf(dateDue));
+            param.put("taskReviewerCode", String.valueOf(taskReviewerCode));
+            if (taskAssigneeCode != -1l) {
+                param.put("taskAssigneeCode", String.valueOf(taskAssigneeCode));
+            }
+            param.put("description", description);
+            logger.i(taskCategoryCode + "");
+            param.put("taskCategoryCode", taskCategoryCode + "");
+            param.put("projectCode", String.valueOf(projectCode));
+            String out = doPost(POST_NEW_TASK, param);
+            ResponseObject responseObject = gson.fromJson(out, ResponseObject.class);
+
+            if (responseObject.getStatusCode() == 200) {
+                return responseObject;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }*/
+
+}

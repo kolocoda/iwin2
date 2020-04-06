@@ -1,0 +1,61 @@
+{
+  "project_info": {
+    "project_number": "771273506651",
+    "project_id": "iwin-1315"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:771273506651:android:c82d92f3e51c930b",
+        "android_client_info": {
+          "package_name": "com.example.chyma.mychurch"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBu6-kh1Q_4zMr6rngR9pd4bv0_AehZgMg"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:771273506651:android:fc5820004afe4f67",
+        "android_client_info": {
+          "package_name": "com.ugarsoft.chyma.iwin"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBu6-kh1Q_4zMr6rngR9pd4bv0_AehZgMg"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

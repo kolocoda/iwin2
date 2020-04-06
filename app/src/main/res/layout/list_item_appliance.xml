@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/appCard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="0.5dp"
+        android:layout_marginTop="0dp"
+        android:clickable="true"
+        android:foreground="?selectableItemBackground"
+        app:cardBackgroundColor="@color/white"
+        app:cardCornerRadius="0dp"
+        app:cardElevation="1dp">
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:weightSum="20">
+
+            <ImageView
+                android:id="@+id/appLogo"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_gravity="center"
+                android:layout_margin="5dp"
+                android:layout_weight="0.5"
+                android:padding="2dp"
+                android:src="@drawable/ic_menu_news"/>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="19"
+                android:gravity="left|center"
+                android:orientation="vertical"
+                android:padding="5dp"
+                android:weightSum="13">
+
+                <TextView
+                    android:id="@+id/appTitleTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="3dp"
+                    android:maxLines="2"
+                    android:text="Heating and Cooling"
+                    android:textSize="20sp"
+                    android:textColor="@color/cardview_dark_background" />
+
+
+                <TextView
+                    android:id="@+id/appDescTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:maxLines="3"
+                    android:text="12 Sept, 2012 12:30"
+                    android:textAppearance="?android:textAppearanceSmall"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="12dp" />
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:layout_gravity="center"
+                android:layout_margin="5dp"
+                android:layout_weight="0.5"
+                android:src="@android:drawable/ic_media_play" />
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
+</RelativeLayout>

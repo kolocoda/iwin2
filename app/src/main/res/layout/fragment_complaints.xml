@@ -1,0 +1,32 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.ugarsoft.chyma.iwin.fragments.ComplaintsFragment">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:padding="10dp"
+                android:src="@drawable/complaint"/>
+
+            <TextView
+                android:id="@+id/complaints"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="In the event that the DisCo serving your area fails to resolve your complaints please register with us, create a support ticket and fill out the complaints log for further escalation of your issue."
+                android:textSize="16sp"
+                android:layout_marginTop="-5dp"
+                android:padding="15dp"/>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

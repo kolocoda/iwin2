@@ -1,0 +1,40 @@
+[16-May-2016 11:41:05 America/Chicago] PHP Warning:  mysql_connect(): Access denied for user 'iwin_iwin05'@'192.185.182.10' (using password: YES) in /home/iwin/public_html/app/conn.php on line 7
+[16-May-2016 11:47:44 America/Chicago] PHP Warning:  mysql_connect(): Access denied for user 'iwin_mobile'@'192.185.182.10' (using password: YES) in /home/iwin/public_html/app/conn.php on line 7
+[16-May-2016 11:49:11 America/Chicago] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, resource given in /home/iwin/public_html/app/conn.php on line 9
+[16-May-2016 11:49:11 America/Chicago] PHP Warning:  mysqli_error() expects parameter 1 to be mysqli, resource given in /home/iwin/public_html/app/conn.php on line 9
+[16-May-2016 11:51:08 America/Chicago] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, string given in /home/iwin/public_html/app/conn.php on line 9
+[16-May-2016 11:51:08 America/Chicago] PHP Warning:  mysqli_error() expects parameter 1 to be mysqli, resource given in /home/iwin/public_html/app/conn.php on line 9
+[16-May-2016 11:57:01 America/Chicago] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, resource given in /home/iwin/public_html/app/conn.php on line 9
+[16-May-2016 11:57:01 America/Chicago] PHP Warning:  mysqli_error() expects parameter 1 to be mysqli, resource given in /home/iwin/public_html/app/conn.php on line 9
+[17-May-2016 06:53:18 America/Chicago] PHP Fatal error:  Class 'JFactory' not found in /home/iwin/public_html/app/conn.php on line 10
+[17-May-2016 06:57:16 America/Chicago] PHP Fatal error:  Class 'JRegistry' not found in /home/iwin/public_html/libraries/joomla/factory.php on line 556
+[17-May-2016 07:11:04 America/Chicago] PHP Parse error:  syntax error, unexpected '.5' (T_DNUMBER) in /home/iwin/public_html/app/conn.php on line 25
+[17-May-2016 10:26:52 America/Chicago] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, null given in /home/iwin/public_html/app/conn.php on line 42
+[17-May-2016 10:26:52 America/Chicago] PHP Warning:  mysqli_error() expects parameter 1 to be mysqli, null given in /home/iwin/public_html/app/conn.php on line 42
+[17-May-2016 10:28:48 America/Chicago] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, null given in /home/iwin/public_html/app/conn.php on line 42
+[17-May-2016 10:28:48 America/Chicago] PHP Warning:  mysqli_error() expects parameter 1 to be mysqli, null given in /home/iwin/public_html/app/conn.php on line 42
+[17-May-2016 10:28:51 America/Chicago] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, null given in /home/iwin/public_html/app/conn.php on line 42
+[17-May-2016 10:28:51 America/Chicago] PHP Warning:  mysqli_error() expects parameter 1 to be mysqli, null given in /home/iwin/public_html/app/conn.php on line 42
+[17-May-2016 10:41:12 America/Chicago] PHP Parse error:  syntax error, unexpected '" ORDER BY c.created DESC LIMI' (T_CONSTANT_ENCAPSED_STRING) in /home/iwin/public_html/app/conn.php on line 53
+[17-May-2016 10:49:34 America/Chicago] PHP Parse error:  syntax error, unexpected '" AND c.created_by = u.id AND ' (T_CONSTANT_ENCAPSED_STRING) in /home/iwin/public_html/app/conn.php on line 53
+[17-May-2016 11:18:29 America/Chicago] PHP Warning:  mysqli_stmt_bind_result(): Number of bind variables doesn't match number of fields in prepared statement in /home/iwin/public_html/app/conn.php on line 64
+[17-May-2016 11:20:57 America/Chicago] PHP Warning:  mysqli_stmt_bind_result(): Number of bind variables doesn't match number of fields in prepared statement in /home/iwin/public_html/app/conn.php on line 64
+[17-May-2016 11:32:16 America/Chicago] PHP Parse error:  syntax error, unexpected '"' ORDER BY c.created DESC LIM' (T_CONSTANT_ENCAPSED_STRING) in /home/iwin/public_html/app/conn.php on line 53
+[17-May-2016 11:35:59 America/Chicago] PHP Parse error:  syntax error, unexpected '"' ORDER BY c.created DESC LIM' (T_CONSTANT_ENCAPSED_STRING) in /home/iwin/public_html/app/conn.php on line 53
+[20-May-2016 07:55:55 America/Chicago] PHP Parse error:  syntax error, unexpected '{' in /home/iwin/public_html/app/login.php on line 79
+[20-May-2016 07:57:13 America/Chicago] PHP Parse error:  syntax error, unexpected '}', expecting ',' or ';' in /home/iwin/public_html/app/login.php on line 81
+[20-May-2016 07:58:12 America/Chicago] PHP Warning:  require_once(/home/iwin/public_html/app/includes/defines.php): failed to open stream: No such file or directory in /home/iwin/public_html/app/login.php on line 35
+[20-May-2016 07:58:12 America/Chicago] PHP Fatal error:  require_once(): Failed opening required '/home/iwin/public_html/app/includes/defines.php' (include_path='.:/opt/php54/lib/php') in /home/iwin/public_html/app/login.php on line 35
+[20-May-2016 10:42:12 America/Chicago] PHP Parse error:  syntax error, unexpected '*' in /home/iwin/public_html/app/config.php on line 10
+[21-May-2016 19:14:29 America/Chicago] PHP Parse error:  syntax error, unexpected '*' in /home/iwin/public_html/app/config.php on line 10
+[21-May-2016 19:15:27 America/Chicago] PHP Parse error:  syntax error, unexpected '*' in /home/iwin/public_html/app/config.php on line 10
+[23-May-2016 01:03:15 America/Chicago] PHP Parse error:  syntax error, unexpected '*', expecting function (T_FUNCTION) in /home/iwin/public_html/app/db_functions.php on line 52
+[23-May-2016 01:04:23 America/Chicago] PHP Parse error:  syntax error, unexpected '*', expecting function (T_FUNCTION) in /home/iwin/public_html/app/db_functions.php on line 52
+[23-May-2016 01:05:33 America/Chicago] PHP Parse error:  syntax error, unexpected '*', expecting function (T_FUNCTION) in /home/iwin/public_html/app/db_functions.php on line 52
+[23-May-2016 01:08:09 America/Chicago] PHP Fatal error:  Call to undefined method DB_Functions::getGCMAllRegID() in /home/iwin/public_html/app/processmessage.php on line 51
+[23-May-2016 02:15:34 America/Chicago] PHP Parse error:  syntax error, unexpected end of file in /home/iwin/public_html/app/postannouncements.php on line 18
+[26-May-2016 03:51:37 America/Chicago] PHP Parse error:  syntax error, unexpected '->' (T_OBJECT_OPERATOR) in /home/iwin/public_html/app/insertuser.php on line 9
+[26-May-2016 04:07:22 America/Chicago] PHP Parse error:  syntax error, unexpected '->' (T_OBJECT_OPERATOR) in /home/iwin/public_html/app/insertuser.php on line 9
+[26-May-2016 04:43:28 America/Chicago] PHP Parse error:  syntax error, unexpected '->' (T_OBJECT_OPERATOR) in /home/iwin/public_html/app/insertuser.php on line 9
+[26-May-2016 05:20:04 America/Chicago] PHP Parse error:  syntax error, unexpected '->' (T_OBJECT_OPERATOR) in /home/iwin/public_html/app/insertuser.php on line 9
+[26-May-2016 05:28:21 America/Chicago] PHP Parse error:  syntax error, unexpected '*', expecting function (T_FUNCTION) in /home/iwin/public_html/app/db_functions.php on line 52

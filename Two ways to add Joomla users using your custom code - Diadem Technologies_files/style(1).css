@@ -1,0 +1,639 @@
+/*
+ Theme Name:   Hostmev2-child
+ Theme URI:    http://themeforest.net/
+ Description:  HostmeV2 Child Theme
+ Author:       Hriday Biyani
+ Author URI:   http://www.hridaybiyani.com
+ Template:     hostmev2
+ Tags:       dark, white, two-columns, custom-background, translation-ready, custom-menu
+ */
+
+
+@import url('css/shortcodes.css');
+@import url('css/fontawesome/css/font-awesome.css');
+
+@import url(https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300);
+
+--------------------------------------------------------------------------------------------------------------------------------
+.header { 
+	position:relative; 
+	min-height: 70px;
+	z-index: 20; 
+	background-color: #fff;
+	box-shadow:0 5px 0 rgba(0,0,0,0.2);
+}
+
+#back-top a:hover span {
+	background-color: #e56a2c 1abc9c;
+}
+
+a {
+	text-decoration: none;
+	color: #222222;
+	-webkit-transition: all .3s ease-out;
+	-moz-transition: 	all .3s ease-out;
+	transition: 		all .3s ease-out;
+}
+button,
+.contributor-posts-link,
+input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+	background-color: #333333;
+	border: 0;
+	color: #fff;
+	font-size: 12px;
+	padding: 5px 10px 5px;
+	vertical-align: bottom;
+	-webkit-border-radius: 2px;
+	-moz-border-radius:    2px;
+	border-radius:         2px;
+	cursor: pointer;
+}
+
+button:hover,
+button:focus,
+.contributor-posts-link:hover,
+input[type="button"]:hover,
+input[type="button"]:focus,
+input[type="reset"]:hover,
+input[type="reset"]:focus,
+input[type="submit"]:hover,
+input[type="submit"]:focus {
+	background-color: #e56a2c;
+	color: #fff;
+}
+.sf-menu a {
+	border-left: 0px solid #fff;
+	border-top: 0px solid #dFeEFF; /* fallback colour must use full shorthand */
+	border-top: 0px solid rgba(255,255,255,.5);
+	padding: .7em .7em;
+	text-decoration: none;
+	zoom: 1; /* IE7 */
+}
+/*-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- */
+/* Node 2(Festoon Media) */
+/*-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- */
+.for-movie {
+	text-align: center;
+	margin: 0px;
+	padding: 0px;
+	float: left;
+	height: auto;
+	width: 100%;
+}
+.datacentre-network-top {
+	font-family: 'Open Sans Condensed', sans-serif;
+	font-size: 30px;
+	color: #29336E;
+	font-weight: lighter;
+}
+.all-images {
+	margin: 0px;
+	padding: 0px;
+	float: left;
+	height: auto;
+	width: auto;
+}
+.all-image2 {
+	float: left;
+	height: auto;
+	width: auto;
+	padding-top: 20px;
+}
+.usp {
+	padding: 0px;
+	float: left;
+	height: auto;
+	width: 800px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	margin-left: 10px;
+}
+.datacentre-network-top {
+	margin: 0px;
+	padding: 0px;
+	height: auto;
+	width: 100%;
+	clear: both;
+}
+.text-area {
+	padding: 0px;
+	height: auto;
+	width: 100%;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 20px;
+	margin-left: 0px;
+}
+.all-image2 {
+	float: left;
+	height: auto;
+	width: auto;
+	padding-right: 20px;
+}
+.text-area-a {
+	font-family: 'Open Sans Condensed', sans-serif;
+	margin: 0px;
+	padding: 0px;
+	float: left;
+	height: auto;
+	width: 600px;
+	font-size: 26px;
+	color: #E56A2C;
+}
+.text-area-b {
+	font-family: 'Open Sans Condensed', sans-serif;
+	margin: 0px;
+	padding: 0px;
+	float: left;
+	height: auto;
+	width: 600px;
+	font-size: 21px;
+	font-weight: bold;
+	color: #29336E;
+}
+.text-area-c {
+	margin: 0px;
+	padding: 0px;
+	float: left;
+	height: auto;
+	width: 600px;
+}
+.text-area-d {
+	font-family: 'Open Sans Condensed', sans-serif;
+	float: left;
+	height: auto;
+	width: 600px;
+	font-size: 30px;
+	color: #E56A2C;
+	padding-top: 60px;
+	padding-right: 0px;
+	padding-bottom: 0px;
+	padding-left: 0px;
+}
+.text-area-ad {
+	font-familGy: 'Open Sans Condensed', sans-serif;
+	float: left;
+	height: auto;
+	width: 600px;
+	font-size: 30px;
+	color: #E56A2C;
+	padding-top: 30px;
+	padding-right: 0px;
+	padding-bottom: 0px;
+	padding-left: 0px;
+}
+.text-area-hosting {
+	padding: 0px;
+	height: auto;
+	width: 100%;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 20px;
+	margin-left: 0px;
+}
+.text-area-hosting-a {
+	font-family: 'Open Sans Condensed', sans-serif;
+	display: inline-block;
+	float: left;
+	margin: 0px;
+	padding: 0px;
+	height: auto;
+	font-size: 26px;
+	font-weight: bold;
+	color: #6d71b6;
+}
+.point {
+	font-family: "Open Sans";
+	float: left;
+	display: block;
+	padding-top: 20px;
+}
+.point ul {
+	margin: 0px;
+	padding: 0px;
+}
+.point li {
+	font-family: "Open Sans";
+	list-style-type: none;
+	background-image: url(https://diadem.in/wp-content/uploads/2014/09/bullet3.png);
+	background-repeat: no-repeat;
+	padding-left: 15px;
+	background-position: left 7px;
+}
+.text-area-hosting-new {
+	font-family: 'Open Sans Condensed', sans-serif;
+	margin: 0px;
+	padding: 0px;
+	float: left;
+	height: auto;
+	width: 100%;
+	font-size: 2.500em;
+	font-weight: bold;
+	color: #6d71b6;
+}
+.text-area-a-new {
+	margin: 0px;
+	padding: 0px;
+	float: right;
+	height: auto;
+	width: 45%;
+}
+.text-area-hosting-b {
+	font-family: 'Open Sans Condensed', sans-serif;
+	margin: 0px;
+	padding: 0px;
+	float: left;
+	height: auto;
+	width: 600px;
+	font-size: 21px;
+	font-weight: bold;
+	color: #E56A2C;
+}
+
+.linux-hosting-b {
+	font-family: 'Open Sans Condensed', sans-serif;
+	margin: 0px;
+	padding: 0px;
+	float: left;
+	height: auto;
+	width: 600px;
+	font-size: 18px;
+	font-weight: bold;
+	color: #29336E;
+}
+.addon {
+	font-family: 'Open Sans Condensed', sans-serif;
+	margin: 0px;
+	padding: 0px;
+	float: left;
+	height: auto;
+	width: 600px;
+	font-size: 24px;
+	color: #E56A2C;
+	text-transform: uppercase;
+	font-weight: bold;
+}
+.power-panel-demo {
+	font-family: 'Open Sans Condensed', sans-serif;
+	margin: 0px;
+	padding: 0px;
+	float: left;
+	height: auto;
+	width: 100%;
+	font-size: 1.313em;
+	font-weight: bold;
+	color: #29336E;
+}
+table {
+        border-collapse: collapse;
+	margin: 15px;
+	padding: 0px;
+}
+
+table, th, td {
+	border: 1px solid #EEEEEE;
+	padding: 5px;
+	margin: 0px;
+}
+.price-head-new {
+	padding: 15px;
+	background-color: #424242;
+	text-align: center;
+	color: #FFFFFF;
+	font-family: "Open Sans";
+	font-size: 1.5em;
+	text-transform: uppercase;
+	margin: 0px;
+}
+.new-price span {
+	font-family: "Open Sans";
+	font-size: 2.5em;
+}
+.point-image {
+	margin: 0px;
+	height: 105px;
+	width: 100%;
+	text-align: center;
+	padding: 10px;
+	display: block;
+}
+.point-image2 {
+	margin: 0px;
+	height: 54px;
+	width: 100%;
+	text-align: center;
+	padding: 10px;
+	display: block;
+}
+.point-title {
+	font-family: 'Open Sans Condensed', sans-serif;
+	display: block;
+	margin: 0px;
+	padding: 0px;
+	height: auto;
+	font-size: 26px;
+	font-weight: bold;
+	color: #6d71b6;
+	width: 100%;
+	text-align: center;
+}
+.point-page-title {
+	font-family: 'Open Sans Condensed', sans-serif;
+	display: block;
+	margin: 0px;
+	padding: 0px;
+	height: auto;
+	font-size: 30px;
+	color: #E77B44;
+	width: 100%;
+	text-align: left;
+}
+.point-text-area {
+	margin: 0px;
+	height: 160px;
+	width: 100%;
+	text-align: justify;
+	padding: 20px;
+	display: block;
+}
+
+.point-text-area2 {
+	margin: 0px;
+	height: 150px;
+	width: 100%;
+	text-align: justify;
+	padding: 20px;
+	display: block;
+}
+.widget-title h3  { margin: 0; padding: 0; font-size: 20px; font-weight: bold;}
+
+.button {
+   background: #797878;
+   background: -webkit-gradient(linear, left top, left bottom, from(#797878), to(#797878));
+   background: -webkit-linear-gradient(top, #797878, #797878);
+   background: -moz-linear-gradient(top, #797878, #797878);
+   background: -ms-linear-gradient(top, #797878, #797878);
+   background: -o-linear-gradient(top, #797878, #797878);
+   background-image: -ms-linear-gradient(top, #797878 0%, #797878 100%);
+   padding: 8px 16px;
+   -webkit-border-radius: 10px;
+   -moz-border-radius: 10px;
+   border-radius: 10px;
+   -webkit-box-shadow: rgba(255,255,255,0.4) 0 0px 0, inset rgba(255,255,255,0.4) 0 0px 0;
+   -moz-box-shadow: rgba(255,255,255,0.4) 0 0px 0, inset rgba(255,255,255,0.4) 0 0px 0;
+   box-shadow: rgba(255,255,255,0.4) 0 0px 0, inset rgba(255,255,255,0.4) 0 0px 0;
+   text-shadow: #797878 0 1px 0;
+   color: #ffffff;
+   font-size: 14px;
+   font-family: helvetica, serif;
+   text-decoration: none;
+   vertical-align: middle;
+   }
+.button:hover {
+   text-shadow: #797878 0 1px 0;
+   background: #797878;
+   background: -webkit-gradient(linear, left top, left bottom, from(#797878), to(#797878));
+   background: -webkit-linear-gradient(top, #797878, #797878);
+   background: -moz-linear-gradient(top, #797878, #797878);
+   background: -ms-linear-gradient(top, #797878, #797878);
+   background: -o-linear-gradient(top, #797878, #797878);
+   background-image: -ms-linear-gradient(top, #797878 0%, #797878 100%);
+   color: #fff;
+   }
+.button:active {
+   text-shadow: #797878 0 1px 0;
+   background: #797878;
+   background: -webkit-gradient(linear, left top, left bottom, from(#797878), to(#797878));
+   background: -webkit-linear-gradient(top, #797878, #797878);
+   background: -moz-linear-gradient(top, #797878, #797878);
+   background: -ms-linear-gradient(top, #797878, #797878);
+   background: -o-linear-gradient(top, #797878, #797878);
+   background-image: -ms-linear-gradient(top, #797878 0%, #797878 100%);
+   color: #fff;
+   }
+/*------------------------------------------Search------------------------------------------------*/
+
+.form-field {
+        width:56%;
+	height:42px;
+	background:#FFF;
+	font-size:1em;
+	color:#2DA4FC;
+	padding-left:10px;
+	margin-left:5px;
+	padding-right:9px;
+-webkit-border-top-left-radius: 7px;
+	-moz-border-top-left-radius: 7px;
+	border-top-left-radius: 7px;
+-webkit-border-bottom-left-radius: 7px;
+	-moz-border-bottom-left-radius: 7px;
+	border-bottom-left-radius: 7px;
+	border:0px;
+   }
+.form-field:focus {
+   background: #fff;
+   color: #028bca;
+   }
+.form-container h2 {
+   text-shadow: #000000 0 1px 0;
+   font-size:18px;
+   margin: 0 0 10px 0;
+   font-weight:bold;
+   text-align:center;
+    }
+.form-title {
+   margin-bottom:10px;
+   color: #000000;
+   text-shadow: #000000 0 1px 0;
+   }
+.submit-container {
+   margin:8px 0;
+   text-align:right;
+   }
+.drop-fild {
+   border: 1px solid #0193d7;
+   background: #c8eeff;
+   -webkit-border-radius: 15px;
+   -moz-border-radius: 15px;
+   border-radius:5px 5px 5px 5px ;
+   color: #028bca;
+   -webkit-box-shadow: rgba(255,255,255,0.4) 0 0px 0, inset rgba(000,000,000,0.7) 0 0px 0px;
+   -moz-box-shadow: rgba(255,255,255,0.4) 0 0px 0, inset rgba(000,000,000,0.7) 0 0px 0px;
+   box-shadow: rgba(255,255,255,0.4) 0 0px 0, inset rgba(000,000,000,0.7) 0 0px 0px;
+   padding:8px;
+   margin-bottom:20px;
+   margin-left:3px;
+   font-size: 25px;
+   }
+.domain-search-box-new {
+	height:auto;
+	width:70%;
+	background: #8FCBFF; /* Old browsers */
+	padding:1% 0.6%;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+}
+#domain-submit-new { 
+height:44px; 
+ background:#2DA4FC;
+ color:#fff;
+font-size:1.2em; 
+-webkit-border-top-right-radius: 7px;
+-moz-border-top-right-radius: 7px;
+border-top-right-radius: 7px; 
+-webkit-border-bottom-right-radius: 7px;
+-moz-border-bottom-right-radius: 7px;
+border-bottom-right-radius: 7px;
+border:0px;}
+
+.domains-input-new {
+	height:44px;
+	background:#FFF;
+	font-size:1em;
+	color:#2DA4FC;
+	padding-left:10px;
+	padding-right:9px;
+	border:0px;
+	margin-left:3px;
+	margin-right:3px;
+}
+
+
+
+/*------------------------------------------Search End------------------------------------------------*/
+.domain-heading {
+	font-family: "Open Sans";
+	font-size: 30px;
+	font-weight: bold;
+	color: #00aeff;
+}
+#ribbon {
+	background-image: url(https://diadem.in/wp-content/uploads/2015/01/ribbon.png);
+	background-repeat: no-repeat;
+	background-position: right top;
+}
+#ribbon2 {
+	background-image: url(https://diadem.in/wp-content/uploads/2015/01/bestbuy.png);
+	background-repeat: no-repeat;
+	background-position: right top;
+}
+#ribbon3 {
+	background-image: url(https://diadem.in/wp-content/uploads/2015/01/new.png);
+	background-repeat: no-repeat;
+	background-position: right top;
+}
+/*------------------------------------------Tool Tip------------------------------------------------*/
+a.tooltip {
+	outline:none;
+	margin: 0px;
+	padding: 0px;
+}
+a.tooltip strong {line-height:30px;}
+a.tooltip:hover {text-decoration:none;} 
+a.tooltip span {
+	z-index:10;
+	display:none;
+	margin-left:18px;
+	width:auto;
+	line-height:16px;
+	padding-top: 14px;
+	padding-right: 20px;
+	padding-bottom: 14px;
+	padding-left: 20px;
+	margin-top: -3px;
+}
+a.tooltip:hover span{
+	display:inline;
+	position:absolute;
+	color:#111;
+	border:1px solid #fde3cc;
+	background-color: #fde3cc;
+	background-image: url(img/arrow.png);
+}
+.callout {
+	z-index:20;
+	position:absolute;
+	top:15px;
+	border:0;
+	left:-10px;
+}
+    
+/*CSS3 extras*/
+a.tooltip span
+{
+    border-radius:4px;
+    /*box-shadow: 5px 5px 8px #CCC;*/
+}
+.btn-new a {
+	color: #FFFFFF;
+        padding: 5px;
+	background-color: #d54903;
+	border: 1px solid #d54903;
+-webkit-border-radius: 2px;-moz-border-radius: 2px;border-radius: 2px;
+	font-size: 11px;
+	text-transform: uppercase;
+cursor:pointer;
+}
+.btn-new a:hover {
+	color: #FFFFFF;
+        padding: 5px;
+	background-color: #d54903;
+	border: 1px solid #d54903;
+-webkit-border-radius: 2px;-moz-border-radius: 2px;border-radius: 2px;
+	font-size: 11px;
+	text-transform: uppercase;
+cursor:pointer;
+}
+.strong-light {color: #666666;}
+/*----------------------------------------End Tool Tip----------------------------------------------*/
+
+
+/*------------------------------------------Price Table------------------------------------------------*/
+@media 
+	only screen and (max-width: 760px),
+	(min-device-width: 768px) and (max-device-width: 1024px)  {
+	
+		/* Force table to not be like tables anymore */
+* { 
+	margin: 0; 
+	padding: 0; 
+}
+		.price-table {
+			width: 100%;
+			font-size: .7em;
+		}
+		.price-table #form1 #select {
+			height: auto;
+			width: 40px;
+			font-family: "Open Sans";
+			font-weight: bold;
+			font-size: .7em;
+	color: #000000;
+	border: 1px solid #e6e6e6;
+		}
+		.price-head-new {
+			padding: 5px;
+			background-color: #424242;
+			text-align: center;
+			color: #FFFFFF;
+			font-family: "Open Sans";
+			font-size: 1em;
+			text-transform: uppercase;
+			margin: 0px;
+		}
+		.new-price span {
+			font-family: "Open Sans";
+			font-size: 1em;
+		}
+	    	.price-table #form1 #button {
+			height: auto;
+			width: auto;
+			font-size: .7em;
+		}
+	}
+/*--------------------------------------------End Price--------------------------------------------------------------------*/
+

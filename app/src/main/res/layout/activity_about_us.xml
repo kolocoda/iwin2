@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/accessView"
+    android:background="@color/white"
+    android:fitsSystemWindows="true"
+    android:gravity="top|center"
+    android:orientation="vertical"
+    tools:context=".activities.AboutUsActivity">>
+
+    <include
+        android:id="@+id/tool_bar"
+        layout="@layout/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"/>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tool_bar">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_weight="1"
+                    android:src="@drawable/logo_splash"
+                    android:transitionName="logo" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/loginView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+               <TextView
+                   android:id="@+id/text"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:text="Energy Centre is a product of the Roundtable for Growth and Development of power (RODEP). This application encompasses all the activities of the Independent energy watch initiative (IWIN), availing users the opportunity to track the happenings of the power sector as they occur."
+
+                   android:textSize="16sp"
+                   android:gravity="left"/>
+                <TextView
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:text="Version 1.1.0"
+                    android:textSize="16sp"
+                    android:gravity="left"/>
+
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>
+

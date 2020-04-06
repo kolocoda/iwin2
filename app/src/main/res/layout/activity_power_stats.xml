@@ -1,0 +1,555 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.base.OtherActivity">
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".activities.base.PowerStatsActivity">
+
+        <include
+            android:id="@+id/tool_bar"
+            layout="@layout/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true" />
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tool_bar">
+
+
+            <LinearLayout
+            android:id="@+id/statsView"
+
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <ProgressBar
+                android:id="@+id/progressBarTop"
+                style="?android:attr/progressBarStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_marginBottom="3dp"
+                android:layout_marginTop="10dp" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Daily Energy Watch"
+                android:gravity="center"
+                android:textSize="18sp"
+                android:textColor="@color/colorPrimary"
+                android:textStyle="bold"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"/>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/colorPrimaryDark"/>
+            <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+                android:padding="5dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:layout_weight="0.45"
+                android:textSize="16sp"/>
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:layout_weight="0.05"/>
+            <TextView
+                android:id="@+id/date1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="May 13"
+                android:layout_weight="0.2"
+                android:textSize="16sp"
+                android:textColor="@color/darkText"/>
+            <TextView
+                android:id="@+id/date2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Jun 14"
+                android:layout_weight="0.2"
+                android:textSize="16sp"
+                android:textColor="@color/darkText"/>
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:layout_weight="0.1"
+                android:textSize="16sp"/>
+
+
+        </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/lightGrey"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:orientation="horizontal"
+                android:weightSum="1">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:text="Available Generation Capability MW"
+                    android:layout_weight="0.45"
+                    android:textSize="16sp"
+                    android:textColor="@color/darkText"/>
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:layout_weight="0.05"/>
+                <TextView
+                    android:id="@+id/avGenMW1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:text="2,956.76"
+                    android:gravity="center_vertical"
+                    android:layout_weight="0.2"
+                    android:textSize="15sp"
+                    android:textColor="@color/darkText"/>
+                <TextView
+                    android:id="@+id/avGenMW2"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:text="3,578.20"
+                    android:gravity="center_vertical"
+                    android:layout_weight="0.2"
+                    android:textSize="15sp"
+                    android:textColor="@color/darkText"/>
+                <ImageView
+                    android:id="@+id/avGenMWImg"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.1"
+                    android:layout_gravity="left"
+                    android:src="@drawable/ic_arrow_up"/>
+
+
+            </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/lightGrey"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:text="Peak Generation MW"
+                    android:layout_weight="0.45"
+                    android:textSize="16sp"
+                    android:textColor="@color/darkText"/>
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:layout_weight="0.05"/>
+                <TextView
+                    android:id="@+id/peakGenMW1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:text="2,956.76"
+                    android:gravity="center_vertical"
+                    android:layout_weight="0.2"
+                    android:textSize="15sp"
+                    android:textColor="@color/darkText"/>
+                <TextView
+                    android:id="@+id/peakGenMW2"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:text="3,578.20"
+                    android:gravity="center_vertical"
+                    android:layout_weight="0.2"
+                    android:textSize="15sp"
+                    android:textColor="@color/darkText"/>
+                <ImageView
+                    android:id="@+id/peakGenImg"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="0.1"
+                    android:layout_gravity="center_vertical"
+                    android:src="@drawable/ic_arrow_up"/>
+
+
+            </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/lightGrey"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:text="Average Generation MW"
+                    android:layout_weight="0.45"
+                    android:textSize="16sp"
+                    android:textColor="@color/darkText"/>
+                <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:layout_weight="0.05"/>
+                <TextView
+                    android:id="@+id/avrGen1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:text="2,956.76"
+                    android:gravity="center_vertical"
+                    android:layout_weight="0.2"
+                    android:textSize="15sp"
+                    android:textColor="@color/darkText"/>
+                <TextView
+                    android:id="@+id/avrGen2"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:text="3,578.20"
+                    android:gravity="center_vertical"
+                    android:layout_weight="0.2"
+                    android:textSize="15sp"
+                    android:textColor="@color/darkText"/>
+                <ImageView
+                    android:id="@+id/avrGenImg"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="0.1"
+                    android:layout_gravity="center_vertical"
+                    android:src="@drawable/ic_arrow_up"/>
+
+
+            </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/lightGrey"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:text="Generation Constraint due To Gas MW"
+                    android:layout_weight="0.45"
+                    android:textSize="16sp"
+                    android:textColor="@color/darkText"/>
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:layout_weight="0.05"/>
+                <TextView
+                    android:id="@+id/gasConMW1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:text="2,956.76"
+                    android:gravity="center_vertical"
+                    android:layout_weight="0.2"
+                    android:textSize="15sp"
+                    android:textColor="@color/darkText"/>
+                <TextView
+                    android:id="@+id/gasCon2"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:text="3,578.20"
+                    android:gravity="center_vertical"
+                    android:layout_weight="0.2"
+                    android:textSize="15sp"
+                    android:textColor="@color/darkText"/>
+                <ImageView
+                    android:id="@+id/gasConImg"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="0.1"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_arrow_up"/>
+
+
+            </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/lightGrey"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:text="Generation Constraint Due to Water MW"
+                    android:layout_weight="0.45"
+                    android:textSize="16sp"
+                    android:textColor="@color/darkText"/>
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:layout_weight="0.05"/>
+
+                <TextView
+                    android:id="@+id/waterCon1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:text="2,956.76"
+                    android:gravity="center_vertical"
+                    android:layout_weight="0.2"
+                    android:textSize="15sp"
+                    android:textColor="@color/darkText"/>
+                <TextView
+                    android:id="@+id/waterCon2"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:text="3,578.20"
+                    android:gravity="center_vertical"
+                    android:layout_weight="0.2"
+                    android:textSize="15sp"
+                    android:textColor="@color/darkText"/>
+                <ImageView
+                    android:id="@+id/waterConImg"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="0.1"
+                    android:layout_gravity="center_vertical"
+                    android:src="@drawable/ic_arrow_up"/>
+
+
+            </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/lightGrey"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="Generation Constraint Due to Load Rejection MW"
+                    android:layout_weight="0.45"
+                    android:textSize="16sp"
+                    android:textColor="@color/darkText"/>
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:layout_weight="0.05"/>
+                <TextView
+                    android:id="@+id/loadCon1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:text="2,956.76"
+                    android:gravity="center_vertical"
+                    android:layout_weight="0.2"
+                    android:textSize="15sp"
+                    android:textColor="@color/darkText"/>
+                <TextView
+                    android:id="@+id/loadCon2"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:text="3,578.20"
+                    android:gravity="center_vertical"
+                    android:layout_weight="0.2"
+                    android:textSize="15sp"
+                    android:textColor="@color/darkText"/>
+                <ImageView
+                    android:id="@+id/loadConImg"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="0.1"
+                    android:layout_gravity="center_vertical"
+                    android:src="@drawable/ic_arrow_up"/>
+
+
+            </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/lightGrey"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:text="Generation Constraint Due to Transmission MW"
+                    android:layout_weight="0.45"
+                    android:textSize="16sp"
+                    android:textColor="@color/darkText"/>
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:layout_weight="0.05"/>
+                <TextView
+                    android:id="@+id/transCon1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:text="2,956.76"
+                    android:gravity="center_vertical"
+                    android:layout_weight="0.2"
+                    android:textSize="15sp"
+                    android:textColor="@color/darkText"/>
+                <TextView
+                    android:id="@+id/transCon2"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:text="3,578.20"
+                    android:gravity="center_vertical"
+                    android:layout_weight="0.2"
+                    android:textSize="15sp"
+                    android:textColor="@color/darkText"/>
+                <ImageView
+                    android:id="@+id/transConImg"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.1"
+                    android:layout_gravity="left"
+                    android:src="@drawable/ic_arrow_up"/>
+
+
+            </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/lightGrey"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:text="Total Constrained Generation MW"
+                    android:layout_weight="0.45"
+                    android:textSize="16sp"
+                    android:textColor="@color/darkText"/>
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:layout_weight="0.05"/>
+
+                <TextView
+                    android:id="@+id/totalCon1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:text="2,956.76"
+                    android:gravity="center_vertical"
+                    android:layout_weight="0.2"
+                    android:textSize="15sp"
+                    android:textColor="@color/darkText"/>
+                <TextView
+                    android:id="@+id/totalCon2"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:text="3,578.20"
+                    android:gravity="center_vertical"
+                    android:layout_weight="0.2"
+                    android:textSize="15sp"
+                    android:textColor="@color/darkText"/>
+                <ImageView
+                    android:id="@+id/totalConImg"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.1"
+                    android:layout_gravity="center_vertical"
+                    android:src="@drawable/ic_arrow_up"/>
+
+
+            </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/lightGrey"/>
+
+        </LinearLayout>
+
+        </ScrollView>
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/chartView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:layout_margin="@dimen/fab_margin"
+            android:src="@drawable/ic_icon_chart_white" />
+
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/fab2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginBottom="140dp"
+            android:visibility="invisible"
+            app:backgroundTint="@color/transparentGreen"
+            app:elevation="6dp"
+            app:pressedTranslationZ="12dp"
+            android:src="@drawable/ic_icon_energy" />
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/fab1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginBottom="75dp"
+            android:visibility="invisible"
+            app:elevation="6dp"
+            app:backgroundTint="@color/transparentBadge"
+            app:pressedTranslationZ="12dp"
+            android:src="@drawable/ic_icon_owner" />
+
+    </RelativeLayout>
+    <include layout="@layout/navigation_bar" />
+</android.support.v4.widget.DrawerLayout>

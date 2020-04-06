@@ -1,0 +1,1569 @@
+<!DOCTYPE html>
+<!-- saved from url=(0075)https://diadem.in/blog/two-ways-to-add-joomla-users-using-your-custom-code/ -->
+<html lang="en-US" xml:lang="en-US" prefix="og: http://ogp.me/ns#" class="js no-touch"><!--<![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>Two ways to add Joomla users using your custom code - Diadem Technologies</title>	
+<link rel="profile" href="http://gmpg.org/xfn/11">
+<link rel="pingback" href="https://diadem.in/xmlrpc.php">
+
+<!--[if lt IE 9]>
+<script src="https://diadem.in/wp-content/themes/hostmev2/js/html5.js" type="text/javascript"></script>
+<![endif]-->
+
+	<link rel="shortcut icon" href="https://diadem.in/wp-content/uploads/2013/07/favicon.ico" type="image/x-icon"> 
+
+
+<!-- This site is optimized with the Yoast SEO plugin v3.2.5 - https://yoast.com/wordpress/plugins/seo/ -->
+<link rel="canonical" href="https://diadem.in/blog/two-ways-to-add-joomla-users-using-your-custom-code/">
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Two ways to add Joomla users using your custom code - Diadem Technologies">
+<meta property="og:description" content="The task of adding Joomla users, login/logout, activating/deactivating of users and password reset tasks etc are handled by the component com_users. In this post I will show how to add a joomla user from an external page. Adding users externally can be done in two ways: 1. Create an html form with correct fields and …">
+<meta property="og:url" content="https://diadem.in/blog/two-ways-to-add-joomla-users-using-your-custom-code/">
+<meta property="og:site_name" content="Diadem Technologies">
+<meta property="article:tag" content="add joomla users">
+<meta property="article:tag" content="joomla users">
+<meta property="article:section" content="CMS">
+<meta property="article:published_time" content="2009-06-07T18:06:45+00:00">
+<meta property="article:modified_time" content="2015-03-06T08:09:17+00:00">
+<meta property="og:updated_time" content="2015-03-06T08:09:17+00:00">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:description" content="The task of adding Joomla users, login/logout, activating/deactivating of users and password reset tasks etc are handled by the component com_users. In this post I will show how to add a joomla user from an external page. Adding users externally can be done in two ways: 1. Create an html form with correct fields and […]">
+<meta name="twitter:title" content="Two ways to add Joomla users using your custom code - Diadem Technologies">
+<!-- / Yoast SEO plugin. -->
+
+<link rel="alternate" type="application/rss+xml" title="Diadem Technologies » Feed" href="https://diadem.in/feed/">
+<link rel="alternate" type="application/rss+xml" title="Diadem Technologies » Comments Feed" href="https://diadem.in/comments/feed/">
+<link rel="alternate" type="application/rss+xml" title="Diadem Technologies » Two ways to add Joomla users using your custom code Comments Feed" href="https://diadem.in/blog/two-ways-to-add-joomla-users-using-your-custom-code/feed/">
+		<div class="fit-vids-style">­<style>               .fluid-width-video-wrapper {                 width: 100%;                              position: relative;                       padding: 0;                            }                                                                                   .fluid-width-video-wrapper iframe,        .fluid-width-video-wrapper object,        .fluid-width-video-wrapper embed {           position: absolute;                       top: 0;                                   left: 0;                                  width: 100%;                              height: 100%;                          }                                       </style></div><script async="" src="./Two ways to add Joomla users using your custom code - Diadem Technologies_files/analytics.js"></script><script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/72x72\/","ext":".png","source":{"concatemoji":"https:\/\/diadem.in\/wp-includes\/js\/wp-emoji-release.min.js"}};
+			!function(a,b,c){function d(a){var c,d,e,f=b.createElement("canvas"),g=f.getContext&&f.getContext("2d"),h=String.fromCharCode;if(!g||!g.fillText)return!1;switch(g.textBaseline="top",g.font="600 32px Arial",a){case"flag":return g.fillText(h(55356,56806,55356,56826),0,0),f.toDataURL().length>3e3;case"diversity":return g.fillText(h(55356,57221),0,0),c=g.getImageData(16,16,1,1).data,d=c[0]+","+c[1]+","+c[2]+","+c[3],g.fillText(h(55356,57221,55356,57343),0,0),c=g.getImageData(16,16,1,1).data,e=c[0]+","+c[1]+","+c[2]+","+c[3],d!==e;case"simple":return g.fillText(h(55357,56835),0,0),0!==g.getImageData(16,16,1,1).data[0];case"unicode8":return g.fillText(h(55356,57135),0,0),0!==g.getImageData(16,16,1,1).data[0]}return!1}function e(a){var c=b.createElement("script");c.src=a,c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var f,g,h,i;for(i=Array("simple","flag","unicode8","diversity"),c.supports={everything:!0,everythingExceptFlag:!0},h=0;h<i.length;h++)c.supports[i[h]]=d(i[h]),c.supports.everything=c.supports.everything&&c.supports[i[h]],"flag"!==i[h]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[i[h]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(g=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",g,!1),a.addEventListener("load",g,!1)):(a.attachEvent("onload",g),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),f=c.source||{},f.concatemoji?e(f.concatemoji):f.wpemoji&&f.twemoji&&(e(f.twemoji),e(f.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script><script src="./Two ways to add Joomla users using your custom code - Diadem Technologies_files/wp-emoji-release.min.js" type="text/javascript"></script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<link rel="stylesheet" id="rs-plugin-settings-css" href="./Two ways to add Joomla users using your custom code - Diadem Technologies_files/settings.css" type="text/css" media="all">
+<style id="rs-plugin-settings-inline-css" type="text/css">
+#rs-demo-id {}
+</style>
+<link rel="stylesheet" id="testimonials-css-css" href="./Two ways to add Joomla users using your custom code - Diadem Technologies_files/testimonials.css" type="text/css" media="all">
+<link rel="stylesheet" id="flexslider-css-css" href="./Two ways to add Joomla users using your custom code - Diadem Technologies_files/flexslider.css" type="text/css" media="all">
+<link rel="stylesheet" id="wp-postratings-css" href="./Two ways to add Joomla users using your custom code - Diadem Technologies_files/postratings-css.css" type="text/css" media="all">
+<link rel="stylesheet" id="wp-syntax-css-css" href="./Two ways to add Joomla users using your custom code - Diadem Technologies_files/wp-syntax.css" type="text/css" media="all">
+<link rel="stylesheet" id="parent-style-css" href="./Two ways to add Joomla users using your custom code - Diadem Technologies_files/style.css" type="text/css" media="all">
+<link rel="stylesheet" id="hostmev2-style-css" href="./Two ways to add Joomla users using your custom code - Diadem Technologies_files/style(1).css" type="text/css" media="all">
+<link rel="stylesheet" id="iva-animate-css" href="./Two ways to add Joomla users using your custom code - Diadem Technologies_files/animate.css" type="text/css" media="all">
+<link rel="stylesheet" id="iva-prettyphoto-css" href="./Two ways to add Joomla users using your custom code - Diadem Technologies_files/prettyPhoto.css" type="text/css" media="all">
+<link rel="stylesheet" id="iva-shortcodes-css" href="./Two ways to add Joomla users using your custom code - Diadem Technologies_files/shortcodes.css" type="text/css" media="all">
+<link rel="stylesheet" id="iva-fortawesome-css" href="./Two ways to add Joomla users using your custom code - Diadem Technologies_files/font-awesome.css" type="text/css" media="all">
+<link rel="stylesheet" id="iva-fontawesome-css" href="./Two ways to add Joomla users using your custom code - Diadem Technologies_files/font-awesome(1).css" type="text/css" media="all">
+<link rel="stylesheet" id="iva-jplayer.blue.monday-css" href="./Two ways to add Joomla users using your custom code - Diadem Technologies_files/jplayer.blue.monday.css" type="text/css" media="all">
+<link rel="stylesheet" id="iva-datepicker-css" href="./Two ways to add Joomla users using your custom code - Diadem Technologies_files/datepicker.css" type="text/css" media="all">
+<link rel="stylesheet" id="iva-flexslider-css" href="./Two ways to add Joomla users using your custom code - Diadem Technologies_files/flexslider(1).css" type="text/css" media="all">
+<link rel="stylesheet" id="iva-responsive-css" href="./Two ways to add Joomla users using your custom code - Diadem Technologies_files/responsive.css" type="text/css" media="all">
+<link rel="stylesheet" id="qcf_style-css" href="./Two ways to add Joomla users using your custom code - Diadem Technologies_files/quick-contact-form.css" type="text/css" media="all">
+<link rel="stylesheet" id="jquery-style-css" href="./Two ways to add Joomla users using your custom code - Diadem Technologies_files/jquery-ui.css" type="text/css" media="all">
+<link rel="stylesheet" id="genericons-css" href="./Two ways to add Joomla users using your custom code - Diadem Technologies_files/genericons.css" type="text/css" media="all">
+<link rel="stylesheet" id="optimizepress-default-css" href="./Two ways to add Joomla users using your custom code - Diadem Technologies_files/default.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="jetpack_css-css" href="./Two ways to add Joomla users using your custom code - Diadem Technologies_files/jetpack.css" type="text/css" media="all">
+<link rel="stylesheet" id="wp-business-css" href="./Two ways to add Joomla users using your custom code - Diadem Technologies_files/business-hours.css" type="text/css" media="screen">
+<link rel="stylesheet" id="simple-pagination-css-css" href="./Two ways to add Joomla users using your custom code - Diadem Technologies_files/default.css" type="text/css" media="screen">
+<script type="text/javascript">
+/* <![CDATA[ */
+var atp_panel = {"SiteUrl":"https:\/\/diadem.in\/wp-content\/themes\/hostmev2-child"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./Two ways to add Joomla users using your custom code - Diadem Technologies_files/jquery.js"></script>
+<script type="text/javascript" src="./Two ways to add Joomla users using your custom code - Diadem Technologies_files/jquery-migrate.min.js"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var OptimizePress = {"ajaxurl":"https:\/\/diadem.in\/wp-admin\/admin-ajax.php","SN":"optimizepress","version":"2.5.4.2","script_debug":".min","localStorageEnabled":"","wp_admin_page":"","op_live_editor":"","op_page_builder":"","op_create_new_page":"","imgurl":"https:\/\/diadem.in\/wp-content\/plugins\/optimizePressPlugin\/lib\/images\/","OP_URL":"https:\/\/diadem.in\/wp-content\/plugins\/optimizePressPlugin\/","OP_JS":"https:\/\/diadem.in\/wp-content\/plugins\/optimizePressPlugin\/lib\/js\/","OP_PAGE_BUILDER_URL":"","include_url":"https:\/\/diadem.in\/wp-includes\/","op_autosave_interval":"300","op_autosave_enabled":"N","paths":{"url":"https:\/\/diadem.in\/wp-content\/plugins\/optimizePressPlugin\/","img":"https:\/\/diadem.in\/wp-content\/plugins\/optimizePressPlugin\/lib\/images\/","js":"https:\/\/diadem.in\/wp-content\/plugins\/optimizePressPlugin\/lib\/js\/","css":"https:\/\/diadem.in\/wp-content\/plugins\/optimizePressPlugin\/lib\/css\/"},"social":{"twitter":"optimizepress","facebook":"optimizepress","googleplus":"111273444733787349971"},"flowplayerHTML5":"https:\/\/diadem.in\/wp-content\/plugins\/optimizePressPlugin\/lib\/modules\/blog\/video\/flowplayer\/flowplayer.swf","flowplayerKey":"","flowplayerLogo":"","mediaelementplayer":"https:\/\/diadem.in\/wp-content\/plugins\/optimizePressPlugin\/lib\/modules\/blog\/video\/mediaelement\/","pb_unload_alert":"This page is asking you to confirm that you want to leave - data you have entered may not be saved.","pb_save_alert":"Please make sure you are happy with all of your options as some options will not be able to be changed for this page later.","optimizemember":{"enabled":false,"version":"0"}};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./Two ways to add Joomla users using your custom code - Diadem Technologies_files/op-jquery-base-all.min.js"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var related_posts_js_options = {"post_heading":"h4"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./Two ways to add Joomla users using your custom code - Diadem Technologies_files/related-posts.js"></script>
+<script type="text/javascript" src="./Two ways to add Joomla users using your custom code - Diadem Technologies_files/jquery.themepunch.tools.min.js"></script>
+<script type="text/javascript" src="./Two ways to add Joomla users using your custom code - Diadem Technologies_files/jquery.themepunch.revolution.min.js"></script>
+<link rel="https://api.w.org/" href="https://diadem.in/wp-json/">
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://diadem.in/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://diadem.in/wp-includes/wlwmanifest.xml"> 
+
+<link rel="shortlink" href="https://wp.me/p5Ruyv-6W">
+<link rel="alternate" type="application/json+oembed" href="https://diadem.in/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fdiadem.in%2Fblog%2Ftwo-ways-to-add-joomla-users-using-your-custom-code%2F">
+<link rel="alternate" type="text/xml+oembed" href="https://diadem.in/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fdiadem.in%2Fblog%2Ftwo-ways-to-add-joomla-users-using-your-custom-code%2F&amp;format=xml">
+<!-- <meta name="NextGEN" version="2.1.31" /> -->
+<link href="./Two ways to add Joomla users using your custom code - Diadem Technologies_files/css" rel="stylesheet" type="text/css">
+    <style type="text/css" media="screen">.qcf-style.landingpage {max-width:100%;overflow:hidden;width:280px;}
+.qcf-style.landingpage input[type=text], .qcf-style.landingpage textarea, .qcf-style.landingpage select, .qcf-style.landingpage #submit {border-radius:5px;}
+.qcf-style.landingpage h2 {color: #6d71b6;;height:auto;}.qcf-style.landingpage p, .qcf-style.landingpage select{font-family: open sans, sans-serif; font-size: 14px;color: #848383;height:auto;;line-height:normal;height:auto;}
+.qcf-style.landingpage div.rangeslider, .qcf-style.landingpage div.rangeslider__fill {background: #CCC;}
+        .qcf-style.landingpage div.rangeslider__fill {background: #e84d00;}
+        .qcf-style.landingpage div.rangeslider__handle {background: white;border: 1px solid #CCC;}
+        .qcf-style.landingpage div.qcf-slideroutput{font-size:1.2em;color:#465069;}
+.qcf-style.landingpage input[type=text], .qcf-style.landingpage textarea, .qcf-style.landingpage select {border: 1px solid #d25c20;background:#FFFFFF;font-family: open sans, sans-serif; font-size: 14px; color: #6d71b6;;line-height:normal;height:auto;}
+.qcf-style.landingpage .qcfcontainer input + label, .qcf-style.landingpage .qcfcontainer textarea + label {font-family: open sans, sans-serif; font-size: 14px; color: #6d71b6;;}
+.qcf-style.landingpage input:focus, .qcf-style.landingpage textarea:focus {background:#ffe8dc;}
+.qcf-style.landingpage input[type=text].required, .qcf-style.landingpage select.required, .qcf-style.landingpage textarea.required {border: 1px solid #d25c20;}
+.qcf-style.landingpage p span, .qcf-style.landingpage .error {color:#D31900;clear:both;}
+
+.qcf-style.landingpage input[type=text].error, .qcf-style.landingpage select.error, .qcf-style.landingpage textarea.error {border:1px solid #D31900;}
+.qcf-style.landingpage div {background:;}
+.qcf-style.landingpage #submit, .qcf-style.landingpage #submit:hover{float:left;width:100%;color:#FFF;background:#e77b44;border:1px solid #c14100;font-family: open sans, sans-serif;font-size: inherit;}
+.qcf-style.contact {max-width:100%;overflow:hidden;width:100%;}
+.qcf-style.contact input[type=text], .qcf-style.contact textarea, .qcf-style.contact select, .qcf-style.contact #submit {border-radius:5px;}
+.qcf-style.contact h2 {color: #6d71b6;;height:auto;}.qcf-style.contact p, .qcf-style.contact select{font-family: open sans, sans-serif; font-size: 14px;color: #848383;height:auto;;line-height:normal;height:auto;}
+.qcf-style.contact div.rangeslider, .qcf-style.contact div.rangeslider__fill {background: #CCC;}
+        .qcf-style.contact div.rangeslider__fill {background: #e84d00;}
+        .qcf-style.contact div.rangeslider__handle {background: white;border: 1px solid #CCC;}
+        .qcf-style.contact div.qcf-slideroutput{font-size:1.2em;color:#465069;}
+.qcf-style.contact input[type=text], .qcf-style.contact textarea, .qcf-style.contact select {border: 1px solid #d25c20;background:#FFFFFF;font-family: open sans, sans-serif; font-size: 14px; color: #6d71b6;;line-height:normal;height:auto;}
+.qcf-style.contact .qcfcontainer input + label, .qcf-style.contact .qcfcontainer textarea + label {font-family: open sans, sans-serif; font-size: 14px; color: #6d71b6;;}
+.qcf-style.contact input:focus, .qcf-style.contact textarea:focus {background:#ffe8dc;}
+.qcf-style.contact input[type=text].required, .qcf-style.contact select.required, .qcf-style.contact textarea.required {border: 1px solid #d25c20;}
+.qcf-style.contact p span, .qcf-style.contact .error {color:#D31900;clear:both;}
+
+.qcf-style.contact input[type=text].error, .qcf-style.contact select.error, .qcf-style.contact textarea.error {border:1px solid #D31900;}
+.qcf-style.contact div {background:#FFF;}
+.qcf-style.contact #submit, .qcf-style.contact #submit:hover{float:right;width:100px;color:#FFF;background:#e77b44;border:1px solid #c14100;font-family: open sans, sans-serif;font-size: inherit;}
+.qcf-style.StayUpdated {max-width:100%;overflow:hidden;width:100%;}
+.qcf-style.StayUpdated input[type=text], .qcf-style.StayUpdated textarea, .qcf-style.StayUpdated select, .qcf-style.StayUpdated #submit {border-radius:0;}
+.qcf-style.StayUpdated h2 {color: #e8e8e8;font-size: 1.6em;;height:auto;}.qcf-style.StayUpdated p, .qcf-style.StayUpdated select{font-family: arial, sans-serif; font-size: 1.2em;color: #d8d8d8;height:auto;;line-height:normal;height:auto;}
+.qcf-style.StayUpdated div.rangeslider, .qcf-style.StayUpdated div.rangeslider__fill {background: #CCC;}
+        .qcf-style.StayUpdated div.rangeslider__fill {background: #f46a00;}
+        .qcf-style.StayUpdated div.rangeslider__handle {background: white;border: 1px solid #CCC;}
+        .qcf-style.StayUpdated div.qcf-slideroutput{font-size:1.2em;color:#465069;}
+.qcf-style.StayUpdated input[type=text], .qcf-style.StayUpdated textarea, .qcf-style.StayUpdated select {border: 1px solid #415063;background:#FFFFFF;font-family: arial, sans-serif; font-size: 1.2em; color: #ffffff;;line-height:normal;height:auto;}
+.qcf-style.StayUpdated .qcfcontainer input + label, .qcf-style.StayUpdated .qcfcontainer textarea + label {font-family: arial, sans-serif; font-size: 1.2em; color: #ffffff;;}
+.qcf-style.StayUpdated input:focus, .qcf-style.StayUpdated textarea:focus {background:#FFFFCC;}
+.qcf-style.StayUpdated input[type=text].required, .qcf-style.StayUpdated select.required, .qcf-style.StayUpdated textarea.required {border: 0px solid #00C618;}
+.qcf-style.StayUpdated p span, .qcf-style.StayUpdated .error {color:#D31900;clear:both;}
+
+.qcf-style.StayUpdated input[type=text].error, .qcf-style.StayUpdated select.error, .qcf-style.StayUpdated textarea.error {border:1px solid #D31900;}
+.qcf-style.StayUpdated div {background:#222222;}
+.qcf-style.StayUpdated #submit, .qcf-style.StayUpdated #submit:hover{float:left;width:100%;color:#FFF;background:#db4606;border:0px solid #415063;font-family: arial, sans-serif;font-size: inherit;}
+.qcf-style.default {max-width:100%;overflow:hidden;width:280px;}
+.qcf-style.default input[type=text], .qcf-style.default textarea, .qcf-style.default select, .qcf-style.default #submit {border-radius:5px;}
+.qcf-style.default h2 {color: #6d71b6;;height:auto;}.qcf-style.default p, .qcf-style.default select{font-family: open sans, sans-serif; font-size: 14px;color: #848383;height:auto;;line-height:normal;height:auto;}
+.qcf-style.default div.rangeslider, .qcf-style.default div.rangeslider__fill {background: #CCC;}
+        .qcf-style.default div.rangeslider__fill {background: #e84d00;}
+        .qcf-style.default div.rangeslider__handle {background: white;border: 1px solid #CCC;}
+        .qcf-style.default div.qcf-slideroutput{font-size:1.2em;color:#465069;}
+.qcf-style.default input[type=text], .qcf-style.default textarea, .qcf-style.default select {border: 1px solid #d25c20;background:#FFFFFF;font-family: open sans, sans-serif; font-size: 14px; color: #6d71b6;;line-height:normal;height:auto;}
+.qcf-style.default .qcfcontainer input + label, .qcf-style.default .qcfcontainer textarea + label {font-family: open sans, sans-serif; font-size: 14px; color: #6d71b6;;}
+.qcf-style.default input:focus, .qcf-style.default textarea:focus {background:#ffe8dc;}
+.qcf-style.default input[type=text].required, .qcf-style.default select.required, .qcf-style.default textarea.required {border: 1px solid #d25c20;}
+.qcf-style.default p span, .qcf-style.default .error {color:#D31900;clear:both;}
+
+.qcf-style.default input[type=text].error, .qcf-style.default select.error, .qcf-style.default textarea.error {border:1px solid #D31900;}
+.qcf-style.default div {background:;}
+.qcf-style.default #submit, .qcf-style.default #submit:hover{float:left;width:100%;color:#FFF;background:#e77b44;border:1px solid #c14100;font-family: open sans, sans-serif;font-size: inherit;}
+</style>
+<link rel="dns-prefetch" href="https://v0.wordpress.com/">
+<link rel="dns-prefetch" href="https://jetpack.wordpress.com/">
+<link rel="dns-prefetch" href="https://s0.wp.com/">
+<link rel="dns-prefetch" href="https://s1.wp.com/">
+<link rel="dns-prefetch" href="https://s2.wp.com/">
+<link rel="dns-prefetch" href="https://public-api.wordpress.com/">
+<link rel="dns-prefetch" href="https://0.gravatar.com/">
+<link rel="dns-prefetch" href="https://1.gravatar.com/">
+<link rel="dns-prefetch" href="https://2.gravatar.com/">
+<link rel="dns-prefetch" href="https://i0.wp.com/">
+<link rel="dns-prefetch" href="https://i1.wp.com/">
+<link rel="dns-prefetch" href="https://i2.wp.com/">
+<style type="text/css">img#wpstats{display:none}</style>
+<!-- Google Fonts -->
+<link href="./Two ways to add Joomla users using your custom code - Diadem Technologies_files/css(1)" rel="stylesheet" type="text/css">
+
+		<style type="text/css">.recentcomments a{display:inline !important;padding:0 !important;margin:0 !important;}</style>
+		<meta name="generator" content="Powered by Visual Composer - drag and drop page builder for WordPress.">
+<!--[if lte IE 9]><link rel="stylesheet" type="text/css" href="https://diadem.in/wp-content/plugins/js_composer/assets/css/vc_lte_ie9.min.css" media="screen"><![endif]--><!--[if IE  8]><link rel="stylesheet" type="text/css" href="https://diadem.in/wp-content/plugins/js_composer/assets/css/vc-ie8.min.css" media="screen"><![endif]-->		<style type="text/css">
+		span.oe_textdirection { unicode-bidi: bidi-override; direction: rtl; }
+		span.oe_displaynone { display: none; }
+		</style>
+
+        <!--[if (gte IE 6)&(lte IE 8)]>
+            <script type="text/javascript" src="https://diadem.in/wp-content/plugins/optimizePressPlugin/lib/js/selectivizr-1.0.2-min.js?ver=1.0.2"></script>
+        <![endif]-->
+        <!--[if lt IE 9]>
+            <script src="https://diadem.in/wp-content/plugins/optimizePressPlugin/lib/js//html5shiv.min.js"></script>
+        <![endif]-->
+    <meta name="generator" content="Powered by Slider Revolution 5.2.3.5 - responsive, Mobile-Friendly Slider Plugin for WordPress with comfortable drag and drop interface.">
+<style type="text/css" id="syntaxhighlighteranchor"></style>
+<style>
+
+
+body {  }
+body { font-size:15px;    }
+
+.pagemid,
+.pagemid_section {  }
+
+h1, h2, h3, h4, h5, h6 { font-family:Open Sans Condensed; }
+body { font-family:Open Sans; }
+h4.widget-title { font-family:Open Sans; }
+#footer h4.widget-title { font-family:Open Sans; }
+
+.topbar { background-color:#f0f0f0;color:#444444;}
+.topbar a { color:#383838;}
+.topbar a:hover { }
+#header, #header-s2 {  }
+
+#featured_slider {  }
+.homepage_teaser,
+.frontpage_teaser
+ { background-color:#1abc9c; 
+	color:#ffffff;}
+
+.header-area {	 }
+
+#subheader {
+				}
+#subheader .page-title,
+#subheader .subdesc {  }
+.primarymenu { border-color:#dddddd; }
+
+h1#site-title a{      }
+h2#site-description {      }
+.logo {   }
+#sticky { background:#1fcfc0;color:#45484d; }
+
+#atp_menu a { font-size:13px; color:#444444;  font-style:normal; font-weight:normal;font-family:Open Sans; }
+#atp_menu li:hover, 
+#atp_menu li.sfHover {
+ background-color:#eeeeee; 
+}
+
+#atp_menu .sfHover > a,
+#atp_menu a:focus, 
+#atp_menu a:hover, 
+#atp_menu a:active {
+	color:#444444;}
+
+#atp_menu ul { background:#ffffff; }
+#atp_menu ul a { color:#444444; }
+
+#atp_menu li li:hover, #atp_menu li li.sfHover,
+#atp_menu li li a:focus, #atp_menu li li a:hover, #atp_menu li li a:active {
+			}
+
+#atp_menu ul li { border-color:#dddddd; }
+
+#atp_menu li.current-cat > a, 
+#atp_menu li.current_page_item > a,
+#atp_menu li.current-page-ancestor > a { color:#d94800; }
+
+h1 {      }
+h2 { font-size:28px; color:#6d71b6; line-height:26px; font-style:normal; font-weight:500; }
+h3 { font-size:21px; color:#6d71b6; line-height:20px; font-style:normal; font-weight:600; }
+h4 { font-size:21px; color:#6d71b6; line-height:20px; font-style:normal; font-weight:600; }
+h5 {      }
+h6 {      }
+
+h2.entry-title a {      }
+h2.entry-title a:hover {  }
+.widget-title { font-size:18px; color:#f3740f;   font-weight:700; }
+#footer .widget-title {      }
+
+a,.entry-title a {  }
+a:hover,.entry-title a:hover { color:#e56a2c; }
+
+#subheader a {  }
+#subheader a:hover {  }
+
+#footer { background-color:#222222;      }
+.copyright {       }
+
+#footer .widget-title {  }
+.breadcrumbs {  }
+#footer a {  }
+#footer a:hover {  }
+
+
+</style>
+<noscript>&lt;style type="text/css"&gt; .wpb_animate_when_almost_visible { opacity: 1; }&lt;/style&gt;</noscript><!--        Footer/ Price form css-->
+    <style type="text/css" media="screen">
+        .hm-dmn-avl .domain-search-box-new{margin: 0 auto;}
+        .hm-hst-slns .one_third , .hm-hst-slns h1{text-align: center}
+            .o-form form{margin:0;padding:0}
+            .o-form .o-form-header{padding:0}
+            .o-form h2{font-family:Arial,sans-serif;font-size:18px;line-height:27px;margin:0;padding:0}
+            .o-form p{font-family:Arial,sans-serif;font-size:12px;line-height:18px;margin:0;padding:0}
+            .o-form .o-form-row{margin-top:0;padding:0}
+            .o-form .o-form-row label{font-family:Arial,sans-serif;font-size:12px;display:block;font-weight:700}
+            .o-form input[type="submit"]{margin:20px 0 18px}
+            .price-table .fst-td{background-color:#F4F4F4!important;vertical-align:middle;text-align:center}
+            .price-table tr.frst-tr td{background-color:#F5F6FC;vertical-align:middle;text-align:center}
+            .price-table tr.sec-tr td{background-color:#F8F8F8;vertical-align:middle;text-align:center}
+            .price-table tr.third-tr td{background-color:#FFF;vertical-align:middle;text-align:center}
+            .price-table tr.forth-tr td{background-color:#F8F8F8;vertical-align:middle;text-align:center}
+            .price-table tr.fifth-tr td{background-color:#FFF;vertical-align:middle;text-align:center}
+            .price-table tr.sixth-tr td{background-color:#F8F8F8;vertical-align:middle;text-align:center}
+            .price-table tr.seventh-tr td{background-color:#FFF;vertical-align:middle;text-align:center}
+            a.getstart_btn{background-color:#333;border:0 none;border-radius:2px;color:#fff;font-size:12px;padding:7px 15px;margin:0 35px 7px 0;float:right}
+            a.getstart_btn:hover{background-color:#e56a2c;color:#fff}
+            .lnx-hdn h2{clear:both}
+            .vc_custom_1416908670941{background-image:url(https://diadem.in/wp-content/uploads/2014/11/quick-contact.png?id=2808)!important}
+            tr.first-dhtr{background-color:#F5F6FC;vertical-align:middle;text-align:center}
+            tr.tr-grey td{background-color:#F8F8F8;vertical-align:middle;text-align:center}
+            tr.tr-white td{background-color:#FFF;vertical-align:middle;text-align:center}
+            .image-inline-style{width:107px;height:20px}
+            .inline-padding{padding:15px}
+            .register-domain-table{width:100%}
+            .register-domain-table tr td{text-align:center}
+            .register-domain-table tr td:first-child{width:15%;vertical-align:middle;background-color:#424242;color:#fff}
+            .register-domain-table tr td:nth-child(2){width:14%;vertical-align:top;background-color:#ddd}
+            .register-domain-table tr td:nth-child(3){width:12%;vertical-align:top;background-color:#e2e2e2}
+            .register-domain-table tr td:nth-child(4){width:12%;vertical-align:top;background-color:#e7e7e7}
+            .register-domain-table tr td:nth-child(5){width:12%;vertical-align:top;background-color:#ecebeb}
+            .register-domain-table tr td:nth-child(6){width:12%;vertical-align:top;background-color:#f1efef}
+            .register-domain-table tr td:nth-child(7){width:12%;vertical-align:top;background-color:#f5f4f4}
+            .register-domain-table tr td:last-child{width:11%;vertical-align:middle;background-color:#f8f8f8}
+            .register-domain-table tr td span{color:#980520;font-size:24px}
+            .windows-2012-hosting tr td{width:25%}
+            .dedicated-hosting1 a.getstart_btn{background-color:#333;border:0 none;border-radius:2px;color:#fff;font-size:12px;padding:7px 15px;margin:0 175px 7px 0;float:right}
+            .dedicated-hosting1 a.getstart_btn:hover{background-color:#e56a2c;color:#fff}
+            .dedicated-hosting1 td:nth-child(2){width:47%}
+            .dedicated-hosting1 td:nth-child(3){width:47%}
+            .dedicated-hosting2{margin-bottom:20px}
+            .dedicated-hosting2 td{width:6%}
+            .dedicated-hosting2 td:nth-child(2){text-align:left}
+            .dedicated-hosting2 td.dedicated-hosting2td{width:62%;text-align:left}
+            .sysadmin{background-color:#f3f4fc;color:#6d71b6;border-color:#d9dbef}
+            .sysadmin ul{list-style:outside none none!important;margin:0 0 1.5em!important;padding:0!important}
+            .sysadmin ul li{list-style:none;display:block!important;line-height:1.3em;list-style-type:none!important;margin:0!important;padding:4px 0 4px 2em !important;position:relative}
+            .sysadmin .fa-cog{color:#E56A2C;height:1.3em;left:0;line-height:1.3em;position:absolute;text-align:center;top:4px;width:1.3em}
+            .align-center{text-align:center;margin:0 0 0 15%;width:100%}
+            .domain-pricing{width:100%}
+            .dmprc-algncntr{text-align:center;margin:0 0 0 15%;width:100%}
+            .antispam1{width:100%}
+            .antispam2{width:100%;border:#666}
+            .antispam1 td,.antispam2 td{background-color:#F2F2F2;text-align:center;vertical-align:middle}
+            .antispam1 tr:first-child td,.antispam2 tr:first-child td{background-color:#424242;text-align:center;vertical-align:middle;width:18%}
+            .antispam1 tr td label,.antispam2 tr td label{width:64%;float:left}
+            .globalsign-ssl-plan td img.image-inline-style{height:27px}
+            .globalsign-ssl-plan .fst-td{text-align:left!important}
+            .globalsign-ssl-features .fst-td-width-inline{width:134px}
+            .globalsign-ssl-features .secnd-td{width:914px}
+            .globalsign-ssl-features .secnd-td li i.play-circle-color{color:#6d71b6}
+            .ssl-feature-image td img.ssl-feature-image{width:160px;height:16px}
+            .ssl-feature-image td img.ssl-feature-image2{width:91px;height:38px}
+            .ssl-feature-image td img.ssl-feature-image3{width:100px;height:50px}
+            .globalsign-ssl-features td a.su-button-inline-style{color:#fff;background-color:#f56b00;border-color:#c45600;border-radius:5px;-moz-border-radius:5px;-webkit-border-radius:5px}
+            .globalsign-ssl-features td span{color:#fff;padding:0 16px;font-size:13px;line-height:26px;border-color:#f8974d;border-radius:5px;-moz-border-radius:5px;-webkit-border-radius:5px;text-shadow:none;-moz-text-shadow:none;-webkit-text-shadow:none}
+            .payonline-table-inline{width:100%}
+            .payonline-table-inline td.pay-fst-td{width:38%}
+            .payonline-table-inline td.pay-second-td{width:62%}
+            .pay-banking-table{width:125px}
+            #respond h3#reply-title{color:#6d71b6;font-size:21px;font-style:normal;font-weight:600}
+            
+            
+            .price-table tr.tr-white-new .first-td{background-color:#F5F6FC!important;vertical-align:middle;text-align:left; width: 134px;}
+            .price-table tr.tr-white-new td{width: 914px}
+            .price-table tr.tr-white-new td ul{margin: 20px 0 !important;}
+            .price-table tr.tr-white-new td img.http2-alpha-image{width: 160px; height: 16px}
+            .price-table tr.tr-white-new td img.ssl-ss-image{width: 91px; height: 38px}
+            .price-table tr.tr-white-new td img.ssl-secured-img-new{width: 100px; height: 50px}
+            .price-table tr.tr-white-new td ul li i.circle-color-new{color: #6d71b6}
+            .price-table tr.tr-white-new td .su-button-new-style{color:#ffffff; background-color:#f56b00; border-color:#c45600; border-radius:5px;-moz-border-radius:5px;-webkit-border-radius:5px;padding: 2px 10px 4px}
+            .price-table tr.tr-white-new td a span{color:#ffffff;padding:0px 16px;font-size:13px;line-height:26px;border-color:#f8974d;border-radius:5px;-moz-border-radius:5px;-webkit-border-radius:5px;text-shadow:none;-moz-text-shadow:none;-webkit-text-shadow:none}
+            
+            
+            .paytbl{ width: 100%;}
+            .paytbl tr td:first-child{widows: 38%;text-align: left;vertical-align: top;}
+            .paytbl input[type='text']{width: 80%;}
+            .pay_logo .pay_tbl_logo{width: 100%; text-align: center;}
+            .pay_logo .pay_tbl_logo tr td img{border: 0;}
+    </style>
+        <!--        Footer form css-->
+<style type="text/css">.fancybox-margin{margin-right:17px;}</style><link rel="stylesheet" type="text/css" id="gravatar-card-css" href="./Two ways to add Joomla users using your custom code - Diadem Technologies_files/hovercard.css"><link rel="stylesheet" type="text/css" id="gravatar-card-services-css" href="./Two ways to add Joomla users using your custom code - Diadem Technologies_files/services.css"></head>
+
+<body class="single single-post postid-430 single-format-standard op-plugin wpb-js-composer js-comp-ver-4.9 vc_responsive">
+
+	
+	<div id="stretched" class="rightsidebar">
+	<div class="bodyoverlay"></div>
+
+	
+	<div id="wrapper">
+		<div class="topbar">
+	<div class="inner">
+		<div class="topbar_left">
+			<i style="" class="fa icon-envelope-alt"></i> <a href="mailto:info@diadem.co.in" target="_blank">info@diadem.in</a>		</div>
+		<div class="topbar_right">
+			<div id="social-icons">
+				<a href="https://diadem.in/contact-us/">Contact Us</a>  &nbsp; | &nbsp;  <a href="https://diadem.in/blog/">Blog</a>   &nbsp; | &nbsp;  <a href="https://secure.diadem.co.in/" target="_blank">Client Portal</a>   &nbsp; | &nbsp;  <a href="https://kb.diadem.co.in/" target="_blank">Support KB</a>  &nbsp; | &nbsp; <a href="https://diadem.in/payonline/"> Pay Online</a>			</div>
+		</div>
+	</div><!-- /inner -->
+</div><!-- /topbar -->
+<div class="clear"></div>
+
+<header class="header-style1">
+	<div class="header">
+		<div class="header-area">
+			<div class="logo">				<a href="https://diadem.in/" title="Diadem Technologies">
+					<img src="./Two ways to add Joomla users using your custom code - Diadem Technologies_files/logo-new.png" alt="Diadem Technologies">
+				</a>
+			</div>
+			<div class="primarymenu menuwrap"><ul id="atp_menu" class="sf-menu sf-js-enabled" style="touch-action: pan-y;"><li id="menu-item-web1128" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children"><a href="https://diadem.in/blog/two-ways-to-add-joomla-users-using-your-custom-code/#" class="sf-with-ul">Company</a>
+<ul class="sub-menu" style="display: none;">
+	<li id="menu-item-web1210" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://diadem.in/about-us/">About Us</a></li>
+	<li id="menu-item-web1209" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://diadem.in/management/">Management</a></li>
+	<li id="menu-item-web1208" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://diadem.in/datacentre-network/">Datacentre Network</a></li>
+	<li id="menu-item-web1207" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://diadem.in/clientele/">Clientele</a></li>
+</ul>
+</li>
+<li id="menu-item-web1129" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children"><a href="https://diadem.in/blog/two-ways-to-add-joomla-users-using-your-custom-code/#" class="sf-with-ul">Shared Hosting</a>
+<ul class="sub-menu" style="display: none;">
+	<li id="menu-item-web2807" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://diadem.in/linux-hosting/">Linux Hosting</a></li>
+	<li id="menu-item-web1226" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://diadem.in/windows-hosting/">Windows Hosting</a></li>
+	<li id="menu-item-web1225" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://diadem.in/wordpress-hosting/">WordPress Hosting</a></li>
+	<li id="menu-item-web1222" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://diadem.in/windows-2012-hosting/">Windows 2012 R2 Hosting</a></li>
+</ul>
+</li>
+<li id="menu-item-web1130" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children"><a href="https://diadem.in/blog/two-ways-to-add-joomla-users-using-your-custom-code/#" class="sf-with-ul">Cloud Servers</a>
+<ul class="sub-menu" style="display: none;">
+	<li id="menu-item-web1248" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://diadem.in/linux-cloud-vps/">Linux Cloud VPS</a></li>
+	<li id="menu-item-web1247" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://diadem.in/windows-cloud-vps/">Windows Cloud VPS</a></li>
+	<li id="menu-item-web1251" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://diadem.in/windows-2012-cloud-vps/">Windows 2012 R2 VPS</a></li>
+	<li id="menu-item-web1250" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://diadem.in/cloud-server-faqs/">Cloud Server FAQs</a></li>
+	<li id="menu-item-web1249" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://diadem.in/power-panel-demo/">Power Panel Demo</a></li>
+</ul>
+</li>
+<li id="menu-item-web1131" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children"><a href="https://diadem.in/blog/two-ways-to-add-joomla-users-using-your-custom-code/#" class="sf-with-ul">Dedicated Servers</a>
+<ul class="sub-menu" style="display: none;">
+	<li id="menu-item-web1257" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://diadem.in/dedicated-hosting/">Dedicated Servers</a></li>
+	<li id="menu-item-web2522" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://diadem.in/server-sysadmin-services/">Server Sysadmin Services</a></li>
+	<li id="menu-item-web1256" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://diadem.in/dedicated-server-faqs/">Dedicated Server FAQs</a></li>
+</ul>
+</li>
+<li id="menu-item-web3074" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children"><a href="https://diadem.in/blog/two-ways-to-add-joomla-users-using-your-custom-code/#" class="sf-with-ul">Domains</a>
+<ul class="sub-menu" style="display: none;">
+	<li id="menu-item-web2524" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://diadem.in/register-domain/">Register Domain</a></li>
+	<li id="menu-item-web3073" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://diadem.in/domain-pricing/">Domain Pricing</a></li>
+	<li id="menu-item-web2523" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://diadem.in/domain-faqs/">Domain FAQs</a></li>
+</ul>
+</li>
+<li id="menu-item-web1132" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children"><a href="https://diadem.in/blog/two-ways-to-add-joomla-users-using-your-custom-code/#" class="sf-with-ul">Hosted Solutions</a>
+<ul class="sub-menu" style="display: none;">
+	<li id="menu-item-web1193" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://diadem.in/emailconnect/">Email Marketing Solution</a></li>
+	<li id="menu-item-web1192" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://diadem.in/premium-email-antispam/">Premium Email Antispam</a></li>
+</ul>
+</li>
+<li id="menu-item-web1133" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children"><a href="https://diadem.in/blog/two-ways-to-add-joomla-users-using-your-custom-code/#" class="sf-with-ul">SSL Certificates</a>
+<ul class="sub-menu" style="display: none;">
+	<li id="menu-item-web2384" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://diadem.in/globalsign-ssl-plans/">Globalsign SSL Plans</a></li>
+	<li id="menu-item-web2525" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://diadem.in/globalsign-ssl-features/">Globalsign SSL Features</a></li>
+</ul>
+</li>
+</ul></div>
+			<div class="mobile-menu-wrap"><a href="https://diadem.in/blog/two-ways-to-add-joomla-users-using-your-custom-code/#" class="iva-mobile-dropdown"></a></div>
+		</div>
+	</div>
+	<div class="iva-mobile-menu" style="display: none;"><ul id="menu-main-menu" class="iva_mmenu"><li id="menu-item-mobile1128" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children"><a href="https://diadem.in/blog/two-ways-to-add-joomla-users-using-your-custom-code/#">Company<span class="iva-children-indenter"><i class="fa fa-angle-down"></i></span></a>
+<ul class="sub-menu">
+	<li id="menu-item-mobile1210" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://diadem.in/about-us/">About Us</a></li>
+	<li id="menu-item-mobile1209" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://diadem.in/management/">Management</a></li>
+	<li id="menu-item-mobile1208" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://diadem.in/datacentre-network/">Datacentre Network</a></li>
+	<li id="menu-item-mobile1207" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://diadem.in/clientele/">Clientele</a></li>
+</ul>
+</li>
+<li id="menu-item-mobile1129" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children"><a href="https://diadem.in/blog/two-ways-to-add-joomla-users-using-your-custom-code/#">Shared Hosting<span class="iva-children-indenter"><i class="fa fa-angle-down"></i></span></a>
+<ul class="sub-menu">
+	<li id="menu-item-mobile2807" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://diadem.in/linux-hosting/">Linux Hosting</a></li>
+	<li id="menu-item-mobile1226" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://diadem.in/windows-hosting/">Windows Hosting</a></li>
+	<li id="menu-item-mobile1225" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://diadem.in/wordpress-hosting/">WordPress Hosting</a></li>
+	<li id="menu-item-mobile1222" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://diadem.in/windows-2012-hosting/">Windows 2012 R2 Hosting</a></li>
+</ul>
+</li>
+<li id="menu-item-mobile1130" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children"><a href="https://diadem.in/blog/two-ways-to-add-joomla-users-using-your-custom-code/#">Cloud Servers<span class="iva-children-indenter"><i class="fa fa-angle-down"></i></span></a>
+<ul class="sub-menu">
+	<li id="menu-item-mobile1248" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://diadem.in/linux-cloud-vps/">Linux Cloud VPS</a></li>
+	<li id="menu-item-mobile1247" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://diadem.in/windows-cloud-vps/">Windows Cloud VPS</a></li>
+	<li id="menu-item-mobile1251" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://diadem.in/windows-2012-cloud-vps/">Windows 2012 R2 VPS</a></li>
+	<li id="menu-item-mobile1250" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://diadem.in/cloud-server-faqs/">Cloud Server FAQs</a></li>
+	<li id="menu-item-mobile1249" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://diadem.in/power-panel-demo/">Power Panel Demo</a></li>
+</ul>
+</li>
+<li id="menu-item-mobile1131" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children"><a href="https://diadem.in/blog/two-ways-to-add-joomla-users-using-your-custom-code/#">Dedicated Servers<span class="iva-children-indenter"><i class="fa fa-angle-down"></i></span></a>
+<ul class="sub-menu">
+	<li id="menu-item-mobile1257" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://diadem.in/dedicated-hosting/">Dedicated Servers</a></li>
+	<li id="menu-item-mobile2522" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://diadem.in/server-sysadmin-services/">Server Sysadmin Services</a></li>
+	<li id="menu-item-mobile1256" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://diadem.in/dedicated-server-faqs/">Dedicated Server FAQs</a></li>
+</ul>
+</li>
+<li id="menu-item-mobile3074" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children"><a href="https://diadem.in/blog/two-ways-to-add-joomla-users-using-your-custom-code/#">Domains<span class="iva-children-indenter"><i class="fa fa-angle-down"></i></span></a>
+<ul class="sub-menu">
+	<li id="menu-item-mobile2524" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://diadem.in/register-domain/">Register Domain</a></li>
+	<li id="menu-item-mobile3073" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://diadem.in/domain-pricing/">Domain Pricing</a></li>
+	<li id="menu-item-mobile2523" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://diadem.in/domain-faqs/">Domain FAQs</a></li>
+</ul>
+</li>
+<li id="menu-item-mobile1132" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children"><a href="https://diadem.in/blog/two-ways-to-add-joomla-users-using-your-custom-code/#">Hosted Solutions<span class="iva-children-indenter"><i class="fa fa-angle-down"></i></span></a>
+<ul class="sub-menu">
+	<li id="menu-item-mobile1193" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://diadem.in/emailconnect/">Email Marketing Solution</a></li>
+	<li id="menu-item-mobile1192" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://diadem.in/premium-email-antispam/">Premium Email Antispam</a></li>
+</ul>
+</li>
+<li id="menu-item-mobile1133" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children"><a href="https://diadem.in/blog/two-ways-to-add-joomla-users-using-your-custom-code/#">SSL Certificates<span class="iva-children-indenter"><i class="fa fa-angle-down"></i></span></a>
+<ul class="sub-menu">
+	<li id="menu-item-mobile2384" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://diadem.in/globalsign-ssl-plans/">Globalsign SSL Plans</a></li>
+	<li id="menu-item-mobile2525" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://diadem.in/globalsign-ssl-features/">Globalsign SSL Features</a></li>
+</ul>
+</li>
+</ul></div></header><!-- #header -->
+		<div id="subheader" class="iva-pagetitle-left"><div class="inner"><div class="subdesc"><h1 class="page-title">Two ways to add Joomla users using your custom code</h1><div class="customtext"><h2></h2></div></div><div class="breadcrumbs"><!-- Breadcrumb NavXT 5.4.0 -->
+<span property="itemListElement" typeof="ListItem"><a property="item" typeof="WebPage" title="Go to Diadem Technologies." href="https://diadem.in/" class="home"><span property="name">Diadem Technologies</span></a><meta property="position" content="1"></span> &gt; <span property="itemListElement" typeof="ListItem"><a property="item" typeof="WebPage" title="Go to the CMS category archives." href="https://diadem.in/category/content-management-systems/" class="taxonomy category"><span property="name">CMS</span></a><meta property="position" content="2"></span> &gt; <span property="itemListElement" typeof="ListItem"><span property="name">Two ways to add Joomla users using your custom code</span><meta property="position" content="3"></span></div></div></div><div class="pagemid">
+	<div class="inner">
+	
+		<div id="main">
+
+			<div class="entry-content">
+
+																
+								
+				<div class="post post-430 type-post status-publish format-standard hentry category-content-management-systems tag-add-joomla-users tag-joomla-users last-post" id="post-430">
+
+
+					<div class="post_content">
+											<h2 class="entry-title">Two ways to add Joomla users using your custom code</h2>
+																		<div class="post-info">
+							<div class="post-metadata"><span>Jun 7, 2009</span><span><a href="https://diadem.in/author/amitabh/" title="Posts by amitabh" rel="author">amitabh</a></span><span><a href="https://diadem.in/category/content-management-systems/" rel="category tag">CMS</a></span><span><a href="https://diadem.in/blog/two-ways-to-add-joomla-users-using-your-custom-code/#comments">24 Comments</a></span></div>							
+						</div><!-- .post-info -->
+							
+							
+						<div class="post-entry">
+							<p>The task of adding <a href="http://www.joomla.org/" target="_blank">Joomla</a> users, login/logout, activating/deactivating of users and password reset tasks etc are handled by the component <em>com_users</em>. In this post I will show how to add a joomla user from an external page.</p>
+<p>Adding users externally can be done in two ways:<br>
+1. Create an html form with correct fields and submit it the correct Joomla url so that Joomla handles the registration, or<br>
+2. If you want to do it in your custom method, you need to create both the html form and the and the script that will add the user to the Joomla.</p>
+<p><strong>First, the regular way:</strong></p>
+<p>We create an html form with the correct field names and place the form in the joomla root. The field names should match with that of the general joomla registration form.</p>
+<p>If we view the source of a Joomla registration form then we can see that the form has text fields named name, username, Email, password, password2 and hidden fields task, id, gid. There is another hidden field whose name is generated by JUtility::getToken() and the value of the field is 1. This field value is checked at the time of submitting the registration information. More about this in a moment. On submitting the registration form the registration information is processed by the register_save method of the UserController in com_user, which has been specified by the hidden field named task in the registration form.</p>
+<p>Now we come to the UserController in the com_user. In the register_save method there is a line which checks the token value from the submitted form. As we are using a static html form we either need to generate the token name on the html form or if we don’t want to include the token in the form then we need to bypass the line of code which checks for the token.</p>
+
+<div class="wp_syntax"><table><tbody><tr><td class="code"><pre class="php" style="font-family:monospace;">JRequest<span style="color: #339933;">::</span><span style="color: #004000;">checkToken</span><span style="color: #009900;">(</span><span style="color: #009900;">)</span> or jexit<span style="color: #009900;">(</span> <span style="color: #0000ff;">'Invalid Token'</span> <span style="color: #009900;">)</span><span style="color: #339933;">;</span></pre></td></tr></tbody></table></div>
+
+<p>In the register_save method of the UserController in the com_user. Since we will be using a html form commonly so we go for the second option and comment the line for checking token</p>
+
+<div class="wp_syntax"><table><tbody><tr><td class="code"><pre class="php" style="font-family:monospace;"><span style="color: #666666; font-style: italic;">// JRequest::checkToken() or jexit( 'Invalid Token' );</span></pre></td></tr></tbody></table></div>
+
+<p>The submitted registration information is then processed by the register_save method. The data is actually saved in the save method of the UserController.</p>
+<p><strong>Now, the Other way:</strong></p>
+<p>Here we use the previously created form and submit it to the custom script that we create. This approach is basically to copy the functionality of the register_save() method in the UserController in com_user to an external script and submit the html registration form to that script.</p>
+<p>Now onto the script:<br>
+To access the joomla environment in an external script, the following snippet is added to the start of the script:</p>
+
+<div class="wp_syntax"><table><tbody><tr><td class="code"><pre class="php" style="font-family:monospace;"><span style="color: #990000;">define</span><span style="color: #009900;">(</span> <span style="color: #0000ff;">'_JEXEC'</span><span style="color: #339933;">,</span> <span style="color: #cc66cc;">1</span> <span style="color: #009900;">)</span><span style="color: #339933;">;</span>
+<span style="color: #990000;">define</span><span style="color: #009900;">(</span><span style="color: #0000ff;">'JPATH_BASE'</span><span style="color: #339933;">,</span> <span style="color: #990000;">dirname</span><span style="color: #009900;">(</span><span style="color: #009900; font-weight: bold;">__FILE__</span><span style="color: #009900;">)</span> <span style="color: #009900;">)</span><span style="color: #339933;">;</span><span style="color: #666666; font-style: italic;">//this is when we are in the root</span>
+<span style="color: #990000;">define</span><span style="color: #009900;">(</span> <span style="color: #0000ff;">'DS'</span><span style="color: #339933;">,</span> <span style="color: #009900; font-weight: bold;">DIRECTORY_SEPARATOR</span> <span style="color: #009900;">)</span><span style="color: #339933;">;</span>
+&nbsp;
+<span style="color: #b1b100;">require_once</span> <span style="color: #009900;">(</span> JPATH_BASE <span style="color: #339933;">.</span>DS<span style="color: #339933;">.</span><span style="color: #0000ff;">'includes'</span><span style="color: #339933;">.</span>DS<span style="color: #339933;">.</span><span style="color: #0000ff;">'defines.php'</span> <span style="color: #009900;">)</span><span style="color: #339933;">;</span>
+<span style="color: #b1b100;">require_once</span> <span style="color: #009900;">(</span> JPATH_BASE <span style="color: #339933;">.</span>DS<span style="color: #339933;">.</span><span style="color: #0000ff;">'includes'</span><span style="color: #339933;">.</span>DS<span style="color: #339933;">.</span><span style="color: #0000ff;">'framework.php'</span> <span style="color: #009900;">)</span><span style="color: #339933;">;</span>
+&nbsp;
+<span style="color: #000088;">$mainframe</span> <span style="color: #339933;">=&amp;</span> JFactory<span style="color: #339933;">::</span><span style="color: #004000;">getApplication</span><span style="color: #009900;">(</span><span style="color: #0000ff;">'site'</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span>
+<span style="color: #000088;">$mainframe</span><span style="color: #339933;">-&gt;</span><span style="color: #004000;">initialise</span><span style="color: #009900;">(</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span></pre></td></tr></tbody></table></div>
+
+<p>This snippet basically makes available the joomla framework available in the script. The code snippet is found in the index.php of the joomla root.</p>
+<p>Now we import the functionality of the register_save() method in the script.</p>
+<p>#1. Check for request forgeries, we comment this out since tokens are not generated in the html page</p>
+
+<div class="wp_syntax"><table><tbody><tr><td class="code"><pre class="php" style="font-family:monospace;"><span style="color: #666666; font-style: italic;">//JRequest::checkToken() or jexit( 'Invalid Token' );</span></pre></td></tr></tbody></table></div>
+
+<p>#2. Get required system objects</p>
+
+<div class="wp_syntax"><table><tbody><tr><td class="code"><pre class="php" style="font-family:monospace;"><span style="color: #000088;">$user</span> 	      <span style="color: #339933;">=</span> clone<span style="color: #009900;">(</span>JFactory<span style="color: #339933;">::</span><span style="color: #004000;">getUser</span><span style="color: #009900;">(</span><span style="color: #009900;">)</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span>
+<span style="color: #000088;">$pathway</span> 	      <span style="color: #339933;">=</span> <span style="color: #339933;">&amp;</span> <span style="color: #000088;">$mainframe</span><span style="color: #339933;">-&gt;</span><span style="color: #004000;">getPathway</span><span style="color: #009900;">(</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span>
+<span style="color: #000088;">$config</span>	      <span style="color: #339933;">=</span> <span style="color: #339933;">&amp;</span> JFactory<span style="color: #339933;">::</span><span style="color: #004000;">getConfig</span><span style="color: #009900;">(</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span>
+<span style="color: #000088;">$authorize</span>	      <span style="color: #339933;">=</span> <span style="color: #339933;">&amp;</span> JFactory<span style="color: #339933;">::</span><span style="color: #004000;">getACL</span><span style="color: #009900;">(</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span>
+<span style="color: #000088;">$document</span>       <span style="color: #339933;">=</span> <span style="color: #339933;">&amp;</span> JFactory<span style="color: #339933;">::</span><span style="color: #004000;">getDocument</span><span style="color: #009900;">(</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span></pre></td></tr></tbody></table></div>
+
+<p>#3. If user registration is not allowed, show 403 not authorized(Not needed)</p>
+
+<div class="wp_syntax"><table><tbody><tr><td class="code"><pre class="php" style="font-family:monospace;"><span style="color: #000088;">$usersConfig</span> <span style="color: #339933;">=</span> <span style="color: #339933;">&amp;</span>JComponentHelper<span style="color: #339933;">::</span><span style="color: #004000;">getParams</span><span style="color: #009900;">(</span> <span style="color: #0000ff;">'com_users'</span> <span style="color: #009900;">)</span><span style="color: #339933;">;</span>
+<span style="color: #b1b100;">if</span> <span style="color: #009900;">(</span><span style="color: #000088;">$usersConfig</span><span style="color: #339933;">-&gt;</span><span style="color: #004000;">get</span><span style="color: #009900;">(</span><span style="color: #0000ff;">'allowUserRegistration'</span><span style="color: #009900;">)</span> <span style="color: #339933;">==</span> <span style="color: #0000ff;">'0'</span><span style="color: #009900;">)</span>
+	<span style="color: #009900;">{</span>
+		JError<span style="color: #339933;">::</span><span style="color: #004000;">raiseError</span><span style="color: #009900;">(</span> <span style="color: #cc66cc;">403</span><span style="color: #339933;">,</span> JText<span style="color: #339933;">::</span>_<span style="color: #009900;">(</span> <span style="color: #0000ff;">'Access Forbidden'</span> <span style="color: #009900;">)</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span>
+		<span style="color: #b1b100;">return</span><span style="color: #339933;">;</span>
+	<span style="color: #009900;">}</span></pre></td></tr></tbody></table></div>
+
+<p>#4. Initialize new usertype setting</p>
+
+<div class="wp_syntax"><table><tbody><tr><td class="code"><pre class="php" style="font-family:monospace;"><span style="color: #000088;">$newUsertype</span> <span style="color: #339933;">=</span> <span style="color: #000088;">$usersConfig</span><span style="color: #339933;">-&gt;</span><span style="color: #004000;">get</span><span style="color: #009900;">(</span> <span style="color: #0000ff;">'new_usertype'</span> <span style="color: #009900;">)</span><span style="color: #339933;">;</span>
+<span style="color: #b1b100;">if</span> <span style="color: #009900;">(</span><span style="color: #339933;">!</span><span style="color: #000088;">$newUsertype</span><span style="color: #009900;">)</span>
+	<span style="color: #009900;">{</span>
+		<span style="color: #000088;">$newUsertype</span> <span style="color: #339933;">=</span> <span style="color: #0000ff;">'Registered'</span><span style="color: #339933;">;</span>
+	<span style="color: #009900;">}</span></pre></td></tr></tbody></table></div>
+
+<p>#5. Bind the post array to the user object</p>
+
+<div class="wp_syntax"><table><tbody><tr><td class="code"><pre class="php" style="font-family:monospace;"><span style="color: #b1b100;">if</span> <span style="color: #009900;">(</span><span style="color: #339933;">!</span><span style="color: #000088;">$user</span><span style="color: #339933;">-&gt;</span><span style="color: #004000;">bind</span><span style="color: #009900;">(</span> JRequest<span style="color: #339933;">::</span><span style="color: #004000;">get</span><span style="color: #009900;">(</span><span style="color: #0000ff;">'post'</span><span style="color: #009900;">)</span><span style="color: #339933;">,</span> <span style="color: #0000ff;">'usertype'</span> <span style="color: #009900;">)</span><span style="color: #009900;">)</span>
+	<span style="color: #009900;">{</span>
+		JError<span style="color: #339933;">::</span><span style="color: #004000;">raiseError</span><span style="color: #009900;">(</span> <span style="color: #cc66cc;">500</span><span style="color: #339933;">,</span> <span style="color: #000088;">$user</span><span style="color: #339933;">-&gt;</span><span style="color: #004000;">getError</span><span style="color: #009900;">(</span><span style="color: #009900;">)</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span>
+	<span style="color: #009900;">}</span></pre></td></tr></tbody></table></div>
+
+<p>#6. Set some initial user values</p>
+
+<div class="wp_syntax"><table><tbody><tr><td class="code"><pre class="php" style="font-family:monospace;"><span style="color: #000088;">$user</span><span style="color: #339933;">-&gt;</span><span style="color: #004000;">set</span><span style="color: #009900;">(</span><span style="color: #0000ff;">'id'</span><span style="color: #339933;">,</span> <span style="color: #cc66cc;">0</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span>
+<span style="color: #000088;">$user</span><span style="color: #339933;">-&gt;</span><span style="color: #004000;">set</span><span style="color: #009900;">(</span><span style="color: #0000ff;">'usertype'</span><span style="color: #339933;">,</span> <span style="color: #0000ff;">''</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span>
+<span style="color: #000088;">$user</span><span style="color: #339933;">-&gt;</span><span style="color: #004000;">set</span><span style="color: #009900;">(</span><span style="color: #0000ff;">'gid'</span><span style="color: #339933;">,</span> <span style="color: #000088;">$authorize</span><span style="color: #339933;">-&gt;</span><span style="color: #004000;">get_group_id</span><span style="color: #009900;">(</span> <span style="color: #0000ff;">''</span><span style="color: #339933;">,</span> <span style="color: #000088;">$newUsertype</span><span style="color: #339933;">,</span> <span style="color: #0000ff;">'ARO'</span> <span style="color: #009900;">)</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span>
+&nbsp;
+<span style="color: #000088;">$date</span> <span style="color: #339933;">=&amp;</span> JFactory<span style="color: #339933;">::</span><span style="color: #990000;">getDate</span><span style="color: #009900;">(</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span>
+<span style="color: #000088;">$user</span><span style="color: #339933;">-&gt;</span><span style="color: #004000;">set</span><span style="color: #009900;">(</span><span style="color: #0000ff;">'registerDate'</span><span style="color: #339933;">,</span> <span style="color: #000088;">$date</span><span style="color: #339933;">-&gt;</span><span style="color: #004000;">toMySQL</span><span style="color: #009900;">(</span><span style="color: #009900;">)</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span></pre></td></tr></tbody></table></div>
+
+<p>#7. If user activation is turned on, we need to set the activation information(Not needed)</p>
+
+<div class="wp_syntax"><table><tbody><tr><td class="code"><pre class="php" style="font-family:monospace;"><span style="color: #000088;">$useractivation</span> <span style="color: #339933;">=</span> <span style="color: #000088;">$usersConfig</span><span style="color: #339933;">-&gt;</span><span style="color: #004000;">get</span><span style="color: #009900;">(</span> <span style="color: #0000ff;">'useractivation'</span> <span style="color: #009900;">)</span><span style="color: #339933;">;</span>
+<span style="color: #b1b100;">if</span> <span style="color: #009900;">(</span><span style="color: #000088;">$useractivation</span> <span style="color: #339933;">==</span> <span style="color: #0000ff;">'1'</span><span style="color: #009900;">)</span>
+	<span style="color: #009900;">{</span>
+		jimport<span style="color: #009900;">(</span><span style="color: #0000ff;">'joomla.user.helper'</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span>
+		<span style="color: #000088;">$user</span><span style="color: #339933;">-&gt;</span><span style="color: #004000;">set</span><span style="color: #009900;">(</span><span style="color: #0000ff;">'activation'</span><span style="color: #339933;">,</span> <span style="color: #990000;">md5</span><span style="color: #009900;">(</span> JUserHelper<span style="color: #339933;">::</span><span style="color: #004000;">genRandomPassword</span><span style="color: #009900;">(</span><span style="color: #009900;">)</span><span style="color: #009900;">)</span> <span style="color: #009900;">)</span><span style="color: #339933;">;</span>
+		<span style="color: #000088;">$user</span><span style="color: #339933;">-&gt;</span><span style="color: #004000;">set</span><span style="color: #009900;">(</span><span style="color: #0000ff;">'block'</span><span style="color: #339933;">,</span> <span style="color: #0000ff;">'1'</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span>
+	<span style="color: #009900;">}</span></pre></td></tr></tbody></table></div>
+
+<p>#8. Save the details of the user</p>
+
+<div class="wp_syntax"><table><tbody><tr><td class="code"><pre class="php" style="font-family:monospace;"><span style="color: #000088;">$user</span><span style="color: #339933;">-&gt;</span><span style="color: #004000;">save</span><span style="color: #009900;">(</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span></pre></td></tr></tbody></table></div>
+
+<p>After this we can use the php header function to redirect the user to the desired location.</p>
+<p>That’s it! I hope Joomla developers find this helpful and please feel to post your views and comments to this post.</p>
+<span id="post-ratings-430" class="post-ratings" itemscope="" itemtype="http://schema.org/Article" data-nonce="0e0ccefe52"><img id="rating_430_1" src="./Two ways to add Joomla users using your custom code - Diadem Technologies_files/rating_on.gif" alt="1 Star" title="1 Star" onmouseover="current_rating(430, 1, &#39;1 Star&#39;);" onmouseout="ratings_off(3.8, 4, 0);" onclick="rate_post();" onkeypress="rate_post();" style="cursor: pointer; border: 0px;" width="12" height="12"><img id="rating_430_2" src="./Two ways to add Joomla users using your custom code - Diadem Technologies_files/rating_on.gif" alt="2 Stars" title="2 Stars" onmouseover="current_rating(430, 2, &#39;2 Stars&#39;);" onmouseout="ratings_off(3.8, 4, 0);" onclick="rate_post();" onkeypress="rate_post();" style="cursor: pointer; border: 0px;" width="12" height="12"><img id="rating_430_3" src="./Two ways to add Joomla users using your custom code - Diadem Technologies_files/rating_on.gif" alt="3 Stars" title="3 Stars" onmouseover="current_rating(430, 3, &#39;3 Stars&#39;);" onmouseout="ratings_off(3.8, 4, 0);" onclick="rate_post();" onkeypress="rate_post();" style="cursor: pointer; border: 0px;" width="12" height="12"><img id="rating_430_4" src="./Two ways to add Joomla users using your custom code - Diadem Technologies_files/rating_half.gif" alt="4 Stars" title="4 Stars" onmouseover="current_rating(430, 4, &#39;4 Stars&#39;);" onmouseout="ratings_off(3.8, 4, 0);" onclick="rate_post();" onkeypress="rate_post();" style="cursor: pointer; border: 0px;" width="12" height="12"><img id="rating_430_5" src="./Two ways to add Joomla users using your custom code - Diadem Technologies_files/rating_off.gif" alt="5 Stars" title="5 Stars" onmouseover="current_rating(430, 5, &#39;5 Stars&#39;);" onmouseout="ratings_off(3.8, 4, 0);" onclick="rate_post();" onkeypress="rate_post();" style="cursor: pointer; border: 0px;" width="12" height="12"> (<strong>22</strong> votes, average: <strong>3.77</strong> out of 5)<br><span class="post-ratings-text" id="ratings_430_text"></span><meta itemprop="headline" content="Two ways to add Joomla users using your custom code"><meta itemprop="description" content="The task of adding Joomla users, login/logout, activating/deactivating of users and password reset tasks etc are handled by the component com_users. In this post I will show how to add a joomla user f..."><meta itemprop="datePublished" content="2009-06-07T18:06:45+00:00"><meta itemprop="url" content="https://diadem.in/blog/two-ways-to-add-joomla-users-using-your-custom-code/"><div style="display: none;" itemprop="aggregateRating" itemscope="" itemtype="http://schema.org/AggregateRating"><meta itemprop="bestRating" content="5"><meta itemprop="worstRating" content="1"><meta itemprop="ratingValue" content="3.77"><meta itemprop="ratingCount" content="22"></div></span><span id="post-ratings-430-loading" class="post-ratings-loading">
+			<img src="./Two ways to add Joomla users using your custom code - Diadem Technologies_files/loading.gif" class="post-ratings-image" title="" alt="" width="16" height="16">Loading...</span><div class="sharedaddy sd-sharing-enabled"><div class="robots-nocontent sd-block sd-social sd-social-icon sd-sharing"><h3 class="sd-title">Share this:</h3><div class="sd-content"><ul><li class="share-email share-service-visible"><a rel="nofollow" data-shared="" class="share-email sd-button share-icon no-text" href="https://diadem.in/blog/two-ways-to-add-joomla-users-using-your-custom-code/?share=email&amp;nb=1" target="_blank" title="Click to email this to a friend"><span></span><span class="sharing-screen-reader-text">Click to email this to a friend (Opens in new window)</span></a></li><li class="share-facebook"><a rel="nofollow" data-shared="sharing-facebook-430" class="share-facebook sd-button share-icon no-text" href="https://diadem.in/blog/two-ways-to-add-joomla-users-using-your-custom-code/?share=facebook&amp;nb=1" target="_blank" title="Click to share on Facebook"><span></span><span class="sharing-screen-reader-text">Click to share on Facebook (Opens in new window)</span></a></li><li class="share-linkedin"><a rel="nofollow" data-shared="sharing-linkedin-430" class="share-linkedin sd-button share-icon no-text" href="https://diadem.in/blog/two-ways-to-add-joomla-users-using-your-custom-code/?share=linkedin&amp;nb=1" target="_blank" title="Click to share on LinkedIn"><span></span><span class="sharing-screen-reader-text">Click to share on LinkedIn (Opens in new window)</span></a></li><li class="share-twitter"><a rel="nofollow" data-shared="sharing-twitter-430" class="share-twitter sd-button share-icon no-text" href="https://diadem.in/blog/two-ways-to-add-joomla-users-using-your-custom-code/?share=twitter&amp;nb=1" target="_blank" title="Click to share on Twitter"><span></span><span class="sharing-screen-reader-text">Click to share on Twitter (Opens in new window)</span></a></li><li class="share-google-plus-1"><a rel="nofollow" data-shared="sharing-google-430" class="share-google-plus-1 sd-button share-icon no-text" href="https://diadem.in/blog/two-ways-to-add-joomla-users-using-your-custom-code/?share=google-plus-1&amp;nb=1" target="_blank" title="Click to share on Google+"><span></span><span class="sharing-screen-reader-text">Click to share on Google+ (Opens in new window)</span></a></li><li><a href="https://diadem.in/blog/two-ways-to-add-joomla-users-using-your-custom-code/#" class="sharing-anchor sd-button share-more"><span>More</span></a></li><li class="share-end"></li></ul><div class="sharing-hidden"><div class="inner" style="display: none; width: 150px;"><ul style="background-image:none;"><li class="share-pocket"><a rel="nofollow" data-shared="" class="share-pocket sd-button share-icon no-text" href="https://diadem.in/blog/two-ways-to-add-joomla-users-using-your-custom-code/?share=pocket&amp;nb=1" target="_blank" title="Click to share on Pocket"><span></span><span class="sharing-screen-reader-text">Click to share on Pocket (Opens in new window)</span></a></li><li class="share-end"></li></ul></div></div></div></div></div>
+<div id="jp-relatedposts" class="jp-relatedposts" style="display: block;">
+	<h3 class="jp-relatedposts-headline"><em>Related</em></h3>
+<div class="jp-relatedposts-items jp-relatedposts-items-minimal"><p class="jp-relatedposts-post jp-relatedposts-post0" data-post-id="414" data-post-format="false"><span class="jp-relatedposts-post-title"><a class="jp-relatedposts-post-a" href="https://diadem.in/blog/create-custom-registration-fields-using-drupal/" title="Create custom registration fields using Drupal
+
+In Drupal websites, the login and registration is already integrated by default. But in one of our sites, our requirement is to add some custom fields in the drupal registration form. E.g., Full name, address, state, postcode, etc. To fulfill our requirement we will use profile module. Once, the profile…" rel="nofollow" data-origin="430" data-position="0">Create custom registration fields using Drupal</a></span><span class="jp-relatedposts-post-date">May 6, 2010</span><span class="jp-relatedposts-post-context">In "CMS"</span></p><p class="jp-relatedposts-post jp-relatedposts-post1" data-post-id="1541" data-post-format="false"><span class="jp-relatedposts-post-title"><a class="jp-relatedposts-post-a" href="https://diadem.in/blog/xss-cross-site-scripting-attacks-how-can-i-prevent-xss-attacks-on-my-website/" title="XSS (Cross Site Scripting) Attacks. How can I prevent XSS attacks on my website?
+
+Many websites today are reeling under persistent XSS (cross site scripting) attacks where vulnerable code is being attached to their webpages which block their sites on Google and other search engines and prevent users from browsing their websites. Users not using updated browsers download the malicious code on their PCs…" rel="nofollow" data-origin="430" data-position="1">XSS (Cross Site Scripting) Attacks. How can I prevent XSS attacks on my website?</a></span><span class="jp-relatedposts-post-date">June 22, 2009</span><span class="jp-relatedposts-post-context">In "Web Application Security"</span></p><p class="jp-relatedposts-post jp-relatedposts-post2" data-post-id="250" data-post-format="false"><span class="jp-relatedposts-post-title"><a class="jp-relatedposts-post-a" href="https://diadem.in/blog/benefits-and-advantages-of-htaccess-for-linux-hosting/" title="Benefits and advantages of .htaccess for Linux Hosting
+
+.htaccess is a configuration file for use on web servers running the Apache Web Server software. When an htaccess file is placed in a directory which is in turn &#39;loaded via the Apache Web Server&#39;, then the htaccess file is detected and executed by the Apache Web Server software. This…" rel="nofollow" data-origin="430" data-position="2">Benefits and advantages of .htaccess for Linux Hosting</a></span><span class="jp-relatedposts-post-date">November 30, 2013</span><span class="jp-relatedposts-post-context">In "Apps"</span></p></div></div>							<div class="tags">Tags: <a href="https://diadem.in/tag/add-joomla-users/" rel="tag">add joomla users</a>,&nbsp; <a href="https://diadem.in/tag/joomla-users/" rel="tag">joomla users</a></div>						</div><!-- .post-entry -->
+
+					</div><!-- .post-content -->
+					
+				</div>
+				<!-- #post-430 -->
+
+							<h4 class="fancyheading textleft"><span>Written by <a href="https://diadem.in/author/amitabh/" title="Posts by amitabh" rel="author">amitabh</a></span></h4>
+			<div id="entry-author-info">
+				<div class="author_entry">
+					<div class="author-avatar">
+						<img alt="" src="./Two ways to add Joomla users using your custom code - Diadem Technologies_files/02ff5fd6b770b9811a544fce5dcf3e76" srcset="https://secure.gravatar.com/avatar/02ff5fd6b770b9811a544fce5dcf3e76?s=140&amp;d=mm&amp;r=g 2x" class="avatar avatar-70 photo grav-hashed grav-hijack" height="70" width="70" id="grav-02ff5fd6b770b9811a544fce5dcf3e76-0">					</div>
+					<div class="author-description">
+						<p></p>
+					</div>
+				</div>
+			</div>
+		
+				<script type="text/javascript" src="./Two ways to add Joomla users using your custom code - Diadem Technologies_files/Modernizr.js"></script>
+	
+	<div class="clear"></div>
+	
+				
+				
+<div id="comments" class="comments-area">
+
+			<h3 class="comments-title fancyheading textleft"><span>
+			Two ways to add Joomla users using your custom code (24)		</span></h3>
+
+		<ol class="commentlist">
+				<li class="comment even thread-even depth-1" id="li-comment-46">
+		<div id="comment-46" class="comment_wrap">
+			<header class="comment-meta comment-author vcard">
+				<img alt="" src="./Two ways to add Joomla users using your custom code - Diadem Technologies_files/fa0ff39545ce3889f9685aa3fb9fae3e" srcset="https://secure.gravatar.com/avatar/fa0ff39545ce3889f9685aa3fb9fae3e?s=88&amp;d=mm&amp;r=g 2x" class="avatar avatar-44 photo grav-hashed grav-hijack" height="44" width="44" id="grav-fa0ff39545ce3889f9685aa3fb9fae3e-0"><cite class="fn">KT </cite><a href="https://diadem.in/blog/two-ways-to-add-joomla-users-using-your-custom-code/#comment-46"><time datetime="2009-06-25T15:38:44+00:00">June 25, 2009 at 3:38 pm</time></a>			</header><!-- .comment-meta -->
+			<section class="comment-content comment single_comment">
+				
+				
+					<p>Very good tutorial, thanks!</p>
+									
+
+				<div class="reply">
+					<a rel="nofollow" class="comment-reply-link" href="https://diadem.in/blog/two-ways-to-add-joomla-users-using-your-custom-code/?replytocom=46#respond" onclick="return addComment.moveForm( &quot;comment-46&quot;, &quot;46&quot;, &quot;respond&quot;, &quot;430&quot; )" aria-label="Reply to KT">Reply <span>↓</span></a>				</div><!-- .reply -->
+			</section><!-- .comment-content -->
+		</div><!-- #comment-## -->
+	</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-47">
+		<div id="comment-47" class="comment_wrap">
+			<header class="comment-meta comment-author vcard">
+				<img alt="" src="./Two ways to add Joomla users using your custom code - Diadem Technologies_files/a56c626258a97744cb9df528bb9fda93" srcset="https://secure.gravatar.com/avatar/a56c626258a97744cb9df528bb9fda93?s=88&amp;d=mm&amp;r=g 2x" class="avatar avatar-44 photo grav-hashed grav-hijack" height="44" width="44" id="grav-a56c626258a97744cb9df528bb9fda93-0"><cite class="fn">Vasan </cite><a href="https://diadem.in/blog/two-ways-to-add-joomla-users-using-your-custom-code/#comment-47"><time datetime="2009-09-01T20:31:03+00:00">September 1, 2009 at 8:31 pm</time></a>			</header><!-- .comment-meta -->
+			<section class="comment-content comment single_comment">
+				
+				
+					<p>Excellent tutorial, just what i needed, thanks a heap!!</p>
+									
+
+				<div class="reply">
+					<a rel="nofollow" class="comment-reply-link" href="https://diadem.in/blog/two-ways-to-add-joomla-users-using-your-custom-code/?replytocom=47#respond" onclick="return addComment.moveForm( &quot;comment-47&quot;, &quot;47&quot;, &quot;respond&quot;, &quot;430&quot; )" aria-label="Reply to Vasan">Reply <span>↓</span></a>				</div><!-- .reply -->
+			</section><!-- .comment-content -->
+		</div><!-- #comment-## -->
+	</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="li-comment-48">
+		<div id="comment-48" class="comment_wrap">
+			<header class="comment-meta comment-author vcard">
+				<img alt="" src="./Two ways to add Joomla users using your custom code - Diadem Technologies_files/7b6c85f5170251f430c2d7bd6bdc8142" srcset="https://secure.gravatar.com/avatar/7b6c85f5170251f430c2d7bd6bdc8142?s=88&amp;d=mm&amp;r=g 2x" class="avatar avatar-44 photo grav-hashed grav-hijack" height="44" width="44" id="grav-7b6c85f5170251f430c2d7bd6bdc8142-0"><cite class="fn">bryan </cite><a href="https://diadem.in/blog/two-ways-to-add-joomla-users-using-your-custom-code/#comment-48"><time datetime="2009-09-25T10:22:10+00:00">September 25, 2009 at 10:22 am</time></a>			</header><!-- .comment-meta -->
+			<section class="comment-content comment single_comment">
+				
+				
+					<p>hi this was not very useful and I wasted several hours trying to implement it, finally got user registrations from the following site.  Too bad this site came to the top of google. </p>
+<p><a href="http://docs.joomla.org/JUser" rel="nofollow">http://docs.joomla.org/JUser</a></p>
+									
+
+				<div class="reply">
+					<a rel="nofollow" class="comment-reply-link" href="https://diadem.in/blog/two-ways-to-add-joomla-users-using-your-custom-code/?replytocom=48#respond" onclick="return addComment.moveForm( &quot;comment-48&quot;, &quot;48&quot;, &quot;respond&quot;, &quot;430&quot; )" aria-label="Reply to bryan">Reply <span>↓</span></a>				</div><!-- .reply -->
+			</section><!-- .comment-content -->
+		</div><!-- #comment-## -->
+	</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-49">
+		<div id="comment-49" class="comment_wrap">
+			<header class="comment-meta comment-author vcard">
+				<img alt="" src="./Two ways to add Joomla users using your custom code - Diadem Technologies_files/ffc5dd416b42ce5ef41606d15e8faa2c" srcset="https://secure.gravatar.com/avatar/ffc5dd416b42ce5ef41606d15e8faa2c?s=88&amp;d=mm&amp;r=g 2x" class="avatar avatar-44 photo grav-hashed grav-hijack" height="44" width="44" id="grav-ffc5dd416b42ce5ef41606d15e8faa2c-0"><cite class="fn"><a href="http://www.pacificnewmedia.com/" rel="external nofollow" class="url">mike</a> </cite><a href="https://diadem.in/blog/two-ways-to-add-joomla-users-using-your-custom-code/#comment-49"><time datetime="2009-11-25T03:10:47+00:00">November 25, 2009 at 3:10 am</time></a>			</header><!-- .comment-meta -->
+			<section class="comment-content comment single_comment">
+				
+				
+					<p>Maybe there’s something going on here? I tried what Bryan did and it didn’t work… then I tried this and it worked first try!</p>
+									
+
+				<div class="reply">
+					<a rel="nofollow" class="comment-reply-link" href="https://diadem.in/blog/two-ways-to-add-joomla-users-using-your-custom-code/?replytocom=49#respond" onclick="return addComment.moveForm( &quot;comment-49&quot;, &quot;49&quot;, &quot;respond&quot;, &quot;430&quot; )" aria-label="Reply to mike">Reply <span>↓</span></a>				</div><!-- .reply -->
+			</section><!-- .comment-content -->
+		</div><!-- #comment-## -->
+	</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="li-comment-50">
+		<div id="comment-50" class="comment_wrap">
+			<header class="comment-meta comment-author vcard">
+				<img alt="" src="./Two ways to add Joomla users using your custom code - Diadem Technologies_files/298d228a9f59e5628550b71e556886bb" srcset="https://secure.gravatar.com/avatar/298d228a9f59e5628550b71e556886bb?s=88&amp;d=mm&amp;r=g 2x" class="avatar avatar-44 photo grav-hashed grav-hijack" height="44" width="44" id="grav-298d228a9f59e5628550b71e556886bb-0"><cite class="fn"><a href="http://www.mytinyurls.com/" rel="external nofollow" class="url">dharprog</a> </cite><a href="https://diadem.in/blog/two-ways-to-add-joomla-users-using-your-custom-code/#comment-50"><time datetime="2010-02-07T20:17:00+00:00">February 7, 2010 at 8:17 pm</time></a>			</header><!-- .comment-meta -->
+			<section class="comment-content comment single_comment">
+				
+				
+					<p>Its working like a charm, I have gone through the second way and it is working very perfect in the first instance i mean in the first verification itself.</p>
+<p>Thanks alot. My time has saved alot to do this.</p>
+<p>Hey Bryan Are you a designer or programmer??? It does have syntax error thats why It might not worked for you.</p>
+									
+
+				<div class="reply">
+					<a rel="nofollow" class="comment-reply-link" href="https://diadem.in/blog/two-ways-to-add-joomla-users-using-your-custom-code/?replytocom=50#respond" onclick="return addComment.moveForm( &quot;comment-50&quot;, &quot;50&quot;, &quot;respond&quot;, &quot;430&quot; )" aria-label="Reply to dharprog">Reply <span>↓</span></a>				</div><!-- .reply -->
+			</section><!-- .comment-content -->
+		</div><!-- #comment-## -->
+	</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-51">
+		<div id="comment-51" class="comment_wrap">
+			<header class="comment-meta comment-author vcard">
+				<img alt="" src="./Two ways to add Joomla users using your custom code - Diadem Technologies_files/fe8582b9b5350b34f7a8f86782365bb4" srcset="https://secure.gravatar.com/avatar/fe8582b9b5350b34f7a8f86782365bb4?s=88&amp;d=mm&amp;r=g 2x" class="avatar avatar-44 photo grav-hashed grav-hijack" height="44" width="44" id="grav-fe8582b9b5350b34f7a8f86782365bb4-0"><cite class="fn"><a href="http://caribbean-diving.com/" rel="external nofollow" class="url">tours</a> </cite><a href="https://diadem.in/blog/two-ways-to-add-joomla-users-using-your-custom-code/#comment-51"><time datetime="2010-04-09T03:59:24+00:00">April 9, 2010 at 3:59 am</time></a>			</header><!-- .comment-meta -->
+			<section class="comment-content comment single_comment">
+				
+				
+					<p>Hmmmm, dont like the security that is needed by commenting out //JRequest::checkToken() or jexit( ‘Invalid Token’ ); if you do that you are really putting your joomla site at risk.</p>
+									
+
+				<div class="reply">
+					<a rel="nofollow" class="comment-reply-link" href="https://diadem.in/blog/two-ways-to-add-joomla-users-using-your-custom-code/?replytocom=51#respond" onclick="return addComment.moveForm( &quot;comment-51&quot;, &quot;51&quot;, &quot;respond&quot;, &quot;430&quot; )" aria-label="Reply to tours">Reply <span>↓</span></a>				</div><!-- .reply -->
+			</section><!-- .comment-content -->
+		</div><!-- #comment-## -->
+	</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="li-comment-52">
+		<div id="comment-52" class="comment_wrap">
+			<header class="comment-meta comment-author vcard">
+				<img alt="" src="./Two ways to add Joomla users using your custom code - Diadem Technologies_files/6e0d5e8e80d94dc0269a35f090490f89" srcset="https://secure.gravatar.com/avatar/6e0d5e8e80d94dc0269a35f090490f89?s=88&amp;d=mm&amp;r=g 2x" class="avatar avatar-44 photo grav-hashed grav-hijack" height="44" width="44" id="grav-6e0d5e8e80d94dc0269a35f090490f89-0"><cite class="fn">Cort </cite><a href="https://diadem.in/blog/two-ways-to-add-joomla-users-using-your-custom-code/#comment-52"><time datetime="2010-05-21T20:39:58+00:00">May 21, 2010 at 8:39 pm</time></a>			</header><!-- .comment-meta -->
+			<section class="comment-content comment single_comment">
+				
+				
+					<p>Is commenting out //JRequest::checkToken() or jexit( ‘Invalid Token’ ) a significant security concern??</p>
+									
+
+				<div class="reply">
+					<a rel="nofollow" class="comment-reply-link" href="https://diadem.in/blog/two-ways-to-add-joomla-users-using-your-custom-code/?replytocom=52#respond" onclick="return addComment.moveForm( &quot;comment-52&quot;, &quot;52&quot;, &quot;respond&quot;, &quot;430&quot; )" aria-label="Reply to Cort">Reply <span>↓</span></a>				</div><!-- .reply -->
+			</section><!-- .comment-content -->
+		</div><!-- #comment-## -->
+	</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-53">
+		<div id="comment-53" class="comment_wrap">
+			<header class="comment-meta comment-author vcard">
+				<img alt="" src="./Two ways to add Joomla users using your custom code - Diadem Technologies_files/f0635377b6ffcf436f7155b7b717a8a0" srcset="https://secure.gravatar.com/avatar/f0635377b6ffcf436f7155b7b717a8a0?s=88&amp;d=mm&amp;r=g 2x" class="avatar avatar-44 photo grav-hashed grav-hijack" height="44" width="44" id="grav-f0635377b6ffcf436f7155b7b717a8a0-0"><cite class="fn">naveen </cite><a href="https://diadem.in/blog/two-ways-to-add-joomla-users-using-your-custom-code/#comment-53"><time datetime="2010-06-19T12:49:49+00:00">June 19, 2010 at 12:49 pm</time></a>			</header><!-- .comment-meta -->
+			<section class="comment-content comment single_comment">
+				
+				
+					<p>i didn’t tried the top method but what brian said is absolutely  correct way to create user.<br>
+<a href="http://docs.joomla.org/JUser" rel="nofollow">http://docs.joomla.org/JUser</a></p>
+<p>everything is handled by joomla so is best way to create user</p>
+									
+
+				<div class="reply">
+					<a rel="nofollow" class="comment-reply-link" href="https://diadem.in/blog/two-ways-to-add-joomla-users-using-your-custom-code/?replytocom=53#respond" onclick="return addComment.moveForm( &quot;comment-53&quot;, &quot;53&quot;, &quot;respond&quot;, &quot;430&quot; )" aria-label="Reply to naveen">Reply <span>↓</span></a>				</div><!-- .reply -->
+			</section><!-- .comment-content -->
+		</div><!-- #comment-## -->
+	</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="li-comment-54">
+		<div id="comment-54" class="comment_wrap">
+			<header class="comment-meta comment-author vcard">
+				<img alt="" src="./Two ways to add Joomla users using your custom code - Diadem Technologies_files/aed50178201106944bb8ec9976afe7a6" srcset="https://secure.gravatar.com/avatar/aed50178201106944bb8ec9976afe7a6?s=88&amp;d=mm&amp;r=g 2x" class="avatar avatar-44 photo grav-hashed grav-hijack" height="44" width="44" id="grav-aed50178201106944bb8ec9976afe7a6-0"><cite class="fn">kokila </cite><a href="https://diadem.in/blog/two-ways-to-add-joomla-users-using-your-custom-code/#comment-54"><time datetime="2010-08-03T12:39:10+00:00">August 3, 2010 at 12:39 pm</time></a>			</header><!-- .comment-meta -->
+			<section class="comment-content comment single_comment">
+				
+				
+					<p>hi i can’t understand anybody help me or attach sample forms.I dont know how to give database connection.Plz  give me sample forms</p>
+									
+
+				<div class="reply">
+					<a rel="nofollow" class="comment-reply-link" href="https://diadem.in/blog/two-ways-to-add-joomla-users-using-your-custom-code/?replytocom=54#respond" onclick="return addComment.moveForm( &quot;comment-54&quot;, &quot;54&quot;, &quot;respond&quot;, &quot;430&quot; )" aria-label="Reply to kokila">Reply <span>↓</span></a>				</div><!-- .reply -->
+			</section><!-- .comment-content -->
+		</div><!-- #comment-## -->
+	</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-55">
+		<div id="comment-55" class="comment_wrap">
+			<header class="comment-meta comment-author vcard">
+				<img alt="" src="./Two ways to add Joomla users using your custom code - Diadem Technologies_files/ff805d28e71e9cc6cf1a4fdbab7c6a0e" srcset="https://secure.gravatar.com/avatar/ff805d28e71e9cc6cf1a4fdbab7c6a0e?s=88&amp;d=mm&amp;r=g 2x" class="avatar avatar-44 photo grav-hashed grav-hijack" height="44" width="44" id="grav-ff805d28e71e9cc6cf1a4fdbab7c6a0e-0"><cite class="fn">TBS </cite><a href="https://diadem.in/blog/two-ways-to-add-joomla-users-using-your-custom-code/#comment-55"><time datetime="2010-09-07T19:06:00+00:00">September 7, 2010 at 7:06 pm</time></a>			</header><!-- .comment-meta -->
+			<section class="comment-content comment single_comment">
+				
+				
+					<p>I get the error:</p>
+<p>Fatal error: Call to a member function bind() on a non-object in /home/…..user.php on line 495</p>
+<p>I try to insert the new user from a model and all is ok right up to the line $user-&gt;save()</p>
+									
+
+				<div class="reply">
+					<a rel="nofollow" class="comment-reply-link" href="https://diadem.in/blog/two-ways-to-add-joomla-users-using-your-custom-code/?replytocom=55#respond" onclick="return addComment.moveForm( &quot;comment-55&quot;, &quot;55&quot;, &quot;respond&quot;, &quot;430&quot; )" aria-label="Reply to TBS">Reply <span>↓</span></a>				</div><!-- .reply -->
+			</section><!-- .comment-content -->
+		</div><!-- #comment-## -->
+	</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="li-comment-56">
+		<div id="comment-56" class="comment_wrap">
+			<header class="comment-meta comment-author vcard">
+				<img alt="" src="./Two ways to add Joomla users using your custom code - Diadem Technologies_files/d123fa442a6648978d9b49644eb37e1e" srcset="https://secure.gravatar.com/avatar/d123fa442a6648978d9b49644eb37e1e?s=88&amp;d=mm&amp;r=g 2x" class="avatar avatar-44 photo grav-hashed grav-hijack" height="44" width="44" id="grav-d123fa442a6648978d9b49644eb37e1e-0"><cite class="fn"><a href="http://lucianosilva.com/" rel="external nofollow" class="url">Luciano</a> </cite><a href="https://diadem.in/blog/two-ways-to-add-joomla-users-using-your-custom-code/#comment-56"><time datetime="2010-09-08T04:56:48+00:00">September 8, 2010 at 4:56 am</time></a>			</header><!-- .comment-meta -->
+			<section class="comment-content comment single_comment">
+				
+				
+					<p>Hello, </p>
+<p>How do you sent activation mail after user registered?<br>
+I’m trying now to create a new way for user registration in joomla with custom form, but, I have this issue.</p>
+<p>Thank you.</p>
+<p>All the best.</p>
+									
+
+				<div class="reply">
+					<a rel="nofollow" class="comment-reply-link" href="https://diadem.in/blog/two-ways-to-add-joomla-users-using-your-custom-code/?replytocom=56#respond" onclick="return addComment.moveForm( &quot;comment-56&quot;, &quot;56&quot;, &quot;respond&quot;, &quot;430&quot; )" aria-label="Reply to Luciano">Reply <span>↓</span></a>				</div><!-- .reply -->
+			</section><!-- .comment-content -->
+		</div><!-- #comment-## -->
+	</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-57">
+		<div id="comment-57" class="comment_wrap">
+			<header class="comment-meta comment-author vcard">
+				<img alt="" src="./Two ways to add Joomla users using your custom code - Diadem Technologies_files/73229a02398a9f3ddbd4975161346988" srcset="https://secure.gravatar.com/avatar/73229a02398a9f3ddbd4975161346988?s=88&amp;d=mm&amp;r=g 2x" class="avatar avatar-44 photo grav-hashed grav-hijack" height="44" width="44" id="grav-73229a02398a9f3ddbd4975161346988-0"><cite class="fn">molo </cite><a href="https://diadem.in/blog/two-ways-to-add-joomla-users-using-your-custom-code/#comment-57"><time datetime="2010-12-04T03:25:45+00:00">December 4, 2010 at 3:25 am</time></a>			</header><!-- .comment-meta -->
+			<section class="comment-content comment single_comment">
+				
+				
+					<p>@Luciano</p>
+<p>Hi,</p>
+<p>I have faced with the same issue – after registration I don’t have welcome and activation emails.</p>
+<p>Did you figure out how to sent email after registration?</p>
+<p>Thanks</p>
+									
+
+				<div class="reply">
+					<a rel="nofollow" class="comment-reply-link" href="https://diadem.in/blog/two-ways-to-add-joomla-users-using-your-custom-code/?replytocom=57#respond" onclick="return addComment.moveForm( &quot;comment-57&quot;, &quot;57&quot;, &quot;respond&quot;, &quot;430&quot; )" aria-label="Reply to molo">Reply <span>↓</span></a>				</div><!-- .reply -->
+			</section><!-- .comment-content -->
+		</div><!-- #comment-## -->
+	</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="li-comment-58">
+		<div id="comment-58" class="comment_wrap">
+			<header class="comment-meta comment-author vcard">
+				<img alt="" src="./Two ways to add Joomla users using your custom code - Diadem Technologies_files/fc33305b800868e14874b75fbc7a6700" srcset="https://secure.gravatar.com/avatar/fc33305b800868e14874b75fbc7a6700?s=88&amp;d=mm&amp;r=g 2x" class="avatar avatar-44 photo grav-hashed grav-hijack" height="44" width="44" id="grav-fc33305b800868e14874b75fbc7a6700-0"><cite class="fn"><a href="http://www.arohatech.com/" rel="external nofollow" class="url">Ashish Kumar</a> </cite><a href="https://diadem.in/blog/two-ways-to-add-joomla-users-using-your-custom-code/#comment-58"><time datetime="2011-01-12T14:59:29+00:00">January 12, 2011 at 2:59 pm</time></a>			</header><!-- .comment-meta -->
+			<section class="comment-content comment single_comment">
+				
+				
+					<p>Informative post, Joomla development empowers you to build up informative websites and competent applications.</p>
+									
+
+				<div class="reply">
+					<a rel="nofollow" class="comment-reply-link" href="https://diadem.in/blog/two-ways-to-add-joomla-users-using-your-custom-code/?replytocom=58#respond" onclick="return addComment.moveForm( &quot;comment-58&quot;, &quot;58&quot;, &quot;respond&quot;, &quot;430&quot; )" aria-label="Reply to Ashish Kumar">Reply <span>↓</span></a>				</div><!-- .reply -->
+			</section><!-- .comment-content -->
+		</div><!-- #comment-## -->
+	</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-59">
+		<div id="comment-59" class="comment_wrap">
+			<header class="comment-meta comment-author vcard">
+				<img alt="" src="./Two ways to add Joomla users using your custom code - Diadem Technologies_files/cf16db4aa919d9b4f9e91f8a9ec56f8a" srcset="https://secure.gravatar.com/avatar/cf16db4aa919d9b4f9e91f8a9ec56f8a?s=88&amp;d=mm&amp;r=g 2x" class="avatar avatar-44 photo grav-hashed grav-hijack" height="44" width="44" id="grav-cf16db4aa919d9b4f9e91f8a9ec56f8a-0"><cite class="fn">MG </cite><a href="https://diadem.in/blog/two-ways-to-add-joomla-users-using-your-custom-code/#comment-59"><time datetime="2011-02-04T18:13:24+00:00">February 4, 2011 at 6:13 pm</time></a>			</header><!-- .comment-meta -->
+			<section class="comment-content comment single_comment">
+				
+				
+					<p>wow <a href="http://docs.joomla.org/JUser" rel="nofollow">http://docs.joomla.org/JUser</a> works! Cool Thx!!</p>
+									
+
+				<div class="reply">
+					<a rel="nofollow" class="comment-reply-link" href="https://diadem.in/blog/two-ways-to-add-joomla-users-using-your-custom-code/?replytocom=59#respond" onclick="return addComment.moveForm( &quot;comment-59&quot;, &quot;59&quot;, &quot;respond&quot;, &quot;430&quot; )" aria-label="Reply to MG">Reply <span>↓</span></a>				</div><!-- .reply -->
+			</section><!-- .comment-content -->
+		</div><!-- #comment-## -->
+	</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="li-comment-60">
+		<div id="comment-60" class="comment_wrap">
+			<header class="comment-meta comment-author vcard">
+				<img alt="" src="./Two ways to add Joomla users using your custom code - Diadem Technologies_files/6dbdad904867cda6f67f452860d212a4" srcset="https://secure.gravatar.com/avatar/6dbdad904867cda6f67f452860d212a4?s=88&amp;d=mm&amp;r=g 2x" class="avatar avatar-44 photo grav-hashed grav-hijack" height="44" width="44" id="grav-6dbdad904867cda6f67f452860d212a4-0"><cite class="fn">Dayo </cite><a href="https://diadem.in/blog/two-ways-to-add-joomla-users-using-your-custom-code/#comment-60"><time datetime="2011-08-27T11:47:26+00:00">August 27, 2011 at 11:47 am</time></a>			</header><!-- .comment-meta -->
+			<section class="comment-content comment single_comment">
+				
+				
+					<p>Thanks for this. Can you kindly provide similar for v1.6+?</p>
+									
+
+				<div class="reply">
+					<a rel="nofollow" class="comment-reply-link" href="https://diadem.in/blog/two-ways-to-add-joomla-users-using-your-custom-code/?replytocom=60#respond" onclick="return addComment.moveForm( &quot;comment-60&quot;, &quot;60&quot;, &quot;respond&quot;, &quot;430&quot; )" aria-label="Reply to Dayo">Reply <span>↓</span></a>				</div><!-- .reply -->
+			</section><!-- .comment-content -->
+		</div><!-- #comment-## -->
+	</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-61">
+		<div id="comment-61" class="comment_wrap">
+			<header class="comment-meta comment-author vcard">
+				<img alt="" src="./Two ways to add Joomla users using your custom code - Diadem Technologies_files/4f368bd3b3657b0a534fdaa87ec7c0d9" srcset="https://secure.gravatar.com/avatar/4f368bd3b3657b0a534fdaa87ec7c0d9?s=88&amp;d=mm&amp;r=g 2x" class="avatar avatar-44 photo grav-hashed grav-hijack" height="44" width="44" id="grav-4f368bd3b3657b0a534fdaa87ec7c0d9-0"><cite class="fn"><a href="http://www.zendframeworknotes.ru/" rel="external nofollow" class="url">Sergey</a> </cite><a href="https://diadem.in/blog/two-ways-to-add-joomla-users-using-your-custom-code/#comment-61"><time datetime="2011-09-05T17:05:29+00:00">September 5, 2011 at 5:05 pm</time></a>			</header><!-- .comment-meta -->
+			<section class="comment-content comment single_comment">
+				
+				
+					<p>At least i found excellent tutorial, about user register! Thanks a lot!)</p>
+									
+
+				<div class="reply">
+					<a rel="nofollow" class="comment-reply-link" href="https://diadem.in/blog/two-ways-to-add-joomla-users-using-your-custom-code/?replytocom=61#respond" onclick="return addComment.moveForm( &quot;comment-61&quot;, &quot;61&quot;, &quot;respond&quot;, &quot;430&quot; )" aria-label="Reply to Sergey">Reply <span>↓</span></a>				</div><!-- .reply -->
+			</section><!-- .comment-content -->
+		</div><!-- #comment-## -->
+	</li><!-- #comment-## -->
+	<li class="trackback even thread-even depth-1" id="comment-62">
+		<p>Pingback: <a href="http://designjoo.org/joomlashack/1228-JoomlaShack%20Optimus%20" rel="external nofollow" class="url">joomla, joomla template</a> </p>
+	</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-63">
+		<div id="comment-63" class="comment_wrap">
+			<header class="comment-meta comment-author vcard">
+				<img alt="" src="./Two ways to add Joomla users using your custom code - Diadem Technologies_files/b22e104ded030ef07be27e6494443d1f" srcset="https://secure.gravatar.com/avatar/b22e104ded030ef07be27e6494443d1f?s=88&amp;d=mm&amp;r=g 2x" class="avatar avatar-44 photo grav-hashed grav-hijack" height="44" width="44" id="grav-b22e104ded030ef07be27e6494443d1f-0"><cite class="fn">GC </cite><a href="https://diadem.in/blog/two-ways-to-add-joomla-users-using-your-custom-code/#comment-63"><time datetime="2011-11-14T20:36:38+00:00">November 14, 2011 at 8:36 pm</time></a>			</header><!-- .comment-meta -->
+			<section class="comment-content comment single_comment">
+				
+				
+					<p>I m a newbie, but have a task that requires addition of joomla user from an external script.</p>
+<p>Can you elaborate the last statement</p>
+<p>“After this we can use the php header function to redirect the user to the desired location.”</p>
+<p>Would appreciate if an example of this is provided.</p>
+									
+
+				<div class="reply">
+					<a rel="nofollow" class="comment-reply-link" href="https://diadem.in/blog/two-ways-to-add-joomla-users-using-your-custom-code/?replytocom=63#respond" onclick="return addComment.moveForm( &quot;comment-63&quot;, &quot;63&quot;, &quot;respond&quot;, &quot;430&quot; )" aria-label="Reply to GC">Reply <span>↓</span></a>				</div><!-- .reply -->
+			</section><!-- .comment-content -->
+		</div><!-- #comment-## -->
+	</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="li-comment-64">
+		<div id="comment-64" class="comment_wrap">
+			<header class="comment-meta comment-author vcard">
+				<img alt="" src="./Two ways to add Joomla users using your custom code - Diadem Technologies_files/628b0ae773fb9780ddfaa7fc13abee66" srcset="https://secure.gravatar.com/avatar/628b0ae773fb9780ddfaa7fc13abee66?s=88&amp;d=mm&amp;r=g 2x" class="avatar avatar-44 photo grav-hashed grav-hijack" height="44" width="44" id="grav-628b0ae773fb9780ddfaa7fc13abee66-0"><cite class="fn"><a href="http://mycircletree.com/" rel="external nofollow" class="url">Bob Gregor Orlando Web Design</a> </cite><a href="https://diadem.in/blog/two-ways-to-add-joomla-users-using-your-custom-code/#comment-64"><time datetime="2012-03-13T22:20:19+00:00">March 13, 2012 at 10:20 pm</time></a>			</header><!-- .comment-meta -->
+			<section class="comment-content comment single_comment">
+				
+				
+					<p>@GC’s Comment RE: redirecting after save.<br>
+What you actually want to do is:<br>
+redirect(“New User Created”);<br>
+?&gt;</p>
+									
+
+				<div class="reply">
+					<a rel="nofollow" class="comment-reply-link" href="https://diadem.in/blog/two-ways-to-add-joomla-users-using-your-custom-code/?replytocom=64#respond" onclick="return addComment.moveForm( &quot;comment-64&quot;, &quot;64&quot;, &quot;respond&quot;, &quot;430&quot; )" aria-label="Reply to Bob Gregor Orlando Web Design">Reply <span>↓</span></a>				</div><!-- .reply -->
+			</section><!-- .comment-content -->
+		</div><!-- #comment-## -->
+	</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-65">
+		<div id="comment-65" class="comment_wrap">
+			<header class="comment-meta comment-author vcard">
+				<img alt="" src="./Two ways to add Joomla users using your custom code - Diadem Technologies_files/4ab11b203973da77bd3eaa0b8470c4ba" srcset="https://secure.gravatar.com/avatar/4ab11b203973da77bd3eaa0b8470c4ba?s=88&amp;d=mm&amp;r=g 2x" class="avatar avatar-44 photo grav-hashed grav-hijack" height="44" width="44" id="grav-4ab11b203973da77bd3eaa0b8470c4ba-0"><cite class="fn">Victor </cite><a href="https://diadem.in/blog/two-ways-to-add-joomla-users-using-your-custom-code/#comment-65"><time datetime="2012-07-19T02:01:26+00:00">July 19, 2012 at 2:01 am</time></a>			</header><!-- .comment-meta -->
+			<section class="comment-content comment single_comment">
+				
+				
+					<p>Works for joomla 2.5?</p>
+									
+
+				<div class="reply">
+					<a rel="nofollow" class="comment-reply-link" href="https://diadem.in/blog/two-ways-to-add-joomla-users-using-your-custom-code/?replytocom=65#respond" onclick="return addComment.moveForm( &quot;comment-65&quot;, &quot;65&quot;, &quot;respond&quot;, &quot;430&quot; )" aria-label="Reply to Victor">Reply <span>↓</span></a>				</div><!-- .reply -->
+			</section><!-- .comment-content -->
+		</div><!-- #comment-## -->
+	</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="li-comment-66">
+		<div id="comment-66" class="comment_wrap">
+			<header class="comment-meta comment-author vcard">
+				<img alt="" src="./Two ways to add Joomla users using your custom code - Diadem Technologies_files/5eb109c04dcef75ae024696ded24a1f8" srcset="https://secure.gravatar.com/avatar/5eb109c04dcef75ae024696ded24a1f8?s=88&amp;d=mm&amp;r=g 2x" class="avatar avatar-44 photo grav-hashed grav-hijack" height="44" width="44" id="grav-5eb109c04dcef75ae024696ded24a1f8-0"><cite class="fn">Stergios </cite><a href="https://diadem.in/blog/two-ways-to-add-joomla-users-using-your-custom-code/#comment-66"><time datetime="2012-11-21T06:41:12+00:00">November 21, 2012 at 6:41 am</time></a>			</header><!-- .comment-meta -->
+			<section class="comment-content comment single_comment">
+				
+				
+					<p>it’s big security hole….a bot can register thousand users via CURL in only few seconds!</p>
+									
+
+				<div class="reply">
+					<a rel="nofollow" class="comment-reply-link" href="https://diadem.in/blog/two-ways-to-add-joomla-users-using-your-custom-code/?replytocom=66#respond" onclick="return addComment.moveForm( &quot;comment-66&quot;, &quot;66&quot;, &quot;respond&quot;, &quot;430&quot; )" aria-label="Reply to Stergios">Reply <span>↓</span></a>				</div><!-- .reply -->
+			</section><!-- .comment-content -->
+		</div><!-- #comment-## -->
+	</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-67">
+		<div id="comment-67" class="comment_wrap">
+			<header class="comment-meta comment-author vcard">
+				<img alt="" src="./Two ways to add Joomla users using your custom code - Diadem Technologies_files/ab6ef3909f8c0f90469926e3069e5fe6" srcset="https://secure.gravatar.com/avatar/ab6ef3909f8c0f90469926e3069e5fe6?s=88&amp;d=mm&amp;r=g 2x" class="avatar avatar-44 photo grav-hashed grav-hijack" height="44" width="44" id="grav-ab6ef3909f8c0f90469926e3069e5fe6-0"><cite class="fn"><a href="http://budeseo.com/" rel="external nofollow" class="url">jasa seo</a> </cite><a href="https://diadem.in/blog/two-ways-to-add-joomla-users-using-your-custom-code/#comment-67"><time datetime="2013-08-18T21:07:55+00:00">August 18, 2013 at 9:07 pm</time></a>			</header><!-- .comment-meta -->
+			<section class="comment-content comment single_comment">
+				
+				
+					<p>good info gus, joomla com_user in vulnerability -_-</p>
+									
+
+				<div class="reply">
+					<a rel="nofollow" class="comment-reply-link" href="https://diadem.in/blog/two-ways-to-add-joomla-users-using-your-custom-code/?replytocom=67#respond" onclick="return addComment.moveForm( &quot;comment-67&quot;, &quot;67&quot;, &quot;respond&quot;, &quot;430&quot; )" aria-label="Reply to jasa seo">Reply <span>↓</span></a>				</div><!-- .reply -->
+			</section><!-- .comment-content -->
+		</div><!-- #comment-## -->
+	</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="li-comment-309">
+		<div id="comment-309" class="comment_wrap">
+			<header class="comment-meta comment-author vcard">
+				<img alt="" src="./Two ways to add Joomla users using your custom code - Diadem Technologies_files/c83ea2232c368648726c6fd80bcb83a5" srcset="https://secure.gravatar.com/avatar/c83ea2232c368648726c6fd80bcb83a5?s=88&amp;d=mm&amp;r=g 2x" class="avatar avatar-44 photo grav-hashed grav-hijack" height="44" width="44" id="grav-c83ea2232c368648726c6fd80bcb83a5-0"><cite class="fn">serega </cite><a href="https://diadem.in/blog/two-ways-to-add-joomla-users-using-your-custom-code/#comment-309"><time datetime="2015-02-03T03:27:20+00:00">February 3, 2015 at 3:27 am</time></a>			</header><!-- .comment-meta -->
+			<section class="comment-content comment single_comment">
+				
+				
+					<p>Why your website with code protected from copying code?<br>
+I must retyping all programm code? Author, your are normal?</p>
+									
+
+				<div class="reply">
+					<a rel="nofollow" class="comment-reply-link" href="https://diadem.in/blog/two-ways-to-add-joomla-users-using-your-custom-code/?replytocom=309#respond" onclick="return addComment.moveForm( &quot;comment-309&quot;, &quot;309&quot;, &quot;respond&quot;, &quot;430&quot; )" aria-label="Reply to serega">Reply <span>↓</span></a>				</div><!-- .reply -->
+			</section><!-- .comment-content -->
+		</div><!-- #comment-## -->
+	<ul class="children">
+	<li class="comment byuser comment-author-wpadmin odd alt depth-2" id="li-comment-311">
+		<div id="comment-311" class="comment_wrap">
+			<header class="comment-meta comment-author vcard">
+				<img alt="" src="./Two ways to add Joomla users using your custom code - Diadem Technologies_files/6bd3cd2f234d2ce1f20ec551b44a4208" srcset="https://secure.gravatar.com/avatar/6bd3cd2f234d2ce1f20ec551b44a4208?s=88&amp;d=mm&amp;r=g 2x" class="avatar avatar-44 photo grav-hashed grav-hijack" height="44" width="44" id="grav-6bd3cd2f234d2ce1f20ec551b44a4208-0"><cite class="fn">Hriday </cite><a href="https://diadem.in/blog/two-ways-to-add-joomla-users-using-your-custom-code/#comment-311"><time datetime="2015-02-03T07:34:26+00:00">February 3, 2015 at 7:34 am</time></a>			</header><!-- .comment-meta -->
+			<section class="comment-content comment single_comment">
+				
+				
+					<p>We have allowed copying of website content now. Hope this scope may not be abused.</p>
+									
+
+				<div class="reply">
+					<a rel="nofollow" class="comment-reply-link" href="https://diadem.in/blog/two-ways-to-add-joomla-users-using-your-custom-code/?replytocom=311#respond" onclick="return addComment.moveForm( &quot;comment-311&quot;, &quot;311&quot;, &quot;respond&quot;, &quot;430&quot; )" aria-label="Reply to Hriday">Reply <span>↓</span></a>				</div><!-- .reply -->
+			</section><!-- .comment-content -->
+		</div><!-- #comment-## -->
+	</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+		</ol><!-- .commentlist -->
+
+		
+		
+				
+		<div id="respond" class="comment-respond">
+			<h3 id="reply-title" class="comment-reply-title">Leave a Reply <small><a rel="nofollow" id="cancel-comment-reply-link" href="https://diadem.in/blog/two-ways-to-add-joomla-users-using-your-custom-code/#respond" style="display:none;">Cancel reply</a></small></h3>
+			<form id="commentform" class="comment-form">
+				<iframe src="./Two ways to add Joomla users using your custom code - Diadem Technologies_files/saved_resource.html" allowtransparency="false" style="width: 100%; height: 58px; border: 0px;" frameborder="0" scrolling="no" name="jetpack_remote_comment" id="jetpack_remote_comment"></iframe>
+			<input id="ak_js" name="ak_js" type="hidden" value="1464615576196"></form>
+		</div>
+
+		
+		<input type="hidden" name="comment_parent" id="comment_parent" value="">
+
+		
+</div><!-- #comments .comments-area -->
+									<div id="nav-below" class="navigation">
+						<div class="nav-previous">← <a href="https://diadem.in/blog/checklist-before-you-shift-your-website-between-web-hosts/" rel="prev">Checklist before you shift your website between web hosts</a></div>
+						<div class="nav-next"><a href="https://diadem.in/blog/how-to-create-a-view-in-drupal/" rel="next">How to create a view in Drupal</a> →</div>
+					</div><!-- #nav-below-->
+				
+								
+				
+			</div>
+			<!-- .entry-content -->
+
+		</div><!-- #main -->
+
+		<div id="sidebar">
+	<div class="content widget-area">
+	<aside id="search-7" class="widget widget_search"><h4 class="widget-title">Blog Search</h4><div class="search-box">
+	<form method="get" action="https://diadem.in/">
+		<input type="text" size="15" class="search-field" name="s" id="s" value="To search type and hit enter" onfocus="if(this.value == &#39;To search type and hit enter&#39;) {this.value = &#39;&#39;;}" onblur="if (this.value == &#39;&#39;) {this.value = &#39;To search type and hit enter&#39;;}">
+	</form>
+</div><div class="clear"></div></aside>		<aside id="recentpost_entries-4" class="widget widget_postslist">		<h4 class="widget-title">Recent Post</h4>		<ul>
+					<li>
+							<div class="pdesc">
+				<a href="https://diadem.in/free-ssl-certificate-every-hosting-plan-now-live/" title="FREE SSL certificate with every hosting plan – Now Live!">FREE SSL certificate with every hosting plan – Now Live!</a>
+							<div class="w-postmeta">May 27, 2016</div>
+						</div>
+			
+			</li>
+					<li>
+							<div class="pdesc">
+				<a href="https://diadem.in/hyper-v-vm-data-protection-item-level-recovery-microsoft-data-protection-manager-2012-r2/" title="Hyper-V VM Data Protection and Item Level Recovery with Microsoft Data Protection Manager 2012 R2">Hyper-V VM Data Protection and Item Level Recovery with Microsoft Data Protection Manager 2012 R2</a>
+							<div class="w-postmeta">May 14, 2016</div>
+						</div>
+			
+			</li>
+					<li>
+							<div class="pdesc">
+				<a href="https://diadem.in/php-performance-benchmarking-optimisation/" title="PHP performance benchmarking and optimisation">PHP performance benchmarking and optimisation</a>
+							<div class="w-postmeta">April 7, 2016</div>
+						</div>
+			
+			</li>
+				</ul>
+		<div class="clear"></div></aside><aside id="recent-comments-4" class="widget widget_recent_comments"><h4 class="widget-title">Comments</h4><ul id="recentcomments"><li class="recentcomments"><span class="comment-author-link"><a href="https://diadem.in/php-performance-benchmarking-optimisation-tips/" rel="external nofollow" class="url">PHP performance benchmarking and optimisation tips - Diadem Technologies</a></span> on <a href="https://diadem.in/linux-cloud-vps/#comment-711">Linux Cloud VPS</a></li><li class="recentcomments"><span class="comment-author-link"><a href="https://diadem.in/diadem-listed-as-a-featured-parallels-partner-for-plesk/" rel="external nofollow" class="url">Diadem listed as a Featured Parallels Partner for Plesk | Diadem Technologies</a></span> on <a href="https://diadem.in/linux-cloud-vps/#comment-398">Linux Cloud VPS</a></li><li class="recentcomments"><span class="comment-author-link">Hriday</span> on <a href="https://diadem.in/blog/two-ways-to-add-joomla-users-using-your-custom-code/#comment-311">Two ways to add Joomla users using your custom code</a></li></ul><div class="clear"></div></aside><aside id="archives-4" class="widget widget_archive"><h4 class="widget-title">Archives</h4>		<label class="screen-reader-text" for="archives-dropdown-4">Archives</label>
+		<select id="archives-dropdown-4" name="archive-dropdown" onchange="document.location.href=this.options[this.selectedIndex].value;">
+			
+			<option value="">Select Month</option>
+				<option value="https://diadem.in/2016/05/"> May 2016 </option>
+	<option value="https://diadem.in/2016/04/"> April 2016 </option>
+	<option value="https://diadem.in/2016/02/"> February 2016 </option>
+	<option value="https://diadem.in/2016/01/"> January 2016 </option>
+	<option value="https://diadem.in/2015/12/"> December 2015 </option>
+	<option value="https://diadem.in/2015/11/"> November 2015 </option>
+	<option value="https://diadem.in/2015/07/"> July 2015 </option>
+	<option value="https://diadem.in/2015/03/"> March 2015 </option>
+	<option value="https://diadem.in/2015/02/"> February 2015 </option>
+	<option value="https://diadem.in/2014/07/"> July 2014 </option>
+	<option value="https://diadem.in/2013/11/"> November 2013 </option>
+	<option value="https://diadem.in/2013/09/"> September 2013 </option>
+	<option value="https://diadem.in/2013/07/"> July 2013 </option>
+	<option value="https://diadem.in/2013/06/"> June 2013 </option>
+	<option value="https://diadem.in/2013/04/"> April 2013 </option>
+	<option value="https://diadem.in/2013/03/"> March 2013 </option>
+	<option value="https://diadem.in/2013/02/"> February 2013 </option>
+	<option value="https://diadem.in/2013/01/"> January 2013 </option>
+	<option value="https://diadem.in/2012/10/"> October 2012 </option>
+	<option value="https://diadem.in/2012/07/"> July 2012 </option>
+	<option value="https://diadem.in/2012/06/"> June 2012 </option>
+	<option value="https://diadem.in/2012/02/"> February 2012 </option>
+	<option value="https://diadem.in/2011/10/"> October 2011 </option>
+	<option value="https://diadem.in/2011/09/"> September 2011 </option>
+	<option value="https://diadem.in/2011/08/"> August 2011 </option>
+	<option value="https://diadem.in/2011/07/"> July 2011 </option>
+	<option value="https://diadem.in/2011/06/"> June 2011 </option>
+	<option value="https://diadem.in/2011/05/"> May 2011 </option>
+	<option value="https://diadem.in/2011/04/"> April 2011 </option>
+	<option value="https://diadem.in/2011/03/"> March 2011 </option>
+	<option value="https://diadem.in/2011/02/"> February 2011 </option>
+	<option value="https://diadem.in/2011/01/"> January 2011 </option>
+	<option value="https://diadem.in/2010/12/"> December 2010 </option>
+	<option value="https://diadem.in/2010/11/"> November 2010 </option>
+	<option value="https://diadem.in/2010/10/"> October 2010 </option>
+	<option value="https://diadem.in/2010/09/"> September 2010 </option>
+	<option value="https://diadem.in/2010/08/"> August 2010 </option>
+	<option value="https://diadem.in/2010/07/"> July 2010 </option>
+	<option value="https://diadem.in/2010/06/"> June 2010 </option>
+	<option value="https://diadem.in/2010/05/"> May 2010 </option>
+	<option value="https://diadem.in/2010/04/"> April 2010 </option>
+	<option value="https://diadem.in/2010/03/"> March 2010 </option>
+	<option value="https://diadem.in/2010/02/"> February 2010 </option>
+	<option value="https://diadem.in/2010/01/"> January 2010 </option>
+	<option value="https://diadem.in/2009/11/"> November 2009 </option>
+	<option value="https://diadem.in/2009/10/"> October 2009 </option>
+	<option value="https://diadem.in/2009/09/"> September 2009 </option>
+	<option value="https://diadem.in/2009/08/"> August 2009 </option>
+	<option value="https://diadem.in/2009/07/"> July 2009 </option>
+	<option value="https://diadem.in/2009/06/"> June 2009 </option>
+	<option value="https://diadem.in/2009/05/"> May 2009 </option>
+	<option value="https://diadem.in/2009/04/"> April 2009 </option>
+	<option value="https://diadem.in/2009/03/"> March 2009 </option>
+
+		</select>
+		<div class="clear"></div></aside><aside id="categories-4" class="widget widget_categories"><h4 class="widget-title">Categories</h4>		<ul>
+	<li class="cat-item cat-item-253"><a href="https://diadem.in/category/apps/">Apps</a>
+</li>
+	<li class="cat-item cat-item-79"><a href="https://diadem.in/category/content-management-systems/">CMS</a>
+</li>
+	<li class="cat-item cat-item-31"><a href="https://diadem.in/category/database/">Database</a>
+</li>
+	<li class="cat-item cat-item-75"><a href="https://diadem.in/category/datacenter/">Datacenters</a>
+</li>
+	<li class="cat-item cat-item-212"><a href="https://diadem.in/category/domain-name-service/">Domain Name Service</a>
+</li>
+	<li class="cat-item cat-item-81"><a href="https://diadem.in/category/ecommerce/">Ecommerce</a>
+</li>
+	<li class="cat-item cat-item-283"><a href="https://diadem.in/category/email-marketing/">Email Marketing</a>
+</li>
+	<li class="cat-item cat-item-224"><a href="https://diadem.in/category/experiences/">Experiences</a>
+</li>
+	<li class="cat-item cat-item-201"><a href="https://diadem.in/category/mail-service/">Hosted Email</a>
+</li>
+	<li class="cat-item cat-item-240"><a href="https://diadem.in/category/hosted-solutions/">Hosted Solutions</a>
+</li>
+	<li class="cat-item cat-item-227"><a href="https://diadem.in/category/industry-events/">Industry Events</a>
+</li>
+	<li class="cat-item cat-item-33"><a href="https://diadem.in/category/linux-admin/">Linux Administration</a>
+</li>
+	<li class="cat-item cat-item-109"><a href="https://diadem.in/category/marketing-tips-advice/">Marketing Tips &amp; Advice</a>
+</li>
+	<li class="cat-item cat-item-103"><a href="https://diadem.in/category/news-updates/">News &amp; Updates</a>
+</li>
+	<li class="cat-item cat-item-189"><a href="https://diadem.in/category/outsourcing/">Outsourcing</a>
+</li>
+	<li class="cat-item cat-item-71"><a href="https://diadem.in/category/phpmysql/">PHP/MySQL</a>
+</li>
+	<li class="cat-item cat-item-65"><a href="https://diadem.in/category/plesk-cp/">Plesk Panel</a>
+</li>
+	<li class="cat-item cat-item-132"><a href="https://diadem.in/category/seo/">SEO</a>
+</li>
+	<li class="cat-item cat-item-187"><a href="https://diadem.in/category/server-management-portal/">Server Management Portal</a>
+</li>
+	<li class="cat-item cat-item-54"><a href="https://diadem.in/category/virtualisation/">Virtualisation</a>
+</li>
+	<li class="cat-item cat-item-136"><a href="https://diadem.in/category/web-application-security/">Web Application Security</a>
+</li>
+	<li class="cat-item cat-item-51"><a href="https://diadem.in/category/web-hosting/">Web Hosting</a>
+</li>
+	<li class="cat-item cat-item-61"><a href="https://diadem.in/category/windows-server/">Windows Server</a>
+</li>
+		</ul>
+<div class="clear"></div></aside>	</div>
+</div><!--  -->			
+		
+		<div class="clear"></div>
+		
+	</div><!-- .inner -->
+</div><!-- .pagemid -->
+	<div id="footer">
+		<div class="inner">
+						<div class="footer-sidebar"><div class="one_third ">		<aside id="recentpost_entries-5" class="widget clearfix widget_postslist">		<h3 class="widget-title">Blog Post</h3>		<ul>
+					<li>
+							<div class="pdesc">
+				<a href="https://diadem.in/free-ssl-certificate-every-hosting-plan-now-live/" title="FREE SSL certificate with every hosting plan – Now Live!">FREE SSL certificate with every hosting plan – Now Live!</a>
+									<p>Free SSL Certificate Security for your d...</p>
+							</div>
+			
+			</li>
+					<li>
+							<div class="pdesc">
+				<a href="https://diadem.in/hyper-v-vm-data-protection-item-level-recovery-microsoft-data-protection-manager-2012-r2/" title="Hyper-V VM Data Protection and Item Level Recovery with Microsoft Data Protection Manager 2012 R2">Hyper-V VM Data Protection and Item Level Recovery with Microsoft Data Protection Manager 2012 R2</a>
+									<p>Hyper-V Virtual Machine Data Protection...</p>
+							</div>
+			
+			</li>
+					<li>
+							<div class="pdesc">
+				<a href="https://diadem.in/php-performance-benchmarking-optimisation/" title="PHP performance benchmarking and optimisation">PHP performance benchmarking and optimisation</a>
+									<p>PHP performance optimisation is a growin...</p>
+							</div>
+			
+			</li>
+				</ul>
+		</aside>				</div><div class="one_third "><aside id="contactinfo_widgets-2" class="widget clearfix contactinfo-wg"><h3 class="widget-title">Quick Contact</h3><div class="contactinfo-wrap"><p><strong><span class="details">Diadem Technologies Pvt. Ltd.</span></strong></p><p><span class="icon"><i class="icon-map-marker"></i></span><span class="details">AD-15, Salt Lake, Sector - I, Kolkata - 700064, WB, INDIA</span></p><p class="phone"><span class="icon"><i class="icon-phone"></i></span><span class="details">+(9133) 23581901-05</span></p><p><span class="icon"><i class="icon-envelope"></i></span><span class="details"><a href="mailto:info@diadem.in">info@diadem.in</a></span></p></div></aside><aside id="text-2" class="widget clearfix widget_text"><h3 class="widget-title">Follow Us on</h3>			<div class="textwidget"><a href="https://diadem.in/blog/two-ways-to-add-joomla-users-using-your-custom-code/#"><img src="./Two ways to add Joomla users using your custom code - Diadem Technologies_files/tweet.png" alt="tweet"></a><a href="https://diadem.in/blog/two-ways-to-add-joomla-users-using-your-custom-code/#"><img src="./Two ways to add Joomla users using your custom code - Diadem Technologies_files/facebook.png" alt="facebook" style="padding-left:10px; padding-right:10px;"></a><a href="https://diadem.in/blog/two-ways-to-add-joomla-users-using-your-custom-code/#"><img src="./Two ways to add Joomla users using your custom code - Diadem Technologies_files/in.png" style="padding-right:10px;" alt="in"></a></div>
+		</aside>				</div><div class="one_third last"><aside id="text-3" class="widget clearfix widget_text"><h3 class="widget-title">Stay Updated!</h3>			<div class="textwidget"><div class="o-form"><div class="o-form-header"><h2 id="o-form-title">Mail List Subscription Form</h2><p id="o-form-description">Please fill in and submit the form below to subscribe to our mailing list.</p></div><form action="https://www.emailconnect.in/subscribe.php" method="post" accept-charset="UTF-8"><div class="o-form-row"><input name="FormValue_Fields[EmailAddress]" value="" id="FormValue_EmailAddress" type="text" placeholder="Email Address" style="width:100%; margin-top:5px;"></div><input name="FormButton_Subscribe" value="Subscribe" id="FormButton_Subscribe" type="submit" style="width:100%;"><input name="FormValue_ListID" value="1692" type="hidden"><input name="FormValue_Command" value="Subscriber.Add" id="FormValue_Command" type="hidden"></form></div></div>
+		</aside>				</div></div>
+			<div class="clear"></div>
+			
+			<div class="copyright clearfix">
+				<div class="copyright_left">
+					<div style=" width: 900px; margin-left: auto; margin-right: auto; text-align:center;">Copyright © 2016 Diadem Technologies Pvt. Ltd. All Rights Reserved. | <a href="https://diadem.in/privacy-policy/">Privacy Policy</a></div>				</div>
+				<div class="copyright_right">
+									</div>
+			</div>
+
+		</div>
+	</div><!-- #footer -->
+
+	</div><!-- #wrapper -->
+</div><!-- #layout -->
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-3030964-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<div id="back-top" style="display: block;"><a href="https://diadem.in/blog/two-ways-to-add-joomla-users-using-your-custom-code/#header"><span></span></a></div>
+
+<!-- ngg_resource_manager_marker --><script type="text/javascript" src="./Two ways to add Joomla users using your custom code - Diadem Technologies_files/comment-reply.min.js"></script>
+<script type="text/javascript" src="./Two ways to add Joomla users using your custom code - Diadem Technologies_files/photon.js"></script>
+<script type="text/javascript" src="./Two ways to add Joomla users using your custom code - Diadem Technologies_files/jquery.flexslider-min.js"></script>
+<script type="text/javascript" src="./Two ways to add Joomla users using your custom code - Diadem Technologies_files/jquery.flexslider.manualDirectionControls.js"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var ratingsL10n = {"plugin_url":"https:\/\/diadem.in\/wp-content\/plugins\/wp-postratings","ajax_url":"https:\/\/diadem.in\/wp-admin\/admin-ajax.php","text_wait":"Please rate only 1 post at a time.","image":"stars","image_ext":"gif","max":"5","show_loading":"1","show_fading":"1","custom":"0"};
+var ratings_mouseover_image=new Image();ratings_mouseover_image.src=ratingsL10n.plugin_url+"/images/"+ratingsL10n.image+"/rating_over."+ratingsL10n.image_ext;;
+/* ]]> */
+</script>
+<script type="text/javascript" src="./Two ways to add Joomla users using your custom code - Diadem Technologies_files/postratings-js.js"></script>
+<script type="text/javascript" src="./Two ways to add Joomla users using your custom code - Diadem Technologies_files/devicepx-jetpack.js"></script>
+<script type="text/javascript" src="./Two ways to add Joomla users using your custom code - Diadem Technologies_files/gprofiles.js"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var WPGroHo = {"my_hash":""};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./Two ways to add Joomla users using your custom code - Diadem Technologies_files/wpgroho.js"></script>
+<script type="text/javascript" src="./Two ways to add Joomla users using your custom code - Diadem Technologies_files/jquery.easing.1.3.js"></script>
+<script type="text/javascript" src="./Two ways to add Joomla users using your custom code - Diadem Technologies_files/hoverIntent.min.js"></script>
+<script type="text/javascript" src="./Two ways to add Joomla users using your custom code - Diadem Technologies_files/superfish.min.js"></script>
+<script type="text/javascript" src="./Two ways to add Joomla users using your custom code - Diadem Technologies_files/jquery.jplayer.min.js"></script>
+<script type="text/javascript" src="./Two ways to add Joomla users using your custom code - Diadem Technologies_files/jquery.preloadify.min.js"></script>
+<script type="text/javascript" src="./Two ways to add Joomla users using your custom code - Diadem Technologies_files/jquery.prettyPhoto.js"></script>
+<script type="text/javascript" src="./Two ways to add Joomla users using your custom code - Diadem Technologies_files/jquery.fitvids.js"></script>
+<script type="text/javascript" src="./Two ways to add Joomla users using your custom code - Diadem Technologies_files/jquery.appear.js"></script>
+<script type="text/javascript" src="./Two ways to add Joomla users using your custom code - Diadem Technologies_files/sys_custom.js"></script>
+<script type="text/javascript" src="./Two ways to add Joomla users using your custom code - Diadem Technologies_files/jquery.flexslider.js"></script>
+<script type="text/javascript" src="./Two ways to add Joomla users using your custom code - Diadem Technologies_files/waypoints.js"></script>
+<script type="text/javascript" src="./Two ways to add Joomla users using your custom code - Diadem Technologies_files/core.min.js"></script>
+<script type="text/javascript" src="./Two ways to add Joomla users using your custom code - Diadem Technologies_files/datepicker.min.js"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var objectL10n = {"monthNames":["January","February","March","April","May","June","July","August","September","October","November","December"],"monthNamesShort":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"dayNames":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"dayNamesShort":["Sun","Mon","Tue","Wed","Thu","Fri","Sat"],"dayNamesMin":["S","M","T","W","T","F","S"],"dateFormat":"dd M yy"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./Two ways to add Joomla users using your custom code - Diadem Technologies_files/quick-contact-form.js"></script>
+<script type="text/javascript" src="./Two ways to add Joomla users using your custom code - Diadem Technologies_files/effect.min.js"></script>
+<script type="text/javascript" src="./Two ways to add Joomla users using your custom code - Diadem Technologies_files/quick-range-slider.js"></script>
+<script type="text/javascript" src="./Two ways to add Joomla users using your custom code - Diadem Technologies_files/wp-embed.min.js"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var sharing_js_options = {"lang":"en","counts":"1"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./Two ways to add Joomla users using your custom code - Diadem Technologies_files/sharing.js"></script>
+	<div style="display:none">
+	<div class="grofile-hash-map-02ff5fd6b770b9811a544fce5dcf3e76">
+	</div>
+	<div class="grofile-hash-map-fa0ff39545ce3889f9685aa3fb9fae3e">
+	</div>
+	<div class="grofile-hash-map-a56c626258a97744cb9df528bb9fda93">
+	</div>
+	<div class="grofile-hash-map-7b6c85f5170251f430c2d7bd6bdc8142">
+	</div>
+	<div class="grofile-hash-map-aff93a270296a7b3f7f123946758e21e">
+	</div>
+	<div class="grofile-hash-map-298d228a9f59e5628550b71e556886bb">
+	</div>
+	<div class="grofile-hash-map-fe8582b9b5350b34f7a8f86782365bb4">
+	</div>
+	<div class="grofile-hash-map-6e0d5e8e80d94dc0269a35f090490f89">
+	</div>
+	<div class="grofile-hash-map-f0635377b6ffcf436f7155b7b717a8a0">
+	</div>
+	<div class="grofile-hash-map-aed50178201106944bb8ec9976afe7a6">
+	</div>
+	<div class="grofile-hash-map-ff805d28e71e9cc6cf1a4fdbab7c6a0e">
+	</div>
+	<div class="grofile-hash-map-d123fa442a6648978d9b49644eb37e1e">
+	</div>
+	<div class="grofile-hash-map-73229a02398a9f3ddbd4975161346988">
+	</div>
+	<div class="grofile-hash-map-fc33305b800868e14874b75fbc7a6700">
+	</div>
+	<div class="grofile-hash-map-cf16db4aa919d9b4f9e91f8a9ec56f8a">
+	</div>
+	<div class="grofile-hash-map-6dbdad904867cda6f67f452860d212a4">
+	</div>
+	<div class="grofile-hash-map-4f368bd3b3657b0a534fdaa87ec7c0d9">
+	</div>
+	<div class="grofile-hash-map-b22e104ded030ef07be27e6494443d1f">
+	</div>
+	<div class="grofile-hash-map-628b0ae773fb9780ddfaa7fc13abee66">
+	</div>
+	<div class="grofile-hash-map-4ab11b203973da77bd3eaa0b8470c4ba">
+	</div>
+	<div class="grofile-hash-map-5eb109c04dcef75ae024696ded24a1f8">
+	</div>
+	<div class="grofile-hash-map-ab6ef3909f8c0f90469926e3069e5fe6">
+	</div>
+	<div class="grofile-hash-map-c83ea2232c368648726c6fd80bcb83a5">
+	</div>
+	<div class="grofile-hash-map-6bd3cd2f234d2ce1f20ec551b44a4208">
+	</div>
+	</div>
+<script type="text/javascript" src="./Two ways to add Joomla users using your custom code - Diadem Technologies_files/form.js"></script>
+
+	<script type="text/javascript">
+		window.WPCOM_sharing_counts = {"https:\/\/diadem.in\/blog\/two-ways-to-add-joomla-users-using-your-custom-code\/":430};
+	</script>
+	
+		<script type="text/javascript">
+			var windowOpen;
+		jQuery(document).on( 'ready post-load', function(){
+			jQuery( 'a.share-facebook' ).on( 'click', function() {
+				if ( 'undefined' !== typeof windowOpen ){ // If there's another sharing window open, close it.
+					windowOpen.close();
+				}
+				windowOpen = window.open( jQuery(this).attr( 'href' ), 'wpcomfacebook', 'menubar=1,resizable=1,width=600,height=400' );
+				return false;
+			});
+		});
+		</script>
+				<script type="text/javascript">
+			var windowOpen;
+		jQuery(document).on( 'ready post-load', function(){
+			jQuery( 'a.share-linkedin' ).on( 'click', function() {
+				if ( 'undefined' !== typeof windowOpen ){ // If there's another sharing window open, close it.
+					windowOpen.close();
+				}
+				windowOpen = window.open( jQuery(this).attr( 'href' ), 'wpcomlinkedin', 'menubar=1,resizable=1,width=580,height=450' );
+				return false;
+			});
+		});
+		</script>
+				<script type="text/javascript">
+			var windowOpen;
+		jQuery(document).on( 'ready post-load', function(){
+			jQuery( 'a.share-twitter' ).on( 'click', function() {
+				if ( 'undefined' !== typeof windowOpen ){ // If there's another sharing window open, close it.
+					windowOpen.close();
+				}
+				windowOpen = window.open( jQuery(this).attr( 'href' ), 'wpcomtwitter', 'menubar=1,resizable=1,width=600,height=350' );
+				return false;
+			});
+		});
+		</script>
+				<script type="text/javascript">
+			var windowOpen;
+		jQuery(document).on( 'ready post-load', function(){
+			jQuery( 'a.share-google-plus-1' ).on( 'click', function() {
+				if ( 'undefined' !== typeof windowOpen ){ // If there's another sharing window open, close it.
+					windowOpen.close();
+				}
+				windowOpen = window.open( jQuery(this).attr( 'href' ), 'wpcomgoogle-plus-1', 'menubar=1,resizable=1,width=480,height=550' );
+				return false;
+			});
+		});
+		</script>
+				<script type="text/javascript">
+			var windowOpen;
+		jQuery(document).on( 'ready post-load', function(){
+			jQuery( 'a.share-pocket' ).on( 'click', function() {
+				if ( 'undefined' !== typeof windowOpen ){ // If there's another sharing window open, close it.
+					windowOpen.close();
+				}
+				windowOpen = window.open( jQuery(this).attr( 'href' ), 'wpcompocket', 'menubar=1,resizable=1,width=450,height=450' );
+				return false;
+			});
+		});
+		</script>
+		
+		<!--[if IE]>
+		<script type="text/javascript">
+		if ( 0 === window.location.hash.indexOf( '#comment-' ) ) {
+			// window.location.reload() doesn't respect the Hash in IE
+			window.location.hash = window.location.hash;
+		}
+		</script>
+		<![endif]-->
+		<script type="text/javascript">
+			var comm_par_el = document.getElementById( 'comment_parent' ),
+			    comm_par = (comm_par_el && comm_par_el.value) ? comm_par_el.value : '',
+			    frame = document.getElementById( 'jetpack_remote_comment' ),
+			    tellFrameNewParent;
+
+			tellFrameNewParent = function() {
+				if ( comm_par ) {
+					frame.src = "https://jetpack.wordpress.com/jetpack-comment/?blogid=86630523&postid=430&comment_registration=0&require_name_email=1&stc_enabled=1&stb_enabled=1&show_avatars=1&avatar_default=mystery&greeting=Leave+a+Reply&greeting_reply=Leave+a+Reply+to+%25s&color_scheme=light&lang=en-US&jetpack_version=4.0.2&sig=e9dc54cb3fda9407c957675eb639578f8d4aa02a#parent=https%3A%2F%2Fdiadem.in%2Fblog%2Ftwo-ways-to-add-joomla-users-using-your-custom-code%2F" + '&replytocom=' + parseInt( comm_par, 10 ).toString();
+				} else {
+					frame.src = "https://jetpack.wordpress.com/jetpack-comment/?blogid=86630523&postid=430&comment_registration=0&require_name_email=1&stc_enabled=1&stb_enabled=1&show_avatars=1&avatar_default=mystery&greeting=Leave+a+Reply&greeting_reply=Leave+a+Reply+to+%25s&color_scheme=light&lang=en-US&jetpack_version=4.0.2&sig=e9dc54cb3fda9407c957675eb639578f8d4aa02a#parent=https%3A%2F%2Fdiadem.in%2Fblog%2Ftwo-ways-to-add-joomla-users-using-your-custom-code%2F";
+				}
+			};
+
+	
+			if ( 'undefined' !== typeof addComment ) {
+				addComment._Jetpack_moveForm = addComment.moveForm;
+
+				addComment.moveForm = function( commId, parentId, respondId, postId ) {
+					var returnValue = addComment._Jetpack_moveForm( commId, parentId, respondId, postId ), cancelClick, cancel;
+
+					if ( false === returnValue ) {
+						cancel = document.getElementById( 'cancel-comment-reply-link' );
+						cancelClick = cancel.onclick;
+						cancel.onclick = function() {
+							var cancelReturn = cancelClick.call( this );
+							if ( false !== cancelReturn ) {
+								return cancelReturn;
+							}
+
+							if ( !comm_par ) {
+								return cancelReturn;
+							}
+
+							comm_par = 0;
+
+							tellFrameNewParent();
+
+							return cancelReturn;
+						};
+					}
+
+					if ( comm_par == parentId ) {
+						return returnValue;
+					}
+
+					comm_par = parentId;
+
+					tellFrameNewParent();
+
+					return returnValue;
+				};
+			}
+
+	
+			if ( window.postMessage ) {
+				if ( document.addEventListener ) {
+					window.addEventListener( 'message', function( event ) {
+						if ( "https:\/\/jetpack.wordpress.com" !== event.origin ) {
+							return;
+						}
+
+						jQuery( frame ).height( event.data );
+					} );
+				} else if ( document.attachEvent ) {
+					window.attachEvent( 'message', function( event ) {
+						if ( "https:\/\/jetpack.wordpress.com" !== event.origin ) {
+							return;
+						}
+
+						jQuery( frame ).height( event.data );
+					} );
+				}
+			}
+		</script>
+
+	<script type="text/javascript" src="./Two ways to add Joomla users using your custom code - Diadem Technologies_files/e-201622.js" async="" defer=""></script>
+<script type="text/javascript">
+	_stq = window._stq || [];
+	_stq.push([ 'view', {v:'ext',j:'1:4.0.2',blog:'86630523',post:'430',tz:'0',srv:'diadem.in'} ]);
+	_stq.push([ 'clickTrackerInit', '86630523', '430' ]);
+</script>
+
+
+<div id="sharing_email" style="display: none;">
+		<form action="https://diadem.in/blog/two-ways-to-add-joomla-users-using-your-custom-code/" method="post">
+			<label for="target_email">Send to Email Address</label>
+			<input type="email" name="target_email" id="target_email" value="">
+
+			
+				<label for="source_name">Your Name</label>
+				<input type="text" name="source_name" id="source_name" value="">
+
+				<label for="source_email">Your Email Address</label>
+				<input type="email" name="source_email" id="source_email" value="">
+
+						<input type="text" id="jetpack-source_f_name" name="source_f_name" class="input" value="" size="25" autocomplete="off">
+			<script> document.getElementById('jetpack-source_f_name').value = ''; </script>
+			
+			<img style="float: right; display: none" class="loading" src="./Two ways to add Joomla users using your custom code - Diadem Technologies_files/loading(1).gif" alt="loading" width="16" height="16">
+			<input type="submit" value="Send Email" class="sharing_send">
+			<a rel="nofollow" href="https://diadem.in/blog/two-ways-to-add-joomla-users-using-your-custom-code/#cancel" class="sharing_cancel">Cancel</a>
+
+			<div class="errors errors-1" style="display: none;">
+				Post was not sent - check your email addresses!			</div>
+
+			<div class="errors errors-2" style="display: none;">
+				Email check failed, please try again			</div>
+
+			<div class="errors errors-3" style="display: none;">
+				Sorry, your blog cannot share posts by email.			</div>
+		</form>
+	</div><img src="./Two ways to add Joomla users using your custom code - Diadem Technologies_files/g.gif" alt=":)" width="6" height="5" id="wpstats"></body></html>

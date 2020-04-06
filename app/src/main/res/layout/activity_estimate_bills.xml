@@ -1,0 +1,1638 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/estimator"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.ugarsoft.chyma.iwin.activities.EstimateBillsActivity">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="0dp"
+        android:padding="0dp">
+
+    </android.support.v7.widget.Toolbar>
+
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/step1View"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="15dp"
+                android:padding="15dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="STEP 1: "
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Fill in your basic information (compulsory)"
+                        android:textSize="16sp"
+                        android:textStyle="normal" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:text="Select your Distribution Company: "
+                    android:textSize="17sp"
+                    android:textStyle="bold" />
+                <Spinner
+                    android:id="@+id/discoSpinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                </Spinner>
+                <android.support.v7.widget.CardView
+                    android:id="@+id/selectMonthCard"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:clickable="true"
+                    android:foreground="?selectableItemBackground"
+                    app:cardBackgroundColor="@color/white"
+                    app:cardCornerRadius="2dp"
+                    app:cardElevation="1dp">
+
+                    <TextView
+                        android:id="@+id/selectMonthText"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text="  Select Month "
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:padding="3dp"
+                        android:drawableLeft="@android:drawable/ic_menu_my_calendar"/>
+                </android.support.v7.widget.CardView>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:gravity="left|center"
+                        android:text="Hours of supply per day "
+                        android:textSize="14sp"
+                        android:layout_weight="7"
+                        android:textStyle="bold"
+                        android:padding="3dp"
+                        android:drawableLeft="@android:drawable/ic_input_add"/>
+
+                    <android.support.v7.widget.CardView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:clickable="true"
+                        android:layout_weight="3"
+                        android:foreground="?selectableItemBackground"
+                        app:cardBackgroundColor="@color/white"
+                        app:cardCornerRadius="2dp"
+                        app:cardElevation="1dp">
+                        <EditText
+                            android:id="@+id/hoursPerDay"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:inputType="number"
+                            android:textSize="16sp"
+                            android:background="@color/white"
+                            android:drawableRight="@android:drawable/ic_menu_edit"/>
+                    </android.support.v7.widget.CardView>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="7"
+                        android:gravity="left|center"
+                        android:text="No of house occupants "
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:padding="3dp"
+                        android:drawableLeft="@android:drawable/ic_input_add"/>
+
+                    <android.support.v7.widget.CardView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:layout_weight="3"
+                        android:clickable="true"
+                        android:foreground="?selectableItemBackground"
+                        app:cardBackgroundColor="@color/white"
+                        app:cardCornerRadius="2dp"
+                        app:cardElevation="1dp">
+                        <EditText
+                            android:id="@+id/noOfOccupants"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+
+                            android:inputType="number"
+                            android:textSize="16sp"
+                            android:background="@color/white"
+                            android:drawableRight="@android:drawable/ic_menu_edit"/>
+                    </android.support.v7.widget.CardView>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:gravity="right">
+                    <android.support.v7.widget.CardView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:padding="2dp"
+                        android:clickable="true"
+                        android:foreground="?selectableItemBackground"
+                        app:cardBackgroundColor="@color/white"
+                        app:cardCornerRadius="5dp"
+                        app:cardElevation="1dp">
+                        <Button
+                            android:id="@+id/step2Button"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:text="Next"
+                            android:padding="5dp"
+                            android:textSize="16sp"
+                            android:background="@color/green"
+                            android:drawableRight="@android:drawable/ic_media_play"/>
+                    </android.support.v7.widget.CardView>
+                </LinearLayout>
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/step2View"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_weight=".1"
+                android:layout_marginTop="15dp"
+                android:padding="5dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="STEP 2: "
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Enter the number of each of the following appliances used in your home (Skip where appliance is not in use in the home"
+                        android:textSize="16sp"
+                        android:textStyle="normal" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:gravity="left|center"
+                        android:text="Incandescent Lights "
+                        android:layout_weight="7"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:padding="3dp"
+                        android:drawableLeft="@drawable/ic_icon_incandescent"/>
+
+                    <android.support.v7.widget.CardView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:clickable="true"
+                        android:layout_weight="3"
+                        android:foreground="?selectableItemBackground"
+                        app:cardBackgroundColor="@color/white"
+                        app:cardCornerRadius="2dp"
+                        app:cardElevation="1dp">
+                        <EditText
+                            android:id="@+id/lightbulb"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:inputType="number"
+                            android:textSize="16sp"
+                            android:background="@color/white"
+                            android:drawableRight="@android:drawable/ic_menu_edit"/>
+                    </android.support.v7.widget.CardView>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:gravity="left|center"
+                        android:text="Energy Saver Lights "
+                        android:layout_weight="7"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:padding="3dp"
+                        android:drawableLeft="@drawable/ic_icon_energ_save"/>
+
+                    <android.support.v7.widget.CardView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:clickable="true"
+                        android:layout_weight="3"
+                        android:foreground="?selectableItemBackground"
+                        app:cardBackgroundColor="@color/white"
+                        app:cardCornerRadius="2dp"
+                        app:cardElevation="1dp">
+                        <EditText
+                            android:id="@+id/energy_saver"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:inputType="number"
+                            android:textSize="16sp"
+                            android:background="@color/white"
+                            android:drawableRight="@android:drawable/ic_menu_edit"/>
+                    </android.support.v7.widget.CardView>
+
+                </LinearLayout>
+
+                <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:gravity="left|center"
+                    android:text="Security Lights "
+                    android:layout_weight="7"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:padding="3dp"
+                    android:drawableLeft="@drawable/ic_icon_security_light"/>
+
+                <android.support.v7.widget.CardView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_weight="3"
+                    android:clickable="true"
+                    android:foreground="?selectableItemBackground"
+                    app:cardBackgroundColor="@color/white"
+                    app:cardCornerRadius="2dp"
+                    app:cardElevation="1dp">
+                    <EditText
+                        android:id="@+id/noOfSecurityLight"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:inputType="number"
+                        android:textSize="16sp"
+                        android:background="@color/white"
+                        android:drawableRight="@android:drawable/ic_menu_edit"/>
+                </android.support.v7.widget.CardView>
+            </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:gravity="left|center"
+                        android:text="Fluorescent Lights "
+                        android:layout_weight="7"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:padding="3dp"
+                        android:drawableLeft="@drawable/ic_icon_fluorescent"/>
+
+                    <android.support.v7.widget.CardView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:layout_weight="3"
+                        android:clickable="true"
+                        android:foreground="?selectableItemBackground"
+                        app:cardBackgroundColor="@color/white"
+                        app:cardCornerRadius="2dp"
+                        app:cardElevation="1dp">
+                        <EditText
+                            android:id="@+id/noOfFluorescent"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:inputType="number"
+                            android:textSize="16sp"
+                            android:background="@color/white"
+                            android:drawableRight="@android:drawable/ic_menu_edit"/>
+                    </android.support.v7.widget.CardView>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:gravity="left|center"
+                        android:text="No of fans  "
+                        android:layout_weight="7"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:padding="3dp"
+                        android:drawableLeft="@drawable/ic_icon_fan"/>
+
+                    <android.support.v7.widget.CardView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:layout_weight="3"
+                        android:clickable="true"
+                        android:foreground="?selectableItemBackground"
+                        app:cardBackgroundColor="@color/white"
+                        app:cardCornerRadius="2dp"
+                        app:cardElevation="1dp">
+                        <EditText
+                            android:id="@+id/noOfFans"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:inputType="number"
+                            android:textSize="16sp"
+                            android:background="@color/white"
+                            android:drawableRight="@android:drawable/ic_menu_edit"/>
+                    </android.support.v7.widget.CardView>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:gravity="left|center"
+                        android:text="Room Cooler (Humidifier)  "
+                        android:layout_weight="7"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:padding="3dp"
+                        android:drawableLeft="@drawable/ic_icon_fan"/>
+
+                    <android.support.v7.widget.CardView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:layout_weight="3"
+                        android:clickable="true"
+                        android:foreground="?selectableItemBackground"
+                        app:cardBackgroundColor="@color/white"
+                        app:cardCornerRadius="2dp"
+                        app:cardElevation="1dp">
+                        <EditText
+                            android:id="@+id/noOfRoomCooler"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:inputType="number"
+                            android:textSize="16sp"
+                            android:background="@color/white"
+                            android:drawableRight="@android:drawable/ic_menu_edit"/>
+                    </android.support.v7.widget.CardView>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:gravity="left|center"
+                        android:text="Refridgerator"
+                        android:layout_weight="7"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:padding="3dp"
+                        android:drawableLeft="@drawable/ic_icon_fridge"/>
+
+                    <android.support.v7.widget.CardView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:layout_weight="3"
+                        android:clickable="true"
+                        android:foreground="?selectableItemBackground"
+                        app:cardBackgroundColor="@color/white"
+                        app:cardCornerRadius="2dp"
+                        app:cardElevation="1dp">
+                        <EditText
+                            android:id="@+id/noOfFridge"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:inputType="number"
+                            android:textSize="16sp"
+                            android:background="@color/white"
+                            android:drawableRight="@android:drawable/ic_menu_edit"/>
+                    </android.support.v7.widget.CardView>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:gravity="left|center"
+                        android:text="No of Freezer "
+                        android:layout_weight="7"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:padding="3dp"
+                        android:drawableLeft="@drawable/ic_icon_freezer"/>
+
+                    <android.support.v7.widget.CardView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:layout_weight="3"
+                        android:clickable="true"
+                        android:foreground="?selectableItemBackground"
+                        app:cardBackgroundColor="@color/white"
+                        app:cardCornerRadius="2dp"
+                        app:cardElevation="1dp">
+                        <EditText
+                            android:id="@+id/noOfFreezer"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:inputType="number"
+                            android:textSize="16sp"
+                            android:background="@color/white"
+                            android:drawableRight="@android:drawable/ic_menu_edit"/>
+                    </android.support.v7.widget.CardView>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:gravity="left|center"
+                        android:text="No of AC 1HP "
+                        android:layout_weight="7"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:padding="3dp"
+                        android:drawableLeft="@drawable/ic_icon_ac"/>
+
+                    <android.support.v7.widget.CardView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:layout_weight="3"
+                        android:clickable="true"
+                        android:foreground="?selectableItemBackground"
+                        app:cardBackgroundColor="@color/white"
+                        app:cardCornerRadius="2dp"
+                        app:cardElevation="1dp">
+                        <EditText
+                            android:id="@+id/noOfAc1hp"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:inputType="number"
+                            android:textSize="16sp"
+                            android:background="@color/white"
+                            android:drawableRight="@android:drawable/ic_menu_edit"/>
+                    </android.support.v7.widget.CardView>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:gravity="left|center"
+                        android:text="No of AC 1.5 HP "
+                        android:layout_weight="7"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:padding="3dp"
+                        android:drawableLeft="@drawable/ic_icon_ac"/>
+
+                    <android.support.v7.widget.CardView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:layout_weight="3"
+                        android:clickable="true"
+                        android:foreground="?selectableItemBackground"
+                        app:cardBackgroundColor="@color/white"
+                        app:cardCornerRadius="2dp"
+                        app:cardElevation="1dp">
+                        <EditText
+                            android:id="@+id/noOfAc15Hp"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:inputType="number"
+                            android:textSize="16sp"
+                            android:background="@color/white"
+                            android:drawableRight="@android:drawable/ic_menu_edit"/>
+                    </android.support.v7.widget.CardView>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:gravity="left|center"
+                        android:text="No of AC 2 HP "
+                        android:layout_weight="7"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:padding="3dp"
+                        android:drawableLeft="@drawable/ic_icon_ac"/>
+
+                    <android.support.v7.widget.CardView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:clickable="true"
+                        android:layout_weight="3"
+                        android:foreground="?selectableItemBackground"
+                        app:cardBackgroundColor="@color/white"
+                        app:cardCornerRadius="2dp"
+                        app:cardElevation="1dp">
+                        <EditText
+                            android:id="@+id/noOfAc2hp"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:inputType="number"
+                            android:textSize="16sp"
+                            android:background="@color/white"
+                            android:drawableRight="@android:drawable/ic_menu_edit"/>
+                    </android.support.v7.widget.CardView>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp">
+                    <android.support.v7.widget.CardView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:padding="2dp"
+                        android:clickable="true"
+                        android:foreground="?selectableItemBackground"
+                        app:cardBackgroundColor="@color/white"
+                        app:cardCornerRadius="5dp"
+                        app:cardElevation="1dp">
+                        <Button
+                            android:id="@+id/step21Button"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:text="Back  "
+                            android:padding="5dp"
+                            android:textSize="16sp"
+                            android:textColor="@color/white"
+                            android:background="@color/red"
+                            android:drawableLeft="@drawable/ic_arrow_prev"/>
+                    </android.support.v7.widget.CardView>
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"/>
+                    <android.support.v7.widget.CardView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:padding="2dp"
+                        android:clickable="true"
+                        android:foreground="?selectableItemBackground"
+                        app:cardBackgroundColor="@color/white"
+                        app:cardCornerRadius="5dp"
+                        app:cardElevation="1dp">
+                        <Button
+                            android:id="@+id/step23Button"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:text="Next"
+                            android:padding="5dp"
+                            android:textSize="16sp"
+                            android:textColor="@color/white"
+                            android:background="@color/green"
+                            android:drawableRight="@drawable/ic_arrow_next"/>
+                    </android.support.v7.widget.CardView>
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/step3View"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="15dp"
+                android:padding="5dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Almost there... "
+                        android:textSize="18sp"
+                        android:textStyle="normal" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:gravity="left|center"
+                        android:text="Electric Iron "
+                        android:layout_weight="7"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:padding="3dp"
+                        android:drawableLeft="@drawable/ic_icon_iron"/>
+
+                    <android.support.v7.widget.CardView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:layout_weight="3"
+                        android:clickable="true"
+                        android:foreground="?selectableItemBackground"
+                        app:cardBackgroundColor="@color/white"
+                        app:cardCornerRadius="2dp"
+                        app:cardElevation="1dp">
+                        <EditText
+                            android:id="@+id/noOfElectricIron"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:inputType="number"
+                            android:textSize="16sp"
+                            android:background="@color/white"
+                            android:drawableRight="@android:drawable/ic_menu_edit"/>
+                    </android.support.v7.widget.CardView>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:gravity="left|center"
+                        android:text="Toaster "
+                        android:layout_weight="7"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:padding="3dp"
+                        android:drawableLeft="@drawable/ic_icon_toaster"/>
+
+                    <android.support.v7.widget.CardView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:layout_weight="3"
+                        android:clickable="true"
+                        android:foreground="?selectableItemBackground"
+                        app:cardBackgroundColor="@color/white"
+                        app:cardCornerRadius="2dp"
+                        app:cardElevation="1dp">
+                        <EditText
+                            android:id="@+id/noOfToaster"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:inputType="number"
+                            android:textSize="16sp"
+                            android:background="@color/white"
+                            android:drawableRight="@android:drawable/ic_menu_edit"/>
+                    </android.support.v7.widget.CardView>
+
+                </LinearLayout><LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:gravity="left|center"
+                    android:text="Microwave Oven "
+                    android:layout_weight="7"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:padding="3dp"
+                    android:drawableLeft="@drawable/ic_icon_microwave"/>
+
+                <android.support.v7.widget.CardView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_weight="3"
+                    android:clickable="true"
+                    android:foreground="?selectableItemBackground"
+                    app:cardBackgroundColor="@color/white"
+                    app:cardCornerRadius="2dp"
+                    app:cardElevation="1dp">
+                    <EditText
+                        android:id="@+id/noOfMicrowave"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:inputType="number"
+                        android:textSize="16sp"
+                        android:background="@color/white"
+                        android:drawableRight="@android:drawable/ic_menu_edit"/>
+                </android.support.v7.widget.CardView>
+            </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:gravity="left|center"
+                        android:text="Water Heater "
+                        android:layout_weight="7"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:padding="3dp"
+                        android:drawableLeft="@drawable/ic_icon_heater"/>
+
+                    <android.support.v7.widget.CardView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:clickable="true"
+                        android:layout_weight="3"
+                        android:foreground="?selectableItemBackground"
+                        app:cardBackgroundColor="@color/white"
+                        app:cardCornerRadius="2dp"
+                        app:cardElevation="1dp">
+                        <EditText
+                            android:id="@+id/noOfWaterHeater"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:inputType="number"
+                            android:textSize="16sp"
+                            android:background="@color/white"
+                            android:drawableRight="@android:drawable/ic_menu_edit"/>
+                    </android.support.v7.widget.CardView>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:gravity="left|center"
+                        android:text="Electric Stove "
+                        android:layout_weight="7"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:padding="3dp"
+                        android:drawableLeft="@drawable/ic_action_name"/>
+
+                    <android.support.v7.widget.CardView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:clickable="true"
+                        android:layout_weight="3"
+                        android:foreground="?selectableItemBackground"
+                        app:cardBackgroundColor="@color/white"
+                        app:cardCornerRadius="2dp"
+                        app:cardElevation="1dp">
+                        <EditText
+                            android:id="@+id/noOfElectricStove"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:inputType="number"
+                            android:textSize="16sp"
+                            android:background="@color/white"
+                            android:drawableRight="@android:drawable/ic_menu_edit"/>
+                    </android.support.v7.widget.CardView>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:gravity="left|center"
+                        android:text="Washing Machine  "
+                        android:layout_weight="7"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:padding="3dp"
+                        android:drawableLeft="@drawable/ic_icon_wash"/>
+
+                    <android.support.v7.widget.CardView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:clickable="true"
+                        android:layout_weight="3"
+                        android:foreground="?selectableItemBackground"
+                        app:cardBackgroundColor="@color/white"
+                        app:cardCornerRadius="2dp"
+                        app:cardElevation="1dp">
+                        <EditText
+                            android:id="@+id/noOfWashingMashine"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:inputType="number"
+                            android:textSize="16sp"
+                            android:background="@color/white"
+                            android:drawableRight="@android:drawable/ic_menu_edit"/>
+                    </android.support.v7.widget.CardView>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:gravity="left|center"
+                        android:text="Pump Motor"
+                        android:layout_weight="7"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:padding="3dp"
+                        android:drawableLeft="@drawable/ic_icon_pump"/>
+
+                    <android.support.v7.widget.CardView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:clickable="true"
+                        android:layout_weight="3"
+                        android:foreground="?selectableItemBackground"
+                        app:cardBackgroundColor="@color/white"
+                        app:cardCornerRadius="2dp"
+                        app:cardElevation="1dp">
+                        <EditText
+                            android:id="@+id/noOfPump"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:inputType="number"
+                            android:textSize="16sp"
+                            android:background="@color/white"
+                            android:drawableRight="@android:drawable/ic_menu_edit"/>
+                    </android.support.v7.widget.CardView>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:gravity="left|center"
+                        android:text="Blender "
+                        android:layout_weight="7"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:padding="3dp"
+                        android:drawableLeft="@drawable/ic_icon_blender"/>
+
+                    <android.support.v7.widget.CardView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:clickable="true"
+                        android:layout_weight="3"
+                        android:foreground="?selectableItemBackground"
+                        app:cardBackgroundColor="@color/white"
+                        app:cardCornerRadius="2dp"
+                        app:cardElevation="1dp">
+                        <EditText
+                            android:id="@+id/noOfBlender"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:inputType="number"
+                            android:textSize="16sp"
+                            android:background="@color/white"
+                            android:drawableRight="@android:drawable/ic_menu_edit"/>
+                    </android.support.v7.widget.CardView>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:gravity="left|center"
+                        android:text="Home Theatre "
+                        android:layout_weight="7"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:padding="3dp"
+                        android:drawableLeft="@drawable/ic_icon_music"/>
+
+                    <android.support.v7.widget.CardView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:clickable="true"
+                        android:layout_weight="3"
+                        android:foreground="?selectableItemBackground"
+                        app:cardBackgroundColor="@color/white"
+                        app:cardCornerRadius="2dp"
+                        app:cardElevation="1dp">
+                        <EditText
+                            android:id="@+id/noOfHomeTheatre"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:inputType="number"
+                            android:textSize="16sp"
+                            android:background="@color/white"
+                            android:drawableRight="@android:drawable/ic_menu_edit"/>
+                    </android.support.v7.widget.CardView>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:gravity="left|center"
+                        android:text="Plasma TV "
+                        android:layout_weight="7"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:padding="3dp"
+                        android:drawableLeft="@drawable/ic_icon_plasma"/>
+
+                    <android.support.v7.widget.CardView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:layout_weight="3"
+                        android:clickable="true"
+                        android:foreground="?selectableItemBackground"
+                        app:cardBackgroundColor="@color/white"
+                        app:cardCornerRadius="2dp"
+                        app:cardElevation="1dp">
+                        <EditText
+                            android:id="@+id/noOfPlasmaTV"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:inputType="number"
+                            android:textSize="16sp"
+                            android:background="@color/white"
+                            android:drawableRight="@android:drawable/ic_menu_edit"/>
+                    </android.support.v7.widget.CardView>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:gravity="left|center"
+                        android:text="LCD TV "
+                        android:layout_weight="7"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:padding="3dp"
+                        android:drawableLeft="@drawable/ic_icon_lcd"/>
+
+                    <android.support.v7.widget.CardView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:clickable="true"
+                        android:layout_weight="3"
+                        android:foreground="?selectableItemBackground"
+                        app:cardBackgroundColor="@color/white"
+                        app:cardCornerRadius="2dp"
+                        app:cardElevation="1dp">
+                        <EditText
+                            android:id="@+id/noOfLCDTV"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:inputType="number"
+                            android:textSize="16sp"
+                            android:background="@color/white"
+                            android:drawableRight="@android:drawable/ic_menu_edit"/>
+                    </android.support.v7.widget.CardView>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp">
+                    <android.support.v7.widget.CardView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:padding="2dp"
+                        android:clickable="true"
+                        android:foreground="?selectableItemBackground"
+                        app:cardBackgroundColor="@color/white"
+                        app:cardCornerRadius="5dp"
+                        app:cardElevation="1dp">
+                        <Button
+                            android:id="@+id/step32Button"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:text="Back  "
+                            android:padding="5dp"
+                            android:textSize="16sp"
+                            android:textColor="@color/white"
+                            android:background="@color/red"
+                            android:drawableLeft="@drawable/ic_arrow_prev"/>
+                    </android.support.v7.widget.CardView>
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"/>
+                    <android.support.v7.widget.CardView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:padding="2dp"
+                        android:clickable="true"
+                        android:foreground="?selectableItemBackground"
+                        app:cardBackgroundColor="@color/white"
+                        app:cardCornerRadius="5dp"
+                        app:cardElevation="1dp">
+                        <Button
+                            android:id="@+id/step34Button"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:text="Next"
+                            android:padding="5dp"
+                            android:textSize="16sp"
+                            android:textColor="@color/white"
+                            android:background="@color/green"
+                            android:drawableRight="@drawable/ic_arrow_next"/>
+                    </android.support.v7.widget.CardView>
+                </LinearLayout>
+            </LinearLayout>
+
+
+
+            <LinearLayout
+                android:id="@+id/step4View"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="15dp"
+                android:padding="15dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Finally!! "
+                        android:textSize="18sp"
+                        android:textStyle="normal" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:gravity="left|center"
+                        android:text="LED TV "
+                        android:layout_weight="7"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:padding="3dp"
+                        android:drawableLeft="@drawable/ic_icon_led"/>
+
+                    <android.support.v7.widget.CardView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:clickable="true"
+                        android:layout_weight="3"
+                        android:foreground="?selectableItemBackground"
+                        app:cardBackgroundColor="@color/white"
+                        app:cardCornerRadius="2dp"
+                        app:cardElevation="1dp">
+                        <EditText
+                            android:id="@+id/noOfLEDTV"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:inputType="number"
+                            android:textSize="16sp"
+                            android:background="@color/white"
+                            android:drawableRight="@android:drawable/ic_menu_edit"/>
+                    </android.support.v7.widget.CardView>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:gravity="left|center"
+                        android:text="Printer "
+                        android:layout_weight="7"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:padding="3dp"
+                        android:drawableLeft="@drawable/ic_icon_printer"/>
+
+                    <android.support.v7.widget.CardView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:clickable="true"
+                        android:layout_weight="3"
+                        android:foreground="?selectableItemBackground"
+                        app:cardBackgroundColor="@color/white"
+                        app:cardCornerRadius="2dp"
+                        app:cardElevation="1dp">
+                        <EditText
+                            android:id="@+id/noOfPrinter"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:inputType="number"
+                            android:textSize="16sp"
+                            android:background="@color/white"
+                            android:drawableRight="@android:drawable/ic_menu_edit"/>
+                    </android.support.v7.widget.CardView>
+
+                </LinearLayout><LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:gravity="left|center"
+                    android:text="Hair Dryer "
+                    android:layout_weight="7"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:padding="3dp"
+                    android:drawableLeft="@drawable/ic_icon_dryer"/>
+
+                <android.support.v7.widget.CardView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:clickable="true"
+                    android:layout_weight="3"
+                    android:foreground="?selectableItemBackground"
+                    app:cardBackgroundColor="@color/white"
+                    app:cardCornerRadius="2dp"
+                    app:cardElevation="1dp">
+                    <EditText
+                        android:id="@+id/noOfDryer"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:inputType="number"
+                        android:textSize="16sp"
+                        android:background="@color/white"
+                        android:drawableRight="@android:drawable/ic_menu_edit"/>
+                </android.support.v7.widget.CardView>
+            </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:gravity="left|center"
+                        android:text="Vacuum Cleaner "
+                        android:textSize="14sp"
+                        android:layout_weight="7"
+                        android:textStyle="bold"
+                        android:padding="3dp"
+                        android:drawableLeft="@drawable/ic_icon_vacuum"/>
+
+                    <android.support.v7.widget.CardView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:clickable="true"
+                        android:layout_weight="3"
+                        android:foreground="?selectableItemBackground"
+                        app:cardBackgroundColor="@color/white"
+                        app:cardCornerRadius="2dp"
+                        app:cardElevation="1dp">
+                        <EditText
+                            android:id="@+id/noOfVacuumCleaner"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:inputType="number"
+                            android:textSize="16sp"
+                            android:background="@color/white"
+                            android:drawableRight="@android:drawable/ic_menu_edit"/>
+                    </android.support.v7.widget.CardView>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:gravity="left|center"
+                        android:text="Game Console "
+                        android:layout_weight="7"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:padding="3dp"
+                        android:drawableLeft="@drawable/ic_icon_game"/>
+
+                    <android.support.v7.widget.CardView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:clickable="true"
+                        android:layout_weight="3"
+                        android:foreground="?selectableItemBackground"
+                        app:cardBackgroundColor="@color/white"
+                        app:cardCornerRadius="2dp"
+                        app:cardElevation="1dp">
+                        <EditText
+                            android:id="@+id/noOfGameConsole"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:inputType="number"
+                            android:textSize="16sp"
+                            android:background="@color/white"
+                            android:drawableRight="@android:drawable/ic_menu_edit"/>
+                    </android.support.v7.widget.CardView>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:gravity="left|center"
+                        android:text="Phone Charger  "
+                        android:layout_weight="7"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:padding="3dp"
+                        android:drawableLeft="@drawable/ic_icon_charger"/>
+
+                    <android.support.v7.widget.CardView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:clickable="true"
+                        android:layout_weight="3"
+                        android:foreground="?selectableItemBackground"
+                        app:cardBackgroundColor="@color/white"
+                        app:cardCornerRadius="2dp"
+                        app:cardElevation="1dp">
+                        <EditText
+                            android:id="@+id/noOfPhoneCharger"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:inputType="number"
+                            android:textSize="16sp"
+                            android:background="@color/white"
+                            android:drawableRight="@android:drawable/ic_menu_edit"/>
+                    </android.support.v7.widget.CardView>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:gravity="left|center"
+                        android:text="Coffee Maker"
+                        android:layout_weight="7"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:padding="3dp"
+                        android:drawableLeft="@drawable/ic_icon_coffee"/>
+
+                    <android.support.v7.widget.CardView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:clickable="true"
+                        android:layout_weight="3"
+                        android:foreground="?selectableItemBackground"
+                        app:cardBackgroundColor="@color/white"
+                        app:cardCornerRadius="2dp"
+                        app:cardElevation="1dp">
+                        <EditText
+                            android:id="@+id/noOfCoffeeMaker"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:inputType="number"
+                            android:textSize="16sp"
+                            android:background="@color/white"
+                            android:drawableRight="@android:drawable/ic_menu_edit"/>
+                    </android.support.v7.widget.CardView>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:gravity="left|center"
+                        android:text="Water Dispenser "
+                        android:layout_weight="7"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:padding="3dp"
+                        android:drawableLeft="@drawable/ic_icon_dispense"/>
+
+                    <android.support.v7.widget.CardView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:clickable="true"
+                        android:layout_weight="3"
+                        android:foreground="?selectableItemBackground"
+                        app:cardBackgroundColor="@color/white"
+                        app:cardCornerRadius="2dp"
+                        app:cardElevation="1dp">
+                        <EditText
+                            android:id="@+id/noOfWaterDispenser"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:inputType="number"
+                            android:textSize="16sp"
+                            android:background="@color/white"
+                            android:drawableRight="@android:drawable/ic_menu_edit"/>
+                    </android.support.v7.widget.CardView>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:gravity="left|center"
+                        android:text="Fish Aquarium "
+                        android:layout_weight="7"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:padding="3dp"
+                        android:drawableLeft="@drawable/ic_icon_aqua"/>
+
+                    <android.support.v7.widget.CardView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:clickable="true"
+                        android:layout_weight="3"
+                        android:foreground="?selectableItemBackground"
+                        app:cardBackgroundColor="@color/white"
+                        app:cardCornerRadius="2dp"
+                        app:cardElevation="1dp">
+                        <EditText
+                            android:id="@+id/noOfFishSomething"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:inputType="number"
+                            android:textSize="16sp"
+                            android:background="@color/white"
+                            android:drawableRight="@android:drawable/ic_menu_edit"/>
+                    </android.support.v7.widget.CardView>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:gravity="left|center"
+                        android:text="Electric Kettle "
+                        android:layout_weight="7"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:padding="3dp"
+                        android:drawableLeft="@drawable/ic_icon_kettle"/>
+
+                    <android.support.v7.widget.CardView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:clickable="true"
+                        android:layout_weight="3"
+                        android:foreground="?selectableItemBackground"
+                        app:cardBackgroundColor="@color/white"
+                        app:cardCornerRadius="2dp"
+                        app:cardElevation="1dp">
+                        <EditText
+                            android:id="@+id/noOfElectricKettle"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:inputType="number"
+                            android:textSize="16sp"
+                            android:background="@color/white"
+                            android:drawableRight="@android:drawable/ic_menu_edit"/>
+                    </android.support.v7.widget.CardView>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:gravity="left|center"
+                        android:text="Deep Frier "
+                        android:layout_weight="7"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:padding="3dp"
+                        android:drawableLeft="@drawable/ic_icon_deepfry"/>
+
+                    <android.support.v7.widget.CardView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:clickable="true"
+                        android:layout_weight="3"
+                        android:foreground="?selectableItemBackground"
+                        app:cardBackgroundColor="@color/white"
+                        app:cardCornerRadius="2dp"
+                        app:cardElevation="1dp">
+                        <EditText
+                            android:id="@+id/noOfDeepFrier"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:inputType="number"
+                            android:textSize="16sp"
+                            android:background="@color/white"
+                            android:drawableRight="@android:drawable/ic_menu_edit"/>
+                    </android.support.v7.widget.CardView>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp">
+                    <android.support.v7.widget.CardView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:padding="2dp"
+                        android:clickable="true"
+                        android:foreground="?selectableItemBackground"
+                        app:cardBackgroundColor="@color/white"
+                        app:cardCornerRadius="5dp"
+                        app:cardElevation="1dp">
+                        <Button
+                            android:id="@+id/step43Button"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:text="Back  "
+                            android:padding="5dp"
+                            android:textSize="16sp"
+                            android:textColor="@color/white"
+                            android:background="@color/red"
+                            android:drawableLeft="@drawable/ic_arrow_prev"/>
+                    </android.support.v7.widget.CardView>
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"/>
+                    <android.support.v7.widget.CardView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:padding="2dp"
+                        android:clickable="true"
+                        android:foreground="?selectableItemBackground"
+                        app:cardBackgroundColor="@color/white"
+                        app:cardCornerRadius="5dp"
+                        app:cardElevation="1dp">
+                        <Button
+                            android:id="@+id/submitButton"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:text="Submit"
+                            android:padding="5dp"
+                            android:textSize="16sp"
+                            android:textColor="@color/white"
+                            android:background="@color/green"
+                            android:drawableRight="@drawable/ic_arrow_next"/>
+                    </android.support.v7.widget.CardView>
+                </LinearLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+</LinearLayout>
